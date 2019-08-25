@@ -1,0 +1,10 @@
+@media(min-width:1000px) {
+    .nizucalendar{
+        display: block;
+        width:600px;
+        
+    }
+}
+@media(max-width:480px) {
+
+}
