@@ -151,8 +151,12 @@ function nizucal(nizuapikey,nizuapiid,nizutheme,choosedestination,nizucal_title,
     
     nizu_GetData({a:"getparameters",publickey:nizupublickey,id:nizuapiid},"Loading...",function(data){
         if (data.ans>0) {
-            $("#nizucountryCode option[data-countryCode='" + data.location.country_code.val +"']").attr("selected","selected");
+            $("#nizucountryCode option[data-countryCode='" + data.location.country_code + "']").attr("selected","selected");
             $("#nizucity").val(data.location.city);
+            $("#nizucp").val(data.location.cp);
+            $("#nizutelephone").prop("disabled", false);
+            $("#countrycodelabel").text("+"+$("#nizucountryCode").val());
+            if (nizucal_choosedestination===true) {$("#nizucal_choosedestination").css("display","flex");}
         }
         callback();
     });
