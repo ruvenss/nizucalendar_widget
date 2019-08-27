@@ -1,8 +1,8 @@
 var nizucal_ver="0.14";
 const nizumonths_en = f=>Array.from(Array(12),(e,i)=>new Date(25e8*++i).toLocaleString('en-US',{month:f}));
-var nizu_serverurl="https://api.nizu.be/calendar/";
-var nizuapikey="";
-var nizuapiid="";
+var nizu_serverurl="https://devapi.nizu.be/calendar/widget/";
+var nizupublickey="test";
+var nizuapiid=1;
 var nizutheme="red";
 var nizucal_guests=0;
 var nizucal_selectedyear=0;
@@ -104,10 +104,10 @@ function nizucal_initrender(){
     $("#nizutelephone").on("change",function(){
 		while($("#nizutelephone").val().charAt(0) === '0'){ $("#nizutelephone").val( $("#nizutelephone").val().substr(1)); }
 	});
-	$("#nizycountryCode").on("change", function(){
-		if ($("#nizycountryCode").val().length>0) {
+	$("#nizucountryCode").on("change", function(){
+		if ($("#nizucountryCode").val().length>0) {
 			$("#nizutelephone").prop("disabled", false);
-			$("#countrycodelabel").text("+"+$("#nizycountryCode").val());
+			$("#countrycodelabel").text("+"+$("#nizucountryCode").val());
 		} else {
 			$("#nizutelephone").prop("disabled", true);
 			$("#nizutelephone").val("");
@@ -118,6 +118,19 @@ function nizucal_initrender(){
         if (nizucal_guests<=3) {
             nizucal_guests=nizucal_guests+1;
             $("#nizucalguests").append('<div class="col-sm-6 col-md-6"> <input class="nizuinput" type="input" placeholder="Guest name" style="text-transform: capitalize;"></div><div class="col-sm-6 col-md-6"><input class="nizuinput" type="email" placeholder="Guest email"></div>');
+        }
+    });
+    $("#nizucalconfirm").on("click", function(){
+        if ($("#nizucalc_fullname").val().length>2){
+            if (nizu_ValidateEmail($("#nizucalc_email").val())){
+            
+            } else {
+                $("#nizucalc_email").focus();
+                alert("Your email address is invalid");
+            }
+        } else {
+            $("#nizucalc_fullname").focus();
+            alert("Your full name is mandatory");
         }
     });
 }
@@ -135,11 +148,15 @@ function nizuselectTime(OnthisDate) {
 function nizucal(nizuapikey,nizuapiid,nizutheme,choosedestination,nizucal_title,callback){
     $("#nizucal_title").text(nizucal_title);
     nizucal_choosedestination=choosedestination;
-    /*
-    nizu_GetData({a:"getparameters"},"Loading...",function(data){
+    
+    nizu_GetData({a:"getparameters",publickey:nizupublickey,id:nizuapiid},"Loading...",function(data){
+        if (data.ans>0) {
+            $("#nizucountryCode option[data-countryCode='" + data.location.country_code.val +"']").attr("selected","selected");
+            $("#nizucity").val(data.location.city);
+        }
         callback();
     });
-    */
+    
 }
 document.addEventListener("DOMContentLoaded", function(event) { 
     nizucal_init();
