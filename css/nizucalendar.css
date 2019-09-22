@@ -73,6 +73,10 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 @media(min-width:1000px) {
+    .nizucaltextarea{
+      width: 100%; 
+      outline: none;
+    }
     .nizuoverlaptext {
         display: block;
         height: 34px;
@@ -1351,6 +1355,7 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 }
 
 .fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  color:white;
   float: right;
 }
 
