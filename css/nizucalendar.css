@@ -1,6 +1,46 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap');
+.nizupincontainer {
+  display: none; 
+  text-align:center;
+}
+.nizupinBox {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+.nizupinBox:before{
+  content: '';
+  margin-left: 90px;
+  pointer-events: none;
+  display: block;
+  height: 53px;
+  position: absolute;
+  width: 140px;
+  background-image: url("https://rgwit.ams3.digitaloceanspaces.com/images/box.svg");
+}
+.nizupinEntry {
+    margin-left: 90px;
+    padding: 1px 9px;
+    font-family: courier, monospaced;
+    font-size: xx-large;
+    border: none;
+    outline: none;
+    width: 6em;
+    letter-spacing: 15px;
+    background-color: transparent;
+}
+.nizupinEntry:focus {
+  box-shadow: none;
+  outline: 0;
+}
 #nizucal_choosedestination{
     display: none;
+}
+#nizucalexit{
+  display: none;
+}
+.nizupincomfirmed{
+  display: none;
 }
 .nizulink{
     text-decoration: none;
@@ -40,21 +80,13 @@
 .nizuflip-card::after{
     display: none;
 }
-.nizucalendar{
-    font-family: 'Quicksand', sans-serif;
-    display: none;
-    width:100%;
-    height: 490px;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(166,166,166,1);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(166,166,166,1);
-    box-shadow: 0px 0px 20px 0px rgba(166,166,166,1);
-}
+
 .nizucalstep{
     display: none;
     text-align: center;
 }
 .nizuinput{
+    outline: none;
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
@@ -72,7 +104,25 @@
     border-right: none;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.btn-circle{
+  border-radius: 100%;
+}
+.modal{
+    position: relative;
+    top: -100%;
+    margin-bottom: -85%;
+}
 @media(min-width:1000px) {
+    .nizucalframe{
+        font-family: 'Quicksand', sans-serif;
+        display: none;
+        width:100%;
+        height: 490px;
+        border-radius: 10px;
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(166,166,166,1);
+        -moz-box-shadow: 0px 0px 20px 0px rgba(166,166,166,1);
+        box-shadow: 0px 0px 20px 0px rgba(166,166,166,1);
+    }
     .nizucaltextarea{
       width: 100%; 
       outline: none;
@@ -140,7 +190,7 @@
     .nizubtn{
         margin-bottom:30px;
     }
-    .nizucalendar{
+    .nizucalframe{
         font-family: 'Quicksand', sans-serif;
         display: none;
         width:650px;
@@ -197,8 +247,134 @@
         width: 100%;
     }
 }
-@media(max-width:480px) {
+@media(max-width:620px) {
+  .nizucaltextarea{
+      width: 100%; 
+      outline: none;
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    padding:2px;
+    letter-spacing: 2px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: larger;
+  }
+  .nizuoverlaptext {
+    display: block;
+    height: 34px;
+    width: 75px;
+    background: brown;
+    border-style: solid;
+    border-width: 0px;
+    text-align: right;
+    position: absolute;
+    font-size: medium;
+    padding-top: 3px;
+    color: white;
+    margin-top: 4px;
+  }
+  .nizucal_mobile_title{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: left;
+  }
+  .nizu_label{
+    font-size: larger;
+    padding: 10px;
+  }
+  /* Steps */
+  .nizu_mobile_vertical_tabs{
+    left: 0px;
+    top: 0px;
+    height: 625px;
+    width: 50px;
+    display: block;
+    position: relative;
+  }
+  .nizu_mobile_vertical_tab{
+    height: 33.3%;
+    display: block;
+    width: 20px;
+    color:red;
+    background-color: #e8e7e7;
+  }
+  .nizu_mobile_vertical_tab:hover{
+    color:red;
+    background-color: lightgray;
+  }
+  .nizu_mobile_vertical_tab_firstchild{
+    border-top-left-radius: 10px;
+  }
+  .nizu_mobile_vertical_tab_lastchild{
+    border-bottom-left-radius: 10px;
+  }
+  .nizu_mobile_vertical_tabactive{
+    background-color:red;
+    color:white;
+  }
+  .nizu_mobile_vertical_tabactive:hover{
+    background-color:#c70303;
+    color:white;
+  }
+  .nizu_mobile_vertical_tabcontent{
+    text-align: center;
+    top: 42%;
+    position: relative;
 
+  }
+  .nizu_mobile_content_body{
+    width: 100%;
+    height: 625px;
+    display: block;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    top: -625px;
+    left: 0px;
+    position: relative;
+    font-family: 'Quicksand', sans-serif;
+  }
+  /*end steps*/
+  .nizucalframe{
+    width: 100%;
+    height: 690px;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .nizu_mobile_body{
+    display: block;
+    top: -10px;
+    position: relative;
+    height: 625px;
+    width: 98%;
+    margin: auto;
+
+    border-radius:10px;
+    border-style: none;
+    background-color: white;
+    -webkit-box-shadow: 0px 14px 19px 0px rgba(191,191,191,1);
+    -moz-box-shadow: 0px 14px 19px 0px rgba(191,191,191,1);
+    box-shadow: 0px 14px 19px 0px rgba(191,191,191,1);
+  }
+  .nizu_mobile_top_header{
+    display: block;
+    width: 98%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-style: none;
+    color:white;
+    text-align: center;
+    height: 85px;
+    font-size: large;
+    padding-top: 10px;
+    margin: auto;
+    letter-spacing: 1px;
+    font-family: 'Quicksand', sans-serif;
+    background: red;
+  }
 }
 /* Progress Bar */
 .nizutimeline {

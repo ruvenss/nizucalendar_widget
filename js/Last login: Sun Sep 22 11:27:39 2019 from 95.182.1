@@ -1,0 +1,453 @@
+Last login: Sun Sep 22 11:27:39 2019 from 95.182.142.69
+ruvenss@brandpartners:~$ cd /vagrant/
+ruvenss@brandpartners:/vagrant$ ls
+Vagrantfile  backend  docker-compose.yaml  docker_package  frontend  index.html  info_home_maintenance.pdf  node_modules  provision.sh
+ruvenss@brandpartners:/vagrant$ cd frontend/
+ruvenss@brandpartners:/vagrant/frontend$ bower install
+bower chosen#*              not-cached https://github.com/harvesthq/chosen/releases/download/1.4.2/chosen_v1.4.2.zip#*
+bower chosen#*                 resolve https://github.com/harvesthq/chosen/releases/download/1.4.2/chosen_v1.4.2.zip#*
+bower jquery.sparkline#*    not-cached http://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.js#*
+bower jquery.sparkline#*       resolve http://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.js#*
+bower leaflet-heat#*        not-cached https://github.com/Leaflet/Leaflet.heat/archive/gh-pages.zip#*
+bower leaflet-heat#*           resolve https://github.com/Leaflet/Leaflet.heat/archive/gh-pages.zip#*
+bower chosen#*                download https://github.com/harvesthq/chosen/releases/download/1.4.2/chosen_v1.4.2.zip
+bower angular#1.4.6         not-cached https://github.com/angular/bower-angular.git#1.4.6
+bower angular#1.4.6            resolve https://github.com/angular/bower-angular.git#1.4.6
+bower angular-animate#1.4.6 not-cached https://github.com/angular/bower-angular-animate.git#1.4.6
+bower angular-animate#1.4.6    resolve https://github.com/angular/bower-angular-animate.git#1.4.6
+bower angular-bootstrap#1.1.2       not-cached https://github.com/angular-ui/bootstrap-bower.git#1.1.2
+bower angular-bootstrap#1.1.2          resolve https://github.com/angular-ui/bootstrap-bower.git#1.1.2
+bower angular-bootstrap-colorpicker#3.0.24       not-cached https://github.com/buberdds/angular-bootstrap-colorpicker.git#3.0.24
+bower angular-bootstrap-colorpicker#3.0.24          resolve https://github.com/buberdds/angular-bootstrap-colorpicker.git#3.0.24
+bower angular-bootstrap-nav-tree#*               not-cached https://github.com/nickperkinslondon/angular-bootstrap-nav-tree.git#*
+bower angular-bootstrap-nav-tree#*                  resolve https://github.com/nickperkinslondon/angular-bootstrap-nav-tree.git#*
+bower angular-chosen-localytics#1.4.0            not-cached https://github.com/leocaseiro/angular-chosen.git#1.4.0
+bower angular-chosen-localytics#1.4.0               resolve https://github.com/leocaseiro/angular-chosen.git#1.4.0
+bower angular-cookies#1.4.6                      not-cached https://github.com/angular/bower-angular-cookies.git#1.4.6
+bower angular-cookies#1.4.6                         resolve https://github.com/angular/bower-angular-cookies.git#1.4.6
+bower angular-datatables#0.5.3                   not-cached https://github.com/l-lin/angular-datatables.git#0.5.3
+bower angular-datatables#0.5.3                      resolve https://github.com/l-lin/angular-datatables.git#0.5.3
+bower d3#~3.5.6                                  not-cached https://github.com/mbostock-bower/d3-bower.git#~3.5.6
+bower d3#~3.5.6                                     resolve https://github.com/mbostock-bower/d3-bower.git#~3.5.6
+bower angular-file-upload#2.1.4                  not-cached https://github.com/nervgh/angular-file-upload.git#2.1.4
+bower angular-file-upload#2.1.4                     resolve https://github.com/nervgh/angular-file-upload.git#2.1.4
+bower angular-flot#0.0.16                        not-cached https://github.com/develersrl/angular-flot.git#0.0.16
+bower angular-flot#0.0.16                           resolve https://github.com/develersrl/angular-flot.git#0.0.16
+bower angular-fullscreen#1.0.1                   not-cached https://github.com/fabiobiondi/angular-fullscreen.git#1.0.1
+bower angular-fullscreen#1.0.1                      resolve https://github.com/fabiobiondi/angular-fullscreen.git#1.0.1
+bower angular-intro.js#1.3.1                     not-cached https://github.com/mendhak/angular-intro.js.git#1.3.1
+bower angular-intro.js#1.3.1                        resolve https://github.com/mendhak/angular-intro.js.git#1.3.1
+bower angular-leaflet-directive#0.8.8            not-cached https://github.com/tombatossals/angular-leaflet-directive.git#0.8.8
+bower angular-leaflet-directive#0.8.8               resolve https://github.com/tombatossals/angular-leaflet-directive.git#0.8.8
+bower angular-loading-bar#0.8.0                  not-cached https://github.com/chieffancypants/angular-loading-bar.git#0.8.0
+bower angular-loading-bar#0.8.0                     resolve https://github.com/chieffancypants/angular-loading-bar.git#0.8.0
+bower angular-material#0.11.4                    not-cached https://github.com/angular/bower-material.git#0.11.4
+bower angular-material#0.11.4                       resolve https://github.com/angular/bower-material.git#0.11.4
+bower angular-messages#1.4.6                     not-cached https://github.com/angular/bower-angular-messages.git#1.4.6
+bower angular-messages#1.4.6                        resolve https://github.com/angular/bower-angular-messages.git#1.4.6
+bower angular-momentjs#0.2.2                     not-cached https://github.com/gdi2290/angular-momentjs.git#0.2.2
+bower angular-momentjs#0.2.2                        resolve https://github.com/gdi2290/angular-momentjs.git#0.2.2
+bower angular-resource#1.4.6                     not-cached https://github.com/angular/bower-angular-resource.git#1.4.6
+bower angular-resource#1.4.6                        resolve https://github.com/angular/bower-angular-resource.git#1.4.6
+bower angular-sanitize#1.4.6                     not-cached https://github.com/angular/bower-angular-sanitize.git#1.4.6
+bower angular-sanitize#1.4.6                        resolve https://github.com/angular/bower-angular-sanitize.git#1.4.6
+bower angular-smart-table#2.1.7                  not-cached https://github.com/lorenzofox3/Smart-Table.git#2.1.7
+bower angular-smart-table#2.1.7                     resolve https://github.com/lorenzofox3/Smart-Table.git#2.1.7
+bower angular-toastr#1.5.0                       not-cached https://github.com/Foxandxss/angular-toastr.git#1.5.0
+bower angular-toastr#1.5.0                          resolve https://github.com/Foxandxss/angular-toastr.git#1.5.0
+bower angular-touch#1.4.6                        not-cached https://github.com/angular/bower-angular-touch.git#1.4.6
+bower angular-touch#1.4.6                           resolve https://github.com/angular/bower-angular-touch.git#1.4.6
+bower angular-translate#2.8.1                    not-cached https://github.com/PascalPrecht/bower-angular-translate.git#2.8.1
+bower angular-translate#2.8.1                       resolve https://github.com/PascalPrecht/bower-angular-translate.git#2.8.1
+bower angular-translate-loader-static-files#2.8.1       not-cached https://github.com/PascalPrecht/bower-angular-translate-loader-static-files.git#2.8.1
+bower angular-translate-loader-static-files#2.8.1          resolve https://github.com/PascalPrecht/bower-angular-translate-loader-static-files.git#2.8.1
+bower angular-translate-storage-local#2.8.1             not-cached https://github.com/PascalPrecht/bower-angular-translate-storage-local.git#2.8.1
+bower angular-translate-storage-local#2.8.1                resolve https://github.com/PascalPrecht/bower-angular-translate-storage-local.git#2.8.1
+bower angular-ui-calendar#0.8.1                         not-cached https://github.com/angular-ui/ui-calendar.git#0.8.1
+bower angular-ui-calendar#0.8.1                            resolve https://github.com/angular-ui/ui-calendar.git#0.8.1
+bower angular-ui-router#0.2.18                          not-cached https://github.com/angular-ui/angular-ui-router-bower.git#0.2.18
+bower angular-ui-router#0.2.18                             resolve https://github.com/angular-ui/angular-ui-router-bower.git#0.2.18
+bower angular-ui-select#0.12.1                          not-cached https://github.com/angular-ui/ui-select.git#0.12.1
+bower angular-ui-select#0.12.1                             resolve https://github.com/angular-ui/ui-select.git#0.12.1
+bower angular-ui-tree#2.9.0                             not-cached https://github.com/JimLiu/angular-ui-tree.git#2.9.0
+bower angular-ui-tree#2.9.0                                resolve https://github.com/JimLiu/angular-ui-tree.git#2.9.0
+bower angular-ui-utils#0.2.3                            not-cached https://github.com/angular-ui/ui-utils.git#0.2.3
+bower angular-ui-utils#0.2.3                               resolve https://github.com/angular-ui/ui-utils.git#0.2.3
+bower animate.css#3.4.0                                 not-cached https://github.com/daneden/animate.css.git#3.4.0
+bower animate.css#3.4.0                                    resolve https://github.com/daneden/animate.css.git#3.4.0
+bower bootstrap-daterangepicker#2.0.14                  not-cached https://github.com/dangrossman/bootstrap-daterangepicker.git#2.0.14
+bower bootstrap-daterangepicker#2.0.14                     resolve https://github.com/dangrossman/bootstrap-daterangepicker.git#2.0.14
+bower bootstrap#3.3.6                                   not-cached https://github.com/twbs/bootstrap.git#3.3.6
+bower bootstrap#3.3.6                                      resolve https://github.com/twbs/bootstrap.git#3.3.6
+bower bourbon#4.2.6                                     not-cached https://github.com/thoughtbot/bourbon.git#4.2.6
+bower bourbon#4.2.6                                        resolve https://github.com/thoughtbot/bourbon.git#4.2.6
+bower html.sortable#~0.3.0                              not-cached https://github.com/voidberg/html5sortable.git#~0.3.0
+bower html.sortable#~0.3.0                                 resolve https://github.com/voidberg/html5sortable.git#~0.3.0
+bower jquery.inputmask#~3.2.0                           not-cached https://github.com/RobinHerbots/jquery.inputmask.git#~3.2.0
+bower jquery.inputmask#~3.2.0                              resolve https://github.com/RobinHerbots/jquery.inputmask.git#~3.2.0
+bower flot.tooltip#~0.8.4                               not-cached https://github.com/krzysu/flot.tooltip.git#~0.8.4
+bower flot.tooltip#~0.8.4                                  resolve https://github.com/krzysu/flot.tooltip.git#~0.8.4
+bower jquery.slimscroll#~1.3.6                          not-cached https://github.com/rochal/jQuery-slimScroll.git#~1.3.6
+bower jquery.slimscroll#~1.3.6                             resolve https://github.com/rochal/jQuery-slimScroll.git#~1.3.6
+bower es5-shim#4.1.16                                   not-cached https://github.com/es-shims/es5-shim.git#4.1.16
+bower es5-shim#4.1.16                                      resolve https://github.com/es-shims/es5-shim.git#4.1.16
+bower angular-ui-grid#3.0.7                             not-cached https://github.com/angular-ui/bower-ui-grid.git#3.0.7
+bower angular-ui-grid#3.0.7                                resolve https://github.com/angular-ui/bower-ui-grid.git#3.0.7
+bower flot-spline#0.0.1                                 not-cached https://github.com/JohnPozy/flot-spline.git#0.0.1
+bower flot-spline#0.0.1                                    resolve https://github.com/JohnPozy/flot-spline.git#0.0.1
+bower flot#0.8.3                                        not-cached https://github.com/flot/flot.git#0.8.3
+bower flot#0.8.3                                           resolve https://github.com/flot/flot.git#0.8.3
+bower font-awesome#4.4.0                                not-cached https://github.com/FortAwesome/Font-Awesome.git#4.4.0
+bower font-awesome#4.4.0                                   resolve https://github.com/FortAwesome/Font-Awesome.git#4.4.0
+bower leaflet#~0.7.5                                    not-cached https://github.com/Leaflet/Leaflet.git#~0.7.5
+bower leaflet#~0.7.5                                       resolve https://github.com/Leaflet/Leaflet.git#~0.7.5
+bower material-design-iconic-font#~2.1.1                not-cached https://github.com/zavoloklom/material-design-iconic-font.git#~2.1.1
+bower material-design-iconic-font#~2.1.1                   resolve https://github.com/zavoloklom/material-design-iconic-font.git#~2.1.1
+bower masonry#*                                         not-cached https://github.com/desandro/masonry.git#*
+bower masonry#*                                            resolve https://github.com/desandro/masonry.git#*
+bower leaflet-plugins#~1.3.6                            not-cached https://github.com/shramov/leaflet-plugins.git#~1.3.6
+bower leaflet-plugins#~1.3.6                               resolve https://github.com/shramov/leaflet-plugins.git#~1.3.6
+bower json3#~3.3.2                                      not-cached https://github.com/bestiejs/json3.git#~3.3.2
+bower json3#~3.3.2                                         resolve https://github.com/bestiejs/json3.git#~3.3.2
+bower imagesloaded#*                                    not-cached https://github.com/desandro/imagesloaded.git#*
+bower imagesloaded#*                                       resolve https://github.com/desandro/imagesloaded.git#*
+bower angular-ipsum#0.0.4                               not-cached https://github.com/adamczak/ng-ipsum.git#0.0.4
+bower angular-ipsum#0.0.4                                  resolve https://github.com/adamczak/ng-ipsum.git#0.0.4
+bower angular-rickshaw#0.5.1                            not-cached https://github.com/ngyewch/angular-rickshaw.git#0.5.1
+bower angular-rickshaw#0.5.1                               resolve https://github.com/ngyewch/angular-rickshaw.git#0.5.1
+bower angular-masonry#0.16.0                            not-cached https://github.com/passy/angular-masonry.git#0.16.0
+bower angular-masonry#0.16.0                               resolve https://github.com/passy/angular-masonry.git#0.16.0
+bower angular-fontawesome#0.4.0                         not-cached https://github.com/picardy/angular-fontawesome.git#0.4.0
+bower angular-fontawesome#0.4.0                            resolve https://github.com/picardy/angular-fontawesome.git#0.4.0
+bower leaflet-draw#~0.2.4                               not-cached https://github.com/Leaflet/Leaflet.draw.git#~0.2.4
+bower leaflet-draw#~0.2.4                                  resolve https://github.com/Leaflet/Leaflet.draw.git#~0.2.4
+bower jquery.sparkline#*                                  download http://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.js
+bower leaflet-heat#*                                      download https://github.com/Leaflet/Leaflet.heat/archive/gh-pages.zip
+bower owl-carousel#1.3.2                                not-cached https://github.com/OwlFonk/OwlCarousel.git#1.3.2
+bower owl-carousel#1.3.2                                   resolve https://github.com/OwlFonk/OwlCarousel.git#1.3.2
+bower oclazyload#1.0.9                                  not-cached https://github.com/ocombe/ocLazyLoad.git#1.0.9
+bower oclazyload#1.0.9                                     resolve https://github.com/ocombe/ocLazyLoad.git#1.0.9
+bower morrisjs#~0.5.1                                   not-cached https://github.com/morrisjs/morris.js.git#~0.5.1
+bower morrisjs#~0.5.1                                      resolve https://github.com/morrisjs/morris.js.git#~0.5.1
+bower ng-bs-daterangepicker#0.0.5                       not-cached https://github.com/luisfarzati/ng-bs-daterangepicker.git#0.0.5
+bower ng-bs-daterangepicker#0.0.5                          resolve https://github.com/luisfarzati/ng-bs-daterangepicker.git#0.0.5
+bower ngImgCrop#0.3.2                                   not-cached https://github.com/alexk111/ngImgCrop.git#0.3.2
+bower ngImgCrop#0.3.2                                      resolve https://github.com/alexk111/ngImgCrop.git#0.3.2
+bower textAngular#1.5.0                                 not-cached https://github.com/fraywing/textAngular.git#1.5.0
+bower textAngular#1.5.0                                    resolve https://github.com/fraywing/textAngular.git#1.5.0
+bower angular-local-storage#~0.2.2                      not-cached https://github.com/grevory/angular-local-storage.git#~0.2.2
+bower angular-local-storage#~0.2.2                         resolve https://github.com/grevory/angular-local-storage.git#~0.2.2
+bower angular-mocks#1.2.16                              not-cached https://github.com/angular/bower-angular-mocks.git#1.2.16
+bower angular-mocks#1.2.16                                 resolve https://github.com/angular/bower-angular-mocks.git#1.2.16
+bower angular-scenario#1.2.16                           not-cached https://github.com/angular/bower-angular-scenario.git#1.2.16
+bower angular-scenario#1.2.16                              resolve https://github.com/angular/bower-angular-scenario.git#1.2.16
+bower ng-table#1.0.0-beta.5                             not-cached https://github.com/esvit/ng-table.git#1.0.0-beta.5
+bower ng-table#1.0.0-beta.5                                resolve https://github.com/esvit/ng-table.git#1.0.0-beta.5
+bower rickshaw#1.5.1                                    not-cached https://github.com/shutterstock/rickshaw.git#1.5.1
+bower rickshaw#1.5.1                                       resolve https://github.com/shutterstock/rickshaw.git#1.5.1
+bower ngstorage#^0.3.10                                 not-cached https://github.com/gsklee/ngStorage.git#^0.3.10
+bower ngstorage#^0.3.10                                    resolve https://github.com/gsklee/ngStorage.git#^0.3.10
+bower ng-tags-input#3.0.0                               not-cached https://github.com/mbenford/ngTagsInput-bower.git#3.0.0
+bower ng-tags-input#3.0.0                                  resolve https://github.com/mbenford/ngTagsInput-bower.git#3.0.0
+bower dragular#4.0.0                                    not-cached https://github.com/luckylooke/dragular.git#4.0.0
+bower dragular#4.0.0                                       resolve https://github.com/luckylooke/dragular.git#4.0.0
+bower simple-line-icons#2.2.3                           not-cached https://github.com/thesabbir/simple-line-icons.git#2.2.3
+bower simple-line-icons#2.2.3                              resolve https://github.com/thesabbir/simple-line-icons.git#2.2.3
+bower angular-dragula#~1.2.2                            not-cached https://github.com/bevacqua/angular-dragula.git#~1.2.2
+bower angular-dragula#~1.2.2                               resolve https://github.com/bevacqua/angular-dragula.git#~1.2.2
+bower angular-bootstrap-nav-tree#*                        download https://github.com/nickperkinslondon/angular-bootstrap-nav-tree/archive/v0.2.1.tar.gz
+bower angular-bootstrap#1.1.2                             download https://github.com/angular-ui/bootstrap-bower/archive/1.1.2.tar.gz
+bower angular-bootstrap-colorpicker#3.0.24                download https://github.com/buberdds/angular-bootstrap-colorpicker/archive/v3.0.24.tar.gz
+bower leaflet-heat#*                                       extract gh-pages.zip
+bower leaflet-heat#*                                      resolved https://github.com/Leaflet/Leaflet.heat/archive/gh-pages.zip#e-tag:5885ec0ec
+bower angular-animate#1.4.6                               download https://github.com/angular/bower-angular-animate/archive/v1.4.6.tar.gz
+bower angular#1.4.6                                       download https://github.com/angular/bower-angular/archive/v1.4.6.tar.gz
+bower angular-file-upload#2.1.4                           download https://github.com/nervgh/angular-file-upload/archive/v2.1.4.tar.gz
+bower d3#~3.5.6                                           download https://github.com/mbostock-bower/d3-bower/archive/v3.5.17.tar.gz
+bower angular-datatables#0.5.3                            download https://github.com/l-lin/angular-datatables/archive/v0.5.3.tar.gz
+bower angular-chosen-localytics#1.4.0                     download https://github.com/leocaseiro/angular-chosen/archive/1.4.0.tar.gz
+bower angular-cookies#1.4.6                               download https://github.com/angular/bower-angular-cookies/archive/v1.4.6.tar.gz
+bower angular-loading-bar#0.8.0                           download https://github.com/chieffancypants/angular-loading-bar/archive/0.8.0.tar.gz
+bower angular-leaflet-directive#0.8.8                     download https://github.com/tombatossals/angular-leaflet-directive/archive/v0.8.8.tar.gz
+bower angular-intro.js#1.3.1                              download https://github.com/mendhak/angular-intro.js/archive/v1.3.1.tar.gz
+bower angular-fullscreen#1.0.1                            download https://github.com/fabiobiondi/angular-fullscreen/archive/1.0.1.tar.gz
+bower angular-flot#0.0.16                                 download https://github.com/develersrl/angular-flot/archive/v0.0.16.tar.gz
+bower angular-bootstrap-nav-tree#*                         extract archive.tar.gz
+bower angular-bootstrap#1.1.2                              extract archive.tar.gz
+bower chosen#*                                             extract chosen_v1.4.2.zip
+bower jquery.sparkline#*                                  resolved http://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.js#e-tag:5c79-4df3
+bower chosen#*                                        invalid-meta for:/tmp/ruvenss/bower/ca071943e5acd1c8bcfbe0d2ee36fec2-25221-8kbade/bower.json
+bower chosen#*                                        invalid-meta The "description" is too long, the limit is 140 characters
+bower chosen#*                                        invalid-meta The "main" field cannot contain minified files
+bower chosen#*                                        invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower chosen#*                                        invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower chosen#*                                        invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .png files: ["chosen-sprite@2x.png","chosen-sprite.png"]
+bower chosen#*                                            resolved https://github.com/harvesthq/chosen/releases/download/1.4.2/chosen_v1.4.2.zip#e-tag:dda575a54
+bower angular-bootstrap-colorpicker#3.0.24                 extract archive.tar.gz
+bower jquery#>=1.4.4                                    not-cached https://github.com/jquery/jquery-dist.git#>=1.4.4
+bower jquery#>=1.4.4                                       resolve https://github.com/jquery/jquery-dist.git#>=1.4.4
+bower angular-bootstrap#1.1.2                             resolved https://github.com/angular-ui/bootstrap-bower.git#1.1.2
+bower angular-momentjs#0.2.2                              download https://github.com/gdi2290/angular-momentjs/archive/v0.2.2.tar.gz
+bower angular-bootstrap-nav-tree#*                        mismatch Version declared in the json (0.2.0) is different than the resolved one (0.2.1)
+bower angular-bootstrap-nav-tree#*                        resolved https://github.com/nickperkinslondon/angular-bootstrap-nav-tree.git#0.2.1
+bower angular-flot#0.0.16                                  extract archive.tar.gz
+bower angular-chosen-localytics#1.4.0                      extract archive.tar.gz
+bower angular-loading-bar#0.8.0                            extract archive.tar.gz
+bower angular-cookies#1.4.6                                extract archive.tar.gz
+bower angular-file-upload#2.1.4                            extract archive.tar.gz
+bower angular-animate#1.4.6                                extract archive.tar.gz
+bower angular-messages#1.4.6                              download https://github.com/angular/bower-angular-messages/archive/v1.4.6.tar.gz
+bower angular-smart-table#2.1.7                           download https://github.com/lorenzofox3/Smart-Table/archive/v2.1.7.tar.gz
+bower angular-resource#1.4.6                              download https://github.com/angular/bower-angular-resource/archive/v1.4.6.tar.gz
+bower angular-material#0.11.4                             download https://github.com/angular/bower-material/archive/v0.11.4.tar.gz
+bower angular-translate#2.8.1                             download https://github.com/PascalPrecht/bower-angular-translate/archive/2.8.1.tar.gz
+bower angular-toastr#1.5.0                                download https://github.com/Foxandxss/angular-toastr/archive/1.5.0.tar.gz
+bower angular-touch#1.4.6                                 download https://github.com/angular/bower-angular-touch/archive/v1.4.6.tar.gz
+bower angular-sanitize#1.4.6                              download https://github.com/angular/bower-angular-sanitize/archive/v1.4.6.tar.gz
+bower angular-ui-router#0.2.18                            download https://github.com/angular-ui/angular-ui-router-bower/archive/0.2.18.tar.gz
+bower angular-ui-calendar#0.8.1                           download https://github.com/angular-ui/ui-calendar/archive/0.8.1.tar.gz
+bower angular-translate-storage-local#2.8.1               download https://github.com/PascalPrecht/bower-angular-translate-storage-local/archive/2.8.1.tar.gz
+bower angular-translate-loader-static-files#2.8.1         download https://github.com/PascalPrecht/bower-angular-translate-loader-static-files/archive/2.8.1.tar.gz
+bower angular-ui-select#0.12.1                            download https://github.com/angular-ui/ui-select/archive/v0.12.1.tar.gz
+bower d3#~3.5.6                                            extract archive.tar.gz
+bower angular-fullscreen#1.0.1                             extract archive.tar.gz
+bower angular-intro.js#1.3.1                               extract archive.tar.gz
+bower angular-momentjs#0.2.2                               extract archive.tar.gz
+bower angular#1.4.6                                        extract archive.tar.gz
+bower angular-cookies#1.4.6                               resolved https://github.com/angular/bower-angular-cookies.git#1.4.6
+bower angular-animate#1.4.6                               resolved https://github.com/angular/bower-angular-animate.git#1.4.6
+bower angular-ui-utils#0.2.3                              download https://github.com/angular-ui/ui-utils/archive/v0.2.3.tar.gz
+bower angular-fullscreen#1.0.1                            resolved https://github.com/fabiobiondi/angular-fullscreen.git#1.0.1
+bower animate.css#3.4.0                                   download https://github.com/daneden/animate.css/archive/3.4.0.tar.gz
+bower angular-ui-tree#2.9.0                               download https://github.com/JimLiu/angular-ui-tree/archive/v2.9.0.tar.gz
+bower bootstrap-daterangepicker#2.0.14                    download https://github.com/dangrossman/bootstrap-daterangepicker/archive/v2.0.14.tar.gz
+bower d3#~3.5.6                                           resolved https://github.com/mbostock-bower/d3-bower.git#3.5.17
+bower angular-resource#1.4.6                               extract archive.tar.gz
+bower angular-messages#1.4.6                               extract archive.tar.gz
+bower angular-touch#1.4.6                                  extract archive.tar.gz
+bower angular-toastr#1.5.0                                 extract archive.tar.gz
+bower angular-smart-table#2.1.7                            extract archive.tar.gz
+bower angular-translate-loader-static-files#2.8.1          extract archive.tar.gz
+bower angular-translate-storage-local#2.8.1                extract archive.tar.gz
+bower bootstrap#3.3.6                                     download https://github.com/twbs/bootstrap/archive/v3.3.6.tar.gz
+bower angular-ui-router#0.2.18                             extract archive.tar.gz
+bower angular-ui-select#0.12.1                             extract archive.tar.gz
+bower angular-flot#0.0.16                                 resolved https://github.com/develersrl/angular-flot.git#0.0.16
+bower angular-bootstrap-colorpicker#3.0.24                resolved https://github.com/buberdds/angular-bootstrap-colorpicker.git#3.0.24
+bower bourbon#4.2.6                                       download https://github.com/thoughtbot/bourbon/archive/v4.2.6.tar.gz
+bower angular-sanitize#1.4.6                               extract archive.tar.gz
+bower angular-ui-calendar#0.8.1                            extract archive.tar.gz
+bower angular-translate#2.8.1                              extract archive.tar.gz
+bower html.sortable#~0.3.0                                download https://github.com/voidberg/html5sortable/archive/v0.3.1.tar.gz
+bower flot.tooltip#~0.8.4                                 download https://github.com/krzysu/flot.tooltip/archive/0.8.7.tar.gz
+bower jquery.inputmask#~3.2.0                             download https://github.com/RobinHerbots/jquery.inputmask/archive/3.2.7.tar.gz
+bower jquery.slimscroll#~1.3.6                            download https://github.com/rochal/jQuery-slimScroll/archive/v1.3.8.tar.gz
+bower animate.css#3.4.0                                    extract archive.tar.gz
+bower angular-ui-utils#0.2.3                               extract archive.tar.gz
+bower es5-shim#4.1.16                                     download https://github.com/es-shims/es5-shim/archive/v4.1.16.tar.gz
+bower angular-ui-grid#3.0.7                               download https://github.com/angular-ui/bower-ui-grid/archive/v3.0.7.tar.gz
+bower flot-spline#0.0.1                                   download https://github.com/JohnPozy/flot-spline/archive/0.0.1.tar.gz
+bower bootstrap-daterangepicker#2.0.14                     extract archive.tar.gz
+bower flot#0.8.3                                          download https://github.com/flot/flot/archive/v0.8.3.tar.gz
+bower angular-ui-tree#2.9.0                                extract archive.tar.gz
+bower bourbon#4.2.6                                        extract archive.tar.gz
+bower angular-translate-loader-static-files#2.8.1         resolved https://github.com/PascalPrecht/bower-angular-translate-loader-static-files.git#2.8.1
+bower angular-translate-storage-local#2.8.1               resolved https://github.com/PascalPrecht/bower-angular-translate-storage-local.git#2.8.1
+bower font-awesome#4.4.0                                  download https://github.com/FortAwesome/Font-Awesome/archive/v4.4.0.tar.gz
+bower angular-resource#1.4.6                              resolved https://github.com/angular/bower-angular-resource.git#1.4.6
+bower angular-messages#1.4.6                              resolved https://github.com/angular/bower-angular-messages.git#1.4.6
+bower angular-touch#1.4.6                                 resolved https://github.com/angular/bower-angular-touch.git#1.4.6
+bower jquery.slimscroll#~1.3.6                             extract archive.tar.gz
+bower angular-translate-storage-cookie#~2.8.1           not-cached https://github.com/PascalPrecht/bower-angular-translate-storage-cookie.git#~2.8.1
+bower angular-translate-storage-cookie#~2.8.1              resolve https://github.com/PascalPrecht/bower-angular-translate-storage-cookie.git#~2.8.1
+bower material-design-iconic-font#~2.1.1                  download https://github.com/zavoloklom/material-design-iconic-font/archive/2.1.2.tar.gz
+bower flot.tooltip#~0.8.4                                  extract archive.tar.gz
+bower leaflet#~0.7.5                                      download https://github.com/Leaflet/Leaflet/archive/v0.7.7.tar.gz
+bower masonry#*                                           download https://github.com/desandro/masonry/archive/v4.2.2.tar.gz
+bower leaflet-plugins#~1.3.6                              download https://github.com/shramov/leaflet-plugins/archive/1.3.13.tar.gz
+bower angular-translate#2.8.1                             resolved https://github.com/PascalPrecht/bower-angular-translate.git#2.8.1
+bower json3#~3.3.2                                        download https://github.com/bestiejs/json3/archive/v3.3.2.tar.gz
+bower angular-sanitize#1.4.6                              resolved https://github.com/angular/bower-angular-sanitize.git#1.4.6
+bower es5-shim#4.1.16                                      extract archive.tar.gz
+bower html.sortable#~0.3.0                                 extract archive.tar.gz
+bower angular-material#0.11.4                              extract archive.tar.gz
+bower flot-spline#0.0.1                                    extract archive.tar.gz
+bower imagesloaded#*                                      download https://github.com/desandro/imagesloaded/archive/v4.1.4.tar.gz
+bower angular-ipsum#0.0.4                                 download https://github.com/adamczak/ng-ipsum/archive/v0.0.4.tar.gz
+bower angular-rickshaw#0.5.1                              download https://github.com/ngyewch/angular-rickshaw/archive/0.5.1.tar.gz
+bower jquery.inputmask#~3.2.0                              extract archive.tar.gz
+bower angular-fontawesome#0.4.0                           download https://github.com/picardy/angular-fontawesome/archive/v0.4.0.tar.gz
+bower angular-masonry#0.16.0                              download https://github.com/passy/angular-masonry/archive/v0.16.0.tar.gz
+bower angular-ui-grid#3.0.7                                extract archive.tar.gz
+bower masonry#*                                            extract archive.tar.gz
+bower angular#1.4.6                                       resolved https://github.com/angular/bower-angular.git#1.4.6
+bower angular-ui-utils#0.2.3                              resolved https://github.com/angular-ui/ui-utils.git#0.2.3
+bower leaflet-draw#~0.2.4                                 download https://github.com/Leaflet/Leaflet.draw/archive/v0.2.4.tar.gz
+bower oclazyload#1.0.9                                    download https://github.com/ocombe/ocLazyLoad/archive/1.0.9.tar.gz
+bower ng-bs-daterangepicker#0.0.5                         download https://github.com/luisfarzati/ng-bs-daterangepicker/archive/v0.0.5.tar.gz
+bower morrisjs#~0.5.1                                     download https://github.com/morrisjs/morris.js/archive/0.5.1.tar.gz
+bower ngImgCrop#0.3.2                                     download https://github.com/alexk111/ngImgCrop/archive/v0.3.2.tar.gz
+bower angular-leaflet-directive#0.8.8                     progress received 2.2MB
+bower angular-datatables#0.5.3                            progress received 2.3MB
+bower angular-rickshaw#0.5.1                               extract archive.tar.gz
+bower angular-intro.js#1.3.1                              resolved https://github.com/mendhak/angular-intro.js.git#1.3.1
+bower angular-ipsum#0.0.4                                  extract archive.tar.gz
+bower angular-masonry#0.16.0                               extract archive.tar.gz
+bower angular-fontawesome#0.4.0                            extract archive.tar.gz
+bower flot#0.8.3                                           extract archive.tar.gz
+bower imagesloaded#*                                       extract archive.tar.gz
+bower leaflet-plugins#~1.3.6                               extract archive.tar.gz
+bower angular-local-storage#~0.2.2                        download https://github.com/grevory/angular-local-storage/archive/v0.2.7.tar.gz
+bower textAngular#1.5.0                                   download https://github.com/fraywing/textAngular/archive/v1.5.0.tar.gz
+bower angular-momentjs#0.2.2                              resolved https://github.com/gdi2290/angular-momentjs.git#0.2.2
+bower ng-table#1.0.0-beta.5                               download https://github.com/esvit/ng-table/archive/1.0.0-beta.5.tar.gz
+bower json3#~3.3.2                                         extract archive.tar.gz
+bower material-design-iconic-font#~2.1.1                   extract archive.tar.gz
+bower angular-scenario#1.2.16                             download https://github.com/angular/bower-angular-scenario/archive/v1.2.16.tar.gz
+bower angular-mocks#1.2.16                                download https://github.com/angular/bower-angular-mocks/archive/v1.2.16.tar.gz
+bower angular-datatables#0.5.3                            progress received 2.6MB
+bower simple-line-icons#2.2.3                             download https://github.com/thesabbir/simple-line-icons/archive/2.2.3.tar.gz
+bower dragular#4.0.0                                      download https://github.com/luckylooke/dragular/archive/v4.0.0.tar.gz
+bower ngstorage#^0.3.10                                   download https://github.com/gsklee/ngStorage/archive/0.3.11.tar.gz
+bower ng-tags-input#3.0.0                                 download https://github.com/mbenford/ngTagsInput-bower/archive/v3.0.0.tar.gz
+bower rickshaw#1.5.1                                      download https://github.com/shutterstock/rickshaw/archive/v1.5.1.tar.gz
+bower angular-loading-bar#0.8.0                           resolved https://github.com/chieffancypants/angular-loading-bar.git#0.8.0
+bower angular-leaflet-directive#0.8.8                     progress received 2.6MB
+bower ng-bs-daterangepicker#0.0.5                          extract archive.tar.gz
+bower leaflet#~0.7.5                                       extract archive.tar.gz
+bower angular-datatables#0.5.3                             extract archive.tar.gz
+bower morrisjs#~0.5.1                                      extract archive.tar.gz
+bower leaflet-draw#~0.2.4                                  extract archive.tar.gz
+bower flot-spline#0.0.1                                   resolved https://github.com/JohnPozy/flot-spline.git#0.0.1
+bower oclazyload#1.0.9                                     extract archive.tar.gz
+bower angular-ui-calendar#0.8.1                           resolved https://github.com/angular-ui/ui-calendar.git#0.8.1
+bower ngImgCrop#0.3.2                                      extract archive.tar.gz
+bower angular-local-storage#~0.2.2                         extract archive.tar.gz
+bower angular-dragula#~1.2.2                              download https://github.com/bevacqua/angular-dragula/archive/v1.2.8.tar.gz
+bower angular-translate-storage-cookie#~2.8.1             download https://github.com/PascalPrecht/bower-angular-translate-storage-cookie/archive/2.8.1.tar.gz
+bower jquery#>=1.4.4                                      download https://github.com/jquery/jquery-dist/archive/3.4.1.tar.gz
+bower angular-file-upload#2.1.4                       invalid-meta for:/tmp/ruvenss/bower/e60440287b4df1cbc04045e77a8c05f5-25221-Wf6Hpr/bower.json
+bower angular-file-upload#2.1.4                       invalid-meta The "main" field cannot contain minified files
+bower angular-rickshaw#0.5.1                              resolved https://github.com/ngyewch/angular-rickshaw.git#0.5.1
+bower ng-tags-input#3.0.0                                  extract archive.tar.gz
+bower angular-leaflet-directive#0.8.8                      extract archive.tar.gz
+bower angular-mocks#1.2.16                                 extract archive.tar.gz
+bower ngstorage#^0.3.10                                    extract archive.tar.gz
+bower font-awesome#4.4.0                                   extract archive.tar.gz
+bower angular-chosen-localytics#1.4.0                     mismatch Version declared in the json (1.3.0) is different than the resolved one (1.4.0)
+bower bootstrap-daterangepicker#2.0.14                    resolved https://github.com/dangrossman/bootstrap-daterangepicker.git#2.0.14
+bower angular-chosen-localytics#1.4.0                     resolved https://github.com/leocaseiro/angular-chosen.git#1.4.0
+bower angular-scenario#1.2.16                              extract archive.tar.gz
+bower bootstrap#3.3.6                                      extract archive.tar.gz
+bower jquery.slimscroll#~1.3.6                        invalid-meta for:/tmp/ruvenss/bower/953355cb96673bdca634423af8b84c7a-25221-rN4BbN/bower.json
+bower jquery.slimscroll#~1.3.6                        invalid-meta The "description" is too long, the limit is 140 characters
+bower jquery.slimscroll#~1.3.6                        invalid-meta The "main" field cannot contain minified files
+bower jquery.slimscroll#~1.3.6                        invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .js files: ["jquery.slimscroll.js","jquery.slimscroll.min.js"]
+bower ng-bs-daterangepicker#0.0.5                         resolved https://github.com/luisfarzati/ng-bs-daterangepicker.git#0.0.5
+bower angular-ipsum#0.0.4                             invalid-meta for:/tmp/ruvenss/bower/5fd9bedaa8fbc6446009097d184e6281-25221-l5BXvX/bower.json
+bower angular-ipsum#0.0.4                             invalid-meta The "main" field cannot contain minified files
+bower angular-ui-router#0.2.18                            resolved https://github.com/angular-ui/angular-ui-router-bower.git#0.2.18
+bower textAngular#1.5.0                                    extract archive.tar.gz
+bower simple-line-icons#2.2.3                              extract archive.tar.gz
+bower ng-table#1.0.0-beta.5                                extract archive.tar.gz
+bower angular-mocks#1.2.16                                resolved https://github.com/angular/bower-angular-mocks.git#1.2.16
+bower angular-toastr#1.5.0                                resolved https://github.com/Foxandxss/angular-toastr.git#1.5.0
+bower angular-ipsum#0.0.4                                 resolved https://github.com/adamczak/ng-ipsum.git#0.0.4
+bower angular-fontawesome#0.4.0                           resolved https://github.com/picardy/angular-fontawesome.git#0.4.0
+bower ng-tags-input#3.0.0                             invalid-meta for:/tmp/ruvenss/bower/7bc24627f2e4d5aadfb669f4483ce0fb-25221-j2GR72/bower.json
+bower ng-tags-input#3.0.0                             invalid-meta The "main" field cannot contain minified files
+bower ng-tags-input#3.0.0                             invalid-meta The "main" field cannot contain minified files
+bower dragular#4.0.0                                       extract archive.tar.gz
+bower angular-translate-storage-cookie#~2.8.1              extract archive.tar.gz
+bower ng-tags-input#3.0.0                                 resolved https://github.com/mbenford/ngTagsInput-bower.git#3.0.0
+bower jquery#>=1.4.4                                       extract archive.tar.gz
+bower angular-masonry#0.16.0                              resolved https://github.com/passy/angular-masonry.git#0.16.0
+bower angular-smart-table#2.1.7                           mismatch Version declared in the json (2.1.6) is different than the resolved one (2.1.7)
+bower flot.tooltip#~0.8.4                                 resolved https://github.com/krzysu/flot.tooltip.git#0.8.7
+bower rickshaw#1.5.1                                       extract archive.tar.gz
+bower angular-file-upload#2.1.4                           resolved https://github.com/nervgh/angular-file-upload.git#2.1.4
+bower angular-smart-table#2.1.7                           resolved https://github.com/lorenzofox3/Smart-Table.git#2.1.7
+bower angular-dragula#~1.2.2                               extract archive.tar.gz
+bower angular-translate-storage-cookie#~2.8.1             resolved https://github.com/PascalPrecht/bower-angular-translate-storage-cookie.git#2.8.1
+bower angular-scenario#1.2.16                             resolved https://github.com/angular/bower-angular-scenario.git#1.2.16
+bower jquery.slimscroll#~1.3.6                            resolved https://github.com/rochal/jQuery-slimScroll.git#1.3.8
+bower simple-line-icons#2.2.3                         invalid-meta for:/tmp/ruvenss/bower/fefc283c6bfdfcbf003d28b06eb8f26a-25221-75K71a/bower.json
+bower simple-line-icons#2.2.3                         invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower simple-line-icons#2.2.3                         invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower simple-line-icons#2.2.3                         invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower simple-line-icons#2.2.3                         invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower simple-line-icons#2.2.3                         invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower ngstorage#^0.3.10                                   resolved https://github.com/gsklee/ngStorage.git#0.3.11
+bower imagesloaded#*                                      resolved https://github.com/desandro/imagesloaded.git#4.1.4
+bower html.sortable#~0.3.0                                resolved https://github.com/voidberg/html5sortable.git#0.3.1
+bower angular-ui-select#0.12.1                            resolved https://github.com/angular-ui/ui-select.git#0.12.1
+bower es5-shim#4.1.16                                     resolved https://github.com/es-shims/es5-shim.git#4.1.16
+bower masonry#*                                           resolved https://github.com/desandro/masonry.git#4.2.2
+bower angular-ui-tree#2.9.0                           invalid-meta for:/tmp/ruvenss/bower/321ae04a58376bbb1bbb1cdc593dae00-25221-x4Y3Ah/bower.json
+bower angular-ui-tree#2.9.0                           invalid-meta The "main" field cannot contain minified files
+bower angular-local-storage#~0.2.2                        resolved https://github.com/grevory/angular-local-storage.git#0.2.7
+bower simple-line-icons#2.2.3                             resolved https://github.com/thesabbir/simple-line-icons.git#2.2.3
+bower angular-ui-grid#3.0.7                           invalid-meta for:/tmp/ruvenss/bower/3a3e045bf8d729df1f4bf950f5b7b3c6-25221-I9gcEG/bower.json
+bower angular-ui-grid#3.0.7                           invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower angular-ui-grid#3.0.7                           invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower angular-ui-grid#3.0.7                           invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower angular-ui-grid#3.0.7                           invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower angular-ui-tree#2.9.0                               resolved https://github.com/JimLiu/angular-ui-tree.git#2.9.0
+bower angular-ui-grid#3.0.7                               resolved https://github.com/angular-ui/bower-ui-grid.git#3.0.7
+bower ngImgCrop#0.3.2                                     resolved https://github.com/alexk111/ngImgCrop.git#0.3.2
+bower leaflet-plugins#~1.3.6                          invalid-meta for:/tmp/ruvenss/bower/17b06eba92b713ed80a11f367005dd72-25221-t00cTf/bower.json
+bower leaflet-plugins#~1.3.6                          invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .js files: ["control/Distance.js","control/Layers.Load.js","control/Permalink.js","control/Permalink.Layer.js","control/Permalink.Line.js","control/Permalink.Marker.js","layer/Icon.Canvas.js","layer/Layer.Deferred.js","layer/Marker.Rotate.js","layer/Marker.Text.js","layer/OpenStreetBugs.js","layer/vector/GPX.js","layer/vector/GPX.Speed.js","layer/vector/KML.js","layer/vector/OSM.js","layer/tile/Bing.js","layer/tile/Google.js","layer/tile/Yandex.js"]
+bower angular-dragula#~1.2.2                              resolved https://github.com/bevacqua/angular-dragula.git#1.2.8
+bower morrisjs#~0.5.1                                     mismatch Version declared in the json (0.5.0) is different than the resolved one (0.5.1)
+bower morrisjs#~0.5.1                                     resolved https://github.com/morrisjs/morris.js.git#0.5.1
+bower leaflet-draw#~0.2.4                             invalid-meta for:/tmp/ruvenss/bower/15e9c66e864995a9f986689d75f413d2-25221-y2YmrW/bower.json
+bower leaflet-draw#~0.2.4                             invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet-draw#~0.2.4                             invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet-draw#~0.2.4                             invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .png files: ["dist/images/spritesheet-2x.png","dist/images/spritesheet.png"]
+bower leaflet-draw#~0.2.4                                 mismatch Version declared in the json (0.2.3) is different than the resolved one (0.2.4)
+bower leaflet-draw#~0.2.4                                 resolved https://github.com/Leaflet/Leaflet.draw.git#0.2.4
+bower textAngular#1.5.0                               invalid-meta for:/tmp/ruvenss/bower/3887ae54168c10da281b756f39c7e14c-25221-00XwWj/bower.json
+bower textAngular#1.5.0                               invalid-meta The "name" is recommended to be lowercase, can contain digits, dots, dashes
+bower textAngular#1.5.0                               invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .js files: ["./dist/textAngular.js","./dist/textAngular-sanitize.js","./dist/textAngularSetup.js"]
+bower oclazyload#1.0.9                                    resolved https://github.com/ocombe/ocLazyLoad.git#1.0.9
+bower jquery.inputmask#~3.2.0                             resolved https://github.com/RobinHerbots/jquery.inputmask.git#3.2.7
+bower textAngular#1.5.0                                   resolved https://github.com/fraywing/textAngular.git#1.5.0
+bower leaflet-plugins#~1.3.6                              resolved https://github.com/shramov/leaflet-plugins.git#1.3.13
+bower flot#0.8.3                                      invalid-meta for:/tmp/ruvenss/bower/2cbf36dbb0b0a303f973f2e736dbd1f0-25221-QVbaUh/component.json
+bower flot#0.8.3                                      invalid-meta The "name" is recommended to be lowercase, can contain digits, dots, dashes
+bower flot#0.8.3                                        deprecated Package flot is using the deprecated component.json
+bower flot#0.8.3                                          resolved https://github.com/flot/flot.git#0.8.3
+bower animate.css#3.4.0                                   resolved https://github.com/daneden/animate.css.git#3.4.0
+bower dragular#4.0.0                                  invalid-meta for:/tmp/ruvenss/bower/617d404f9453ad2ff86c738c640a29c8-25221-czRADe/bower.json
+bower dragular#4.0.0                                  invalid-meta The "main" field cannot contain minified files
+bower dragular#4.0.0                                  invalid-meta The "main" field cannot contain minified files
+bower json3#~3.3.2                                        resolved https://github.com/bestiejs/json3.git#3.3.2
+bower rickshaw#1.5.1                                      resolved https://github.com/shutterstock/rickshaw.git#1.5.1
+bower leaflet#~0.7.5                                  invalid-meta for:/tmp/ruvenss/bower/1f6f5327375de395359cc797e6906547-25221-MbK27Q/bower.json
+bower leaflet#~0.7.5                                  invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet#~0.7.5                                  invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet#~0.7.5                                  invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet#~0.7.5                                  invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet#~0.7.5                                  invalid-meta The "main" field cannot contain font, image, audio, or video files
+bower leaflet#~0.7.5                                  invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .png files: ["dist/images/layers-2x.png","dist/images/layers.png","dist/images/marker-icon-2x.png","dist/images/marker-icon.png","dist/images/marker-shadow.png"]
+bower leaflet#~0.7.5                                      resolved https://github.com/Leaflet/Leaflet.git#0.7.7
+bower bourbon#4.2.6                                       resolved https://github.com/thoughtbot/bourbon.git#4.2.6
+bower dragular#4.0.0                                      resolved https://github.com/luckylooke/dragular.git#4.0.0
+bower ng-table#1.0.0-beta.5                           invalid-meta for:/tmp/ruvenss/bower/e5920f7ab843ab19710708196914eb0d-25221-cfy7DN/bower.json
+bower ng-table#1.0.0-beta.5                           invalid-meta The "main" field cannot contain minified files
+bower ng-table#1.0.0-beta.5                           invalid-meta The "main" field cannot contain minified files
+bower jquery#>=1.4.4                                      resolved https://github.com/jquery/jquery-dist.git#3.4.1
+bower ng-table#1.0.0-beta.5                               resolved https://github.com/esvit/ng-table.git#1.0.0-beta.5
+bower angular-leaflet-directive#0.8.8                     resolved https://github.com/tombatossals/angular-leaflet-directive.git#0.8.8
+bower angular-material#0.11.4                             resolved https://github.com/angular/bower-material.git#0.11.4
+bower bootstrap#3.3.6                                     resolved https://github.com/twbs/bootstrap.git#3.3.6
+bower angular-datatables#0.5.3                        invalid-meta for:/tmp/ruvenss/bower/34a9933e92d4464aeee62c7e44110952-25221-fFKoQm/bower.json
+bower angular-datatables#0.5.3                        invalid-meta The "main" field has to contain only 1 file per filetype; found multiple .js files: ["dist/angular-datatables.js","dist/plugins/bootstrap/angular-datatables.bootstrap.js","dist/plugins/colreorder/angular-datatables.colreorder.js","dist/plugins/columnfilter/angular-datatables.columnfilter.js","dist/plugins/light-columnfilter/angular-datatables.light-columnfilter.js","dist/plugins/colvis/angular-datatables.colvis.js","dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js","dist/plugins/fixedheader/angular-datatables.fixedheader.js","dist/plugins/scroller/angular-datatables.scroller.js","dist/plugins/tabletools/angular-datatables.tabletools.js","dist/plugins/buttons/angular-datatables.buttons.js","dist/plugins/select/angular-datatables.select.js"]
+bower angular-datatables#0.5.3                            resolved https://github.com/l-lin/angular-datatables.git#0.5.3
+bower font-awesome#4.4.0                                  resolved https://github.com/FortAwesome/Font-Awesome.git#4.4.0
+bower material-design-iconic-font#~2.1.1              invalid-meta for:/tmp/ruvenss/bower/f24727e1fc655df339df5df255fc376c-25221-3kx2N4/bower.json
+bower material-design-iconic-font#~2.1.1              invalid-meta The "main" field cannot contain globs (example: "*.js")
+bower material-design-iconic-font#~2.1.1              invalid-meta The "main" field cannot contain minified files
+bower material-design-iconic-font#~2.1.1              invalid-meta The "main" field cannot contain globs (example: "*.js")
+bower material-design-iconic-font#~2.1.1                  resolved https://github.com/zavoloklom/material-design-iconic-font.git#2.1.2
+bower owl-carousel#1.3.2                              ENORESTARGET No tag found that was able to satisfy 1.3.2
