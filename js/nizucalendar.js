@@ -33,6 +33,8 @@ var nizu_confirmid=false;
 var calendarEl;
 var calendar;
 var temp = null;
+var temp2 = null;
+var temp3 = null;
 var nizumobileurl="";
 function NizuArrayContains(needle, arrhaystack){
     return ($.inArray(needle, arrhaystack) > -1);
@@ -245,8 +247,9 @@ function nizucal_initrender(){
         $("#nizucaladdguest").prop("disabled",true);
         //if($("#nizucalguests").find('input[value!=""]').length == 0){
             if (nizucal_guests<=3) {
-                nizucal_guests=nizucal_guests+1;
+                //nizucal_guests=nizucal_guests+1;
                 $("#nizucaladdguest").prop("disabled",false);
+                $("#nizucaladdguest").css("display","inline-block");
                 //$("#nizucalguests").find('input[value!=""]')[0].focus();
             }
         //} else {
@@ -266,41 +269,100 @@ function nizucal_initrender(){
             $("#nizucalsaveguest").prop("disabled",true);
         }
     });
+    
     $("#nizucalsaveguest").on("click", function(){
+        var nizuguest_email = $("#nizucalguestsmodal").find('input[type="email"]').val();
         if(!nizu_ValidateEmail($("#nizucalguestsmodal").find('input[type="email"]').val())){
             alert("email is not validated");
             $("#nizucalguestsmodal").find('input[type="email]"').focus();
-        } else {
-            window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
-            window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
-            window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
-            window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
-            $("#nizucalguestsmodal").modal('hide');
-            $("#nizucalsaveguest").prop("disabled",true);
-            $("#nizucalguestsmodal input").each(function(){
-                $(this).val("");
-            });
-            $("#nizucalguestsmodal").find('select').val("");
-            $("#guest_countrycodelabel").text("");
-            if(temp == null){
-                $("#nizucalguests").append('<div class="col-sm-12 col-md-12 row"><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name')+'<span></div><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email')+'<span></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_edit btn-circle btn-success"><i class="far fa-pen"></i></button></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_delete btn btn-circle btn-danger"><i class="fas fa-minus-circle"></i></button></div></div>');
-                        
-                $(".nizu_btn_edit").on("click",function(){
-                    console.log($(this));
-                    temp = parseInt(nizucal_guests);
-                    nizucal_guests = $(this).attr("data-id");
-                    $("#nizucalguestsmodal").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email'));
-                    $("#nizucalguestsmodal").find('input[type="input"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name'));
-                    $("#nizucalguestsmodal").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phone'));
-                    $("#nizucalguestsmodal").find('select').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phonecountry'));
-                    $("#guest_countrycodelabel").text("+"+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phonecountry'));
-                    $("#nizucalguestsmodal").modal('show');
-                    $("#nizucalsaveguest").prop("disabled",false);
+        } else { 
+            var isdoubleemail = false;
+            if(nizuguest_email == $("#nizucalc_email").val()){
+                isdoubleemail = true;
+            }
+            if(window.sessionStorage.getItem('nizucalc_guest'+1+'_email') !== null && !isdoubleemail){
+               
+                for(var i = nizucal_guests;i>0;i--){
+                    if(nizuguest_email == window.sessionStorage.getItem('nizucalc_guest'+i+'_email')){
+                        isdoubleemail = true;
+                        break;
+                    }
+                }
+            }
+            if(!isdoubleemail){
+                nizucal_guests++;
+                if (nizucal_guests>=4) {
+                    $("#nizucaladdguest").prop("disabled",true);
+                    $("#nizucaladdguest").css("display","none");
+                }
+                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
+                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
+                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
+                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
+                $("#nizucalguestsmodal").modal('hide');
+                $("#nizucalsaveguest").prop("disabled",true);
+                $("#nizucalguestsmodal input").each(function(){
+                    $(this).val("");
                 });
-            
+                $("#nizucalguestsmodal").find('select').val("");
+                $("#guest_countrycodelabel").text("");
+                if(temp == null){
+                    $("#nizucalguests").append('<div class="col-sm-12 col-md-12 row"><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name')+'<span></div><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email')+'<span></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_edit btn-circle btn-success"><i class="far fa-pen"></i></button></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_delete btn btn-circle btn-danger"><i class="fas fa-minus-circle"></i></button></div></div>');
+                    
+                    $(".nizu_btn_edit").on("click",function(){
+                        console.log($(this));
+                        temp = parseInt(nizucal_guests);
+                        nizucal_guests = $(this).attr("data-id");
+                        $("#nizucalguestsmodal").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email'));
+                        $("#nizucalguestsmodal").find('input[type="input"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name'));
+                        $("#nizucalguestsmodal").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phone'));
+                        $("#nizucalguestsmodal").find('select').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phonecountry'));
+                        $("#guest_countrycodelabel").text("+"+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phonecountry'));
+                        $("#nizucalguestsmodal").modal('show');
+                        $("#nizucalsaveguest").prop("disabled",false);
+                    });
+                    $(".nizu_btn_delete").on("click",function(){
+                        console.log(parseInt(nizucal_guests) + " | " + temp2 + " | " + temp3);
+                        if(temp3 != parseInt($(this).attr("data-id")) || temp2 == null){
+                            temp2 = parseInt(nizucal_guests);
+                            temp3 = parseInt($(this).attr("data-id"));
+                            /*window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_email');
+                            window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_name');
+                            window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_phone');
+                            window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_phonecountry');*/
+                            if(temp3 < temp2){
+                                for(j = temp3; j < temp2; j++){
+                                    temp4 = parseInt(j +1);
+                                    $('.nizu_btn_delete[data-id='+temp4+']').attr("data-id",j);
+                                    $('.nizu_btn_edit[data-id='+temp4+']').attr("data-id",j);
+                                    console.log('nizucalc_guest'+j+'_email' + " & " + 'nizucalc_guest'+temp4+'_email');
+                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_email', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_email'));
+                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_name', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_name'));
+                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_phone', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_phone'));
+                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_phonecountry', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_phonecountry'));
+                                }
+                            }
+                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_email');
+                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_name');
+                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_phone');
+                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_phonecountry');
+                            if(nizucal_guests > 0){
+                                nizucal_guests--;
+                            }
+                            temp3 = 0;
+                            $(this).parent().parent().remove();
+                            $("#nizucaladdguest").prop("disabled",false);
+                            $("#nizucaladdguest").css("display","inline-block");
+                        }
+                    });
+                
+                } else {
+                    nizucal_guests = parseInt(temp) +1;
+                    temp = null;
+                }
             } else {
-                nizucal_guests = parseInt(temp) +1;
-                temp = null;
+                alert("the email that you entered, you already used");
+                $("#nizucalguestsmodal").find('input[type="email]"').focus();
             }
         }
     });
