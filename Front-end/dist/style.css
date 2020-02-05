@@ -16,7 +16,9 @@ body {
 input {
     margin: 10px;
 }
-
+a button{
+    width: 60%;
+}
 .slider{
     width: 80%;
 }
@@ -25,8 +27,8 @@ input {
     margin-right: auto;
 }
 .centerNotes{
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .fullwidth{
     width: 100%;
