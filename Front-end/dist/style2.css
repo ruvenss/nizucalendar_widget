@@ -342,6 +342,8 @@ input {
     inset -7px -7px 20px rgba(255, 255, 255, 1),
     0px 0px 4px rgba(255, 255, 255, .2) !important;
     border-radius: 35px;
+    padding-top: 40px;
+}
 }
 
 .neumorphic-tab-container {
