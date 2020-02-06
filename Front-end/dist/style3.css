@@ -572,7 +572,7 @@ input {
     line-height: 35px;
     margin: 0 auto;
     color: #8A8A8A;
-    position: relative;
+    /*position: relative;*/
     text-align: center;
     cursor: pointer;
     z-index: 1;
@@ -595,37 +595,25 @@ input {
 }
 
 .datenumber:hover {
-    color: white;
+    color: black;
+    background-color: #EBECF0;
+    border-radius: 50%;
 }
 
-.datenumber:before {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 35px;
-    width: 35px;
-    border-radius: 100px;
-    z-index: -1;
-    background: transparent;
-    -webkit-transform: scale(0.75);
-    transform: scale(0.75);
-    -webkit-transition: all 0.25s cubic-bezier(0.7, -0.12, 0.2, 1.12);
-    transition: all 0.25s cubic-bezier(0.7, -0.12, 0.2, 1.12);
-    -webkit-transition-property: background, color, border, -webkit-transform;
-    transition-property: background, color, border, -webkit-transform;
-    transition-property: background, transform, color, border;
-    transition-property: background, transform, color, border, -webkit-transform;
-}
+
 
 .datenumber:hover::before {
-    background: #FFAB91;
+    background: #EBECF0;
     -webkit-transform: scale(1);
     transform: scale(1);
 }
 
 .day-selected {
-    color: white;
-    font-size: 2em;
+    color: black;
+    font-size: 22px;
+    background-color: #EBECF0;
+    border-radius: 50%;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0), inset 7px 7px 15px rgba(55, 84, 170, .15), inset -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, .2) !important;
 }
 
 .datenumber.day-selected:before {
