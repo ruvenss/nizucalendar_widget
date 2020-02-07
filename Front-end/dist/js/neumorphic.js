@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     let dropdown = $('#locality-dropdown');
     let input = $('#locality-input');
 
