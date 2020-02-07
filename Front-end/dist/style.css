@@ -14,7 +14,7 @@ body {
 }
 
 /*svg classes*/
-#Layer_1{
+#Arr_right{
     width: 4%;
     margin-left: 2%;
 }
@@ -234,10 +234,10 @@ a button{
 
 .neumorphic-text {
     color: #000000;
-
+    letter-spacing: 5px;
     font-size: xx-large;
     font-family: Quicksand, sans-serif;
-    font-weight: bold;
+    font-weight: lighter;
     margin: 1em 0;
 }
 

@@ -242,10 +242,10 @@ input {
 
 .neumorphic-text {
     color: #000000;
-
+    letter-spacing: 5px;
     font-size: xx-large;
     font-family: Quicksand, sans-serif;
-    font-weight: bold;
+    font-weight: lighter;
     margin: 1em 0;
 }
 
