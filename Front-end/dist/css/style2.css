@@ -12,6 +12,21 @@ body {
     text-align: center;
     justify-content: center;
 }
+#locality-dropdown{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: auto;
+    width: 93%;
+    padding: 1%;
+    color: black;
+    border: none;
+    font-size: 18px;
+    background-color: #EBECF0;
+
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0), inset 7px 7px 15px rgba(55, 84, 170, .15), inset -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, .2) !important;
+}
+
 
 #locality-input {
     margin: auto;
@@ -20,7 +35,7 @@ body {
     font-size: 18px;
     background-color: #EBECF0;
     border-radius: 20%;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0), inset 7px 7px 15px rgba(55, 84, 170, .15), inset -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, .2) !important
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0), inset 7px 7px 15px rgba(55, 84, 170, .15), inset -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, .2) !important;
 }
 
 /*svg classes*/

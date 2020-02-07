@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log("jQuery correct gelinkt");
+    
     let dropdown = $('#locality-dropdown');
     let input = $('#locality-input');
 
