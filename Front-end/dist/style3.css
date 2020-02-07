@@ -572,6 +572,7 @@ input {
 }
 
 .datecontainer {
+    float: left;
     width: 14.2857142%;
     display: inline-block;
     text-align: center;
