@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Nizu - Calendar - step 2</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet" href="./css/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -62,13 +62,12 @@
                         <div class="col-md-12">
                             <div class="center">
                                 <div class="d-flex p-2 col-12 float-left col-md-6">
-                                    <select>
-                                        <option value="BE">Belgium (+32)</option>
-                                        <option value="FR">France (+33)</option>
+                                    <select id="locality-dropdown" name="locality">
                                     </select>
                                 </div>
                                 <div class="d-flex p-2 col-12 float-left col-md-6">
-                                    <input class="neumorphic-input" type="tel" placeholder="Phone number"/>
+                                    <div id="locality-input">+00</div>
+                                    <input  class="neumorphic-input" type="tel" placeholder="Phone number"/>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +144,8 @@
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/popper.min.js'></script>
-<script src="./script.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/neumorphic.js"></script>
 
 </body>
 </html>
