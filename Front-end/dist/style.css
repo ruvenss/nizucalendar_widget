@@ -13,6 +13,19 @@ body {
     justify-content: center;
 }
 
+/*svg classes*/
+#Layer_1{
+    width: 4%;
+    margin-left: 2%;
+}
+.cls-1 {
+    fill: none;
+    stroke: #dc3545;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    width: 5%;
+}
+
 input {
     margin: 10px;
 }

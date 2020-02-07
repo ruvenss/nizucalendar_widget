@@ -13,6 +13,22 @@ body {
     justify-content: center;
 }
 
+/*svg classes*/
+#Arr_right{
+    width: 4%;
+    margin-left: 2%;
+}
+#Arr_left{
+    width: 4%;
+    margin-right: 2%;
+}
+.cls-1 {
+    fill: none;
+    stroke: #dc3545;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    width: 5%;
+}
 input {
     margin: 10px;
 }
