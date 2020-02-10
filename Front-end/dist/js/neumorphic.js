@@ -31,6 +31,9 @@ $(document).ready(function () {
     $("#plus_btn").click(function(){
         $("#guest").show();
     });
+    $("#close").click(function(){
+        $("#guest").hide();
+    });
 
     //neumorphic elements
     $('.neumorphic-checkbox').on('click', function () {
