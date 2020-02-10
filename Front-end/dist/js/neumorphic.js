@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
-    let dropdown = $('.locality-dropdown');
-    let input = $('.locality-input');
+    let dropdown = $('#locality-dropdown');
+    let input = $('#locality-input');
+
 
     dropdown.empty();
 
