@@ -12,7 +12,34 @@ body {
     text-align: center;
     justify-content: center;
 }
-#locality-dropdown{
+
+#guest{
+    background-color: #EBECF0;
+    border-radius: 10%;
+
+    position: absolute;
+    margin: auto;
+    z-index: 2000;
+    width: 50%;
+    height: 500px;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15),
+    -2px -4px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, .2),
+    inset 7px 7px 15px rgba(55, 84, 170, 0),
+    inset -1px -2px 20px rgba(255, 255, 255, 0),
+    0px 0px 4px rgba(255, 255, 255, 0) !important;
+}
+
+select:focus {
+    outline: none;
+}
+
+#plus{
+    width: 6%;
+    stroke-width: 7px;
+}
+
+.locality-dropdown {
     border-radius: 15px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -28,11 +55,12 @@ body {
 }
 
 
-#locality-input {
+.locality-input {
+    text-align: right;
     width: 100px;
     margin-left: 2%;
     margin-top: 2%;
-    Z-index: 1000;
+    z-index: 1000;
     position: absolute;
     background-color: #dc3545;
     padding: 1%;
@@ -362,9 +390,11 @@ input {
     text-align: start;
     margin: 25px 10px 5px;
 }
-.country{
-  padding-left: 100px !important;
+
+.country {
+    padding-left: 100px !important;
 }
+
 .neumorphic-input {
     background-color: var(--back-color);
     border-radius: 20px;

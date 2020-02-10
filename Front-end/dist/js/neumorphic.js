@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-    let dropdown = $('#locality-dropdown');
-    let input = $('#locality-input');
+    let dropdown = $('.locality-dropdown');
+    let input = $('.locality-input');
 
     dropdown.empty();
 
@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     const url = 'json/countries.json';
 
-    // Populate dropdown with list of provinces
+    // Populate dropdown with list of countries
     $.getJSON(url, function (data) {
         $.each(data, function (key, entry) {
             dropdown.append($('<option></option>').attr('value', entry.dial_code).text(entry.name + "(" + entry.dial_code + ")"));
@@ -25,7 +25,11 @@ $(document).ready(function () {
         console.log(str);
         input.text(str);
     });
-
+//show div for extra guest
+    $('#guest').hide();
+    $("#plus_btn").click(function(){
+        $("#guest").show();
+    });
 
     //neumorphic elements
     $('.neumorphic-checkbox').on('click', function () {
