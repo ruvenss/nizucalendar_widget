@@ -34,6 +34,10 @@ $(document).ready(function () {
     $("#close").click(function(){
         $("#guest").hide();
     });
+    $("#save").click(function(){
+        $("#guest").hide();
+        alert("You successfully saved a new guest.")
+    });
 
     //neumorphic elements
     $('.neumorphic-checkbox').on('click', function () {
