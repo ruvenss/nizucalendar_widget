@@ -24,6 +24,7 @@ body {
     stroke-linecap: round;
     stroke-miterlimit: 10;
     width: 5%;
+    /*filter: url(#glow);*/
 }
 
 input {
@@ -48,6 +49,12 @@ a button{
 }
 .btn:focus {
     outline: none !important;
+}
+.btn:hover{
+    opacity: 0.3;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .neumorphic-btn {
