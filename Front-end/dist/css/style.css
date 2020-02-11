@@ -30,6 +30,11 @@ body {
 input {
     margin: 10px;
 }
+
+a button:active{
+    transform: translateY(4px);
+}
+
 a button{
     width: 60%;
 }
@@ -99,8 +104,11 @@ a button{
     resize: none;
     padding: 1em;
     max-width: 100%;
-}
 
+}
+ textarea:focus{
+    outline: none;
+}
 .neumorphic-progress__back, .neumorphic-slider__back {
     height: 24px;
     background-color: var(--back-color);

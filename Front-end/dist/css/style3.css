@@ -13,6 +13,10 @@ body {
     justify-content: center;
 }
 
+button:active{
+    transform: translateY(4px);
+}
+
 #Arr_left{
     width: 4%;
     margin-right: 2%;
