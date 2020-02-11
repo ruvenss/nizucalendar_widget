@@ -13,33 +13,32 @@ body {
     justify-content: center;
 }
 
-#guest{
+#guest {
     background-color: #EBECF0;
-    border-radius: 10%;
-
     position: absolute;
     margin: auto;
     z-index: 2000;
     width: 50%;
     height: 500px;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15),
-    -2px -4px 20px rgba(255, 255, 255, 1),
-    inset 0px 0px 4px rgba(255, 255, 255, .2),
-    inset 7px 7px 15px rgba(55, 84, 170, 0),
-    inset -1px -2px 20px rgba(255, 255, 255, 0),
-    0px 0px 4px rgba(255, 255, 255, 0) !important;
 }
 
 select:focus {
     outline: none;
 }
 
-#plus{
+#plus {
     width: 6%;
     stroke-width: 7px;
 }
 
-#locality-dropdown {
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /* Remove default arrow */
+    background-image: url(../svg/arrow-down.svg); /* Add custom arrow */
+}
+
+#locality-dropdown, #locality-dropdown-guest {
     border-radius: 15px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -55,7 +54,7 @@ select:focus {
 }
 
 
-#locality-input {
+#locality-input, #locality-input-guest {
     text-align: right;
     width: 100px;
     margin-left: 2%;
@@ -98,7 +97,7 @@ input {
     width: 60%;
 }
 
-.btn:hover{
+.btn:hover {
     opacity: 0.7;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
     6px 6px 10px rgba(0, 0, 0, 0.2);

@@ -2,12 +2,17 @@ $(document).ready(function () {
 
     let dropdown = $('#locality-dropdown');
     let input = $('#locality-input');
-
+    let dropdown_guest = $('#locality-dropdown-guest');
+    let input_guest = $('#locality-input-guest');
 
     dropdown.empty();
+    dropdown_guest.empty();
 
     dropdown.append('<option selected="true" disabled>Choose country</option>');
     dropdown.prop('selectedIndex', 0);
+
+    dropdown_guest.append('<option selected="true" disabled>Choose country</option>');
+    dropdown_guest.prop('selectedIndex', 0);
 
     const url = 'json/countries.json';
 
@@ -17,24 +22,37 @@ $(document).ready(function () {
             dropdown.append($('<option></option>').attr('value', entry.dial_code).text(entry.name + "(" + entry.dial_code + ")"));
         })
     });
+    $.getJSON(url, function (data) {
+        $.each(data, function (key, entry) {
+            dropdown_guest.append($('<option></option>').attr('value', entry.dial_code).text(entry.name + "(" + entry.dial_code + ")"));
+        })
+    });
 
-    $("select").change(function () {
+    $("#locality-dropdown").change(function () {
         let str = "";
-        $("select option:selected").each(function () {
+        $("#locality-dropdown :selected").each(function () {
             str += $(this).val() + " ";
         });
         console.log(str);
         input.text(str);
     });
+    $("#locality-dropdown-guest").change(function () {
+        let str_guest = "";
+        $("#locality-dropdown-guest :selected").each(function () {
+            str_guest += $(this).val() + " ";
+        });
+        console.log(str_guest);
+        input_guest.text(str_guest);
+    });
 //show div for extra guest
     $('#guest').hide();
-    $("#plus_btn").click(function(){
+    $("#plus_btn").click(function () {
         $("#guest").show();
     });
-    $("#close").click(function(){
+    $("#close").click(function () {
         $("#guest").hide();
     });
-    $("#save").click(function(){
+    $("#save").click(function () {
         $("#guest").hide();
         alert("You successfully saved a new guest.")
     });
