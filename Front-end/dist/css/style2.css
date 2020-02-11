@@ -14,12 +14,17 @@ body {
 }
 
 #guest {
+    display: flex;
+    justify-content: center;
     background-color: #EBECF0;
     position: absolute;
     margin: auto;
     z-index: 2000;
-    width: 50%;
-    height: 500px;
+    max-width: 60%;
+    height: 75%;
+    bottom: 10%;
+    left: 20%;
+
 }
 
 select:focus {
@@ -120,6 +125,7 @@ input {
 
 .fullwidth {
     width: 100%;
+
 }
 
 .halfwidth {
@@ -518,4 +524,10 @@ input {
 
 .neumorphic-tab-container__tab_shown {
     display: flex;
+}
+
+@media only screen and (max-width: 770px) {
+    btn {
+        margin-top: 10%;
+    }
 }
