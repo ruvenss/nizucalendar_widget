@@ -37,10 +37,11 @@ select:focus {
 }
 
 select {
+
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; /* Remove default arrow */
-    background-image: url(../svg/arrow-down.svg); /* Add custom arrow */
+    background: url(../svg/arrow-down.svg) 96% / 5% no-repeat #eee;
 }
 
 #locality-dropdown, #locality-dropdown-guest {
@@ -50,7 +51,7 @@ select {
     appearance: none;
     margin: auto;
     width: 93%;
-    padding: 1%;
+    padding: 5px 15px;
     color: #535D74;
     border: none;
     /*font-size: 18px;*/
@@ -529,5 +530,17 @@ input {
 @media only screen and (max-width: 770px) {
     btn {
         margin-top: 10%;
+    }
+
+}
+
+@media only screen and (max-width: 570px) {
+    btn {
+        margin-top: 10%;
+    }
+
+    #guest {
+        max-width: 80%;
+        left: 10%;
     }
 }
