@@ -18,9 +18,8 @@ body {
     padding: 48px 64px;
     border-radius: 16px;
     background: #EBECF0;
-    box-shadow:
-            4px 4px 4px 0px #d1d9e6 inset,
-            -4px -4px 4px 0px #ffffff inset;
+    box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #ffffff inset;
     margin: auto;
 }
 
@@ -61,9 +60,8 @@ body {
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    box-shadow:
-            -8px -4px 8px 0px #ffffff,
-            8px 4px 12px 0px #d1d9e6;
+    box-shadow: -8px -4px 8px 0px #ffffff,
+    8px 4px 12px 0px #d1d9e6;
     overflow: hidden;
 }
 
@@ -79,16 +77,14 @@ body {
 }
 
 .indicator::before {
-    box-shadow:
-            -4px -2px 4px 0px #d1d9e6,
-            4px 2px 8px 0px #fff;
+    box-shadow: -4px -2px 4px 0px #d1d9e6,
+    4px 2px 8px 0px #fff;
 }
 
 .indicator::after {
     background-color: #ecf0f3;
-    box-shadow:
-            -4px -2px 4px 0px #fff,
-            4px 2px 8px 0px #d1d9e6;
+    box-shadow: -4px -2px 4px 0px #fff,
+    4px 2px 8px 0px #d1d9e6;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     -webkit-transition: opacity .25s ease-in-out, -webkit-transform .25s ease-in-out;
@@ -112,13 +108,15 @@ body {
 .label:hover .text {
     opacity: 1;
 }
+
 /*radio buttons neumorphic end*/
 
 /*svg classes*/
-#Arr_right{
+#Arr_right {
     width: 4%;
     margin-left: 2%;
 }
+
 .cls-1 {
     fill: none;
     stroke: #dc3545;
@@ -132,31 +130,37 @@ input {
     margin: 10px;
 }
 
-a button:active{
+a button:active {
     transform: translateY(4px);
 }
 
-a button{
+a button {
     width: 60%;
 }
-.slider{
+
+.slider {
     width: 80%;
 }
-.center{
+
+.center {
     margin-left: 10%;
     margin-right: auto;
 }
-.centerNotes{
+
+.centerNotes {
     margin-left: 5%;
     margin-right: 5%;
 }
-.fullwidth{
+
+.fullwidth {
     width: 100%;
 }
+
 .btn:focus {
     outline: none !important;
 }
-.btn:hover{
+
+.btn:hover {
     opacity: 0.7;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
     6px 6px 10px rgba(0, 0, 0, 0.2);
@@ -207,9 +211,11 @@ a button{
     max-width: 100%;
 
 }
- textarea:focus{
+
+textarea:focus {
     outline: none;
 }
+
 .neumorphic-progress__back, .neumorphic-slider__back {
     height: 24px;
     background-color: var(--back-color);
@@ -280,6 +286,7 @@ a button{
     margin-left: -10px;
     cursor: pointer;
 }
+
 .neumorphic-slider__thumb:nth-child(4) {
     box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), 0px 0px 15px rgba(55, 84, 170, .3);
     width: 20px;
@@ -305,7 +312,6 @@ a button{
     margin-left: -10px;
     cursor: pointer;
 }
-
 
 
 .neumorphic-slider__popover {
@@ -349,12 +355,13 @@ a button{
 }
 
 .neumorphic-text {
-    color: #000000;
+    color: #BABECC;
     letter-spacing: 5px;
     font-size: xx-large;
     font-family: Quicksand, sans-serif;
-    font-weight: lighter;
+    font-weight: bolder;
     margin: 1em 0;
+    text-shadow: 1px 1px 1px #FFF;
 }
 
 .neumorphic-checkbox {
