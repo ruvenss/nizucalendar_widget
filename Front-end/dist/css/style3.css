@@ -236,12 +236,13 @@ input {
 }
 
 .neumorphic-text {
-    color: #000000;
+    color: #BABECC;
     letter-spacing: 5px;
     font-size: xx-large;
     font-family: Quicksand, sans-serif;
-    font-weight: lighter;
+    font-weight: bolder;
     margin: 1em 0;
+    text-shadow: 1px 1px 1px #FFF;
 }
 
 .neumorphic-checkbox {

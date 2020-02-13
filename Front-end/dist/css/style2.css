@@ -48,23 +48,22 @@ select {
     background: url(../svg/arrow-down.svg) 96% / 5% no-repeat #eee;
 }
 
+
 #locality-dropdown, #locality-dropdown-guest {
-    border-radius: 15px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: auto;
-    width: 95%;
-    padding: 5px 15px;
-    color: #535D74;
     border: none;
-    /*font-size: 18px;*/
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 9px;
     background-color: #EBECF0;
-    box-shadow: 0px 0px 0px rgba(55, 84, 170, .15),
-    inset 0px 0px 4px rgba(255, 255, 255, 0),
-    inset 7px 7px 15px rgba(55, 84, 170, .15),
-    inset -7px -7px 20px rgba(255, 255, 255, 1),
-    0px 0px 4px rgba(255, 255, 255, .2) !important;
+    text-shadow: 1px 1px 0 #FFF;
+    margin-left: 2%;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    width: 96%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 
@@ -76,7 +75,7 @@ select {
     z-index: 1000;
     position: absolute;
     background-color: #dc3545;
-    padding: 1%;
+    padding: 2%;
     color: white;
     font-size: 18px;
     border-top-left-radius: 25px;
@@ -314,12 +313,13 @@ input {
 }
 
 .neumorphic-text {
-    color: #000000;
+    color: #BABECC;
     letter-spacing: 5px;
     font-size: xx-large;
     font-family: Quicksand, sans-serif;
-    font-weight: lighter;
+    font-weight: bolder;
     margin: 1em 0;
+    text-shadow: 1px 1px 1px #FFF;
 }
 
 .neumorphic-checkbox {
@@ -403,31 +403,24 @@ input {
 }
 
 .neumorphic-input {
-    background-color: var(--back-color);
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0px 0px 0px rgba(55, 84, 170, .15),
-    inset 0px 0px 4px rgba(255, 255, 255, 0),
-    inset 7px 7px 15px rgba(55, 84, 170, .15),
-    inset -7px -7px 20px rgba(255, 255, 255, 1),
-    0px 0px 4px rgba(255, 255, 255, .2) !important;
-    padding: 5px 15px;
-    outline: none !important;
-    color: #535D74;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 9px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
     width: 100%;
-    position: relative;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
-.neumorphic-input ::-webkit-input-placeholder { /* Edge */
-    color: #00000040;
-}
-
-.neumorphic-input :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #00000040;
-}
-
-::placeholder {
-    color: #00000040;
+.neumorphic-input:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
 
 
@@ -536,7 +529,10 @@ input {
     #guest {
         max-width: 80%;
         left: 10%;
-        height: 80%;
-        bottom: 3%;
+        height: 85%;
+        bottom: 2%;
     }
+    #locality-input, #locality-input-guest {
+       
+        margin-top: 4%;
 }

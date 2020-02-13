@@ -181,17 +181,25 @@ a button {
     width: 80%;
 }
 
+
 .textarea {
-    background-color: #FFFFFF;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
     border-radius: 2em;
-    border: #F2F2F2 4px solid;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
     resize: none;
     padding: 1em;
     max-width: 100%;
-
 }
 
 textarea:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
     outline: none;
 }
 
