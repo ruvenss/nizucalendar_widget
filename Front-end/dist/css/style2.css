@@ -71,7 +71,7 @@ select {
     text-align: right;
     width: 100px;
     margin-left: 2%;
-    margin-top: 2%;
+    margin-top: 9px;
     z-index: 1000;
     position: absolute;
     background-color: #dc3545;
