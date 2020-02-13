@@ -18,8 +18,8 @@ body {
     padding: 48px 64px;
     border-radius: 16px;
     background: #EBECF0;
-    box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
-    -4px -4px 4px 0px #ffffff inset;
+   /* box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #ffffff inset;*/
     margin: auto;
 }
 
@@ -201,6 +201,26 @@ a button {
 textarea:focus {
     box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
     outline: none;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #808080;
+}
+
+textarea:-moz-placeholder { /* Firefox 18- */
+    color: #808080;
+}
+
+textarea::-moz-placeholder { /* Firefox 19+ */
+    color: #808080;
+}
+
+textarea:-ms-input-placeholder {
+    color: #808080;
+}
+
+textarea::placeholder {
+    color: #808080;
 }
 
 .neumorphic-progress__back, .neumorphic-slider__back {

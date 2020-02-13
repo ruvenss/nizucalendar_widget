@@ -13,14 +13,15 @@ body {
     justify-content: center;
 }
 
-button:active{
+button:active {
     transform: translateY(4px);
 }
 
-#Arr_left{
+#Arr_left {
     width: 4%;
     margin-right: 2%;
 }
+
 .cls-1 {
     fill: none;
     stroke: #dc3545;
@@ -32,34 +33,37 @@ button:active{
 input {
     margin: 10px;
 }
-.btn{
+
+.btn {
     width: 60%;
 }
 
-.btn:hover{
+.btn:hover {
     opacity: 0.7;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
     6px 6px 10px rgba(0, 0, 0, 0.2);
 
 }
 
-.slider{
+.slider {
     width: 80%;
 }
-.center{
+
+.center {
     margin-left: 10%;
     margin-right: 10%;
 }
 
-.centerNotes{
+.centerNotes {
     margin-left: auto;
     margin-right: auto;
 }
-.fullwidth{
+
+.fullwidth {
     width: 100%;
 }
 
-.halfwidth{
+.halfwidth {
     width: 100%;
 }
 
@@ -167,6 +171,7 @@ input {
     margin-left: -10px;
     cursor: pointer;
 }
+
 .neumorphic-slider__thumb:nth-child(4) {
     box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), 0px 0px 15px rgba(55, 84, 170, .3);
     width: 20px;
@@ -192,7 +197,6 @@ input {
     margin-left: -10px;
     cursor: pointer;
 }
-
 
 
 .neumorphic-slider__popover {
@@ -614,7 +618,6 @@ input {
 }
 
 
-
 .datenumber:hover::before {
     background: #EBECF0;
     -webkit-transform: scale(1);
@@ -645,6 +648,7 @@ input {
         background: #FF6E40;
     }
 }
+
 @keyframes select-date {
     0% {
         background: #FFAB91;
@@ -653,6 +657,7 @@ input {
         background: #FF6E40;
     }
 }
+
 /* timepicker styles */
 .timepicker-container-outer {
     width: 50%;
@@ -684,6 +689,7 @@ input {
     width: 100%;
     height: 36px;
 }
+
 .timeline {
     display: block;
     z-index: 1;
@@ -694,7 +700,6 @@ input {
 }
 
 .
-
 .timeline::after {
     left: auto;
     right: -1px;
@@ -704,21 +709,27 @@ input {
     color: white;
     background: #0DAD83;
 }
+
 .datepicker.am .current-time::after {
     background: #0DAD83;
 }
+
 .datepicker.am .actual-time {
     color: white;
 }
+
 .datepicker.am .display-time {
     color: #FF6E40;
 }
+
 .datepicker.am .time-input {
     color: #FF693C;
 }
+
 .datepicker.am .time:after {
     background: #FF693C;
 }
+
 .datepicker.am .increment-time path,
 .datepicker.am .decrement-time path {
     stroke: #FF693C;
@@ -728,67 +739,85 @@ input {
     background: white;
     color: #FF693C;
 }
+
 .datepicker.pm .datepicker-subheader {
     color: #0DAD83;
 }
+
 .datepicker.pm .goback:before,
 .datepicker.pm .goback:after,
 .datepicker.pm .goforward:before,
 .datepicker.pm .goforward:after {
     background: white;
 }
+
 .datepicker.pm .day-label {
     color: white;
 }
+
 .datepicker.pm .datenumber {
     color: white;
 }
+
 .datepicker.pm .datenumber:hover::before {
     background: rgba(255, 255, 255, 0.5);
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+
 .datepicker.pm .datenumber.day-selected {
     color: #FF693C;
 }
+
 .datepicker.pm .datenumber.day-selected:before {
     background: white;
     -webkit-animation: select-date-pm .25s forwards;
     animation: select-date-pm .25s forwards;
 }
+
 .datepicker.pm .current-month-container {
     color: white;
 }
+
 .datepicker.pm .current-time::after {
     background: white;
 }
+
 .datepicker.pm .actual-time {
     color: #FF6E40;
 }
+
 .datepicker.pm .display-time {
     color: white;
 }
+
 .datepicker.pm .timeline::before, .datepicker.pm .pm .timeline::after {
     background: white;
 }
+
 .datepicker.pm .hour-mark {
     background: white;
 }
+
 .datepicker.pm .am-pm-button:last-child {
     color: #FF6E40;
 }
+
 .datepicker.pm .cancel-button {
     background: none;
     color: white;
 }
+
 .datepicker.pm .save-button {
     background: white;
     color: #FF693C;
 }
+
 .datepicker.pm .goback path,
 .datepicker.pm .goforward path {
     stroke: white;
 }
+
 .datepicker.pm .time-input:focus ~ .formatted-time {
     background: white;
     color: #FF693C;
@@ -799,33 +828,40 @@ input {
     width: 100%;
     text-align: center;
 }
+
 .datepicker.compact .datepicker-title {
     height: 50px;
     line-height: 50px;
 }
+
 .datepicker.compact .datepicker-subheader {
     height: 30px;
     line-height: 30px;
 }
+
 .datepicker.compact .display-time {
     width: 60%;
     font-size: 20px;
     line-height: 36px;
 }
+
 .datepicker.compact .app-container {
     width: 100%;
 }
+
 .datepicker.compact .datepicker-calendar {
     width: 100%;
     margin: 0 auto;
     float: none;
 }
+
 .datepicker.compact .timepicker-container-outer {
     width: 100%;
     margin: 0 auto;
     float: none;
     top: -15px;
 }
+
 .datepicker.compact .buttons-container {
     position: relative;
     float: right;

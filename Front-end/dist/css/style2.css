@@ -24,10 +24,10 @@ body {
     height: 62%;
     bottom: 23%;
     left: 20%;
-    box-shadow: 10px 10px 5px 200px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 200px rgba(0, 0, 0, 0.75);
 }
 
-button:active{
+button:active {
     transform: translateY(4px);
 }
 
@@ -532,7 +532,9 @@ input {
         height: 85%;
         bottom: 2%;
     }
+
     #locality-input, #locality-input-guest {
-       
+
         margin-top: 4%;
+    }
 }
