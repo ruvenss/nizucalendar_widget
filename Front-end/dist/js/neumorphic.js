@@ -46,6 +46,7 @@ $(document).ready(function () {
     });
 //show div for extra guest
     $('#guest').hide();
+    $('#guest_list').hide();
     $("#plus_btn").click(function () {
         $("#guest").show();
     });
@@ -54,6 +55,7 @@ $(document).ready(function () {
     });
     $("#save").click(function () {
         $("#guest").hide();
+        $('#guest_list').show();
         alert("You successfully saved a new guest.")
     });
 
