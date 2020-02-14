@@ -12,7 +12,12 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+#edit_guest{
+    padding: 0 !important;
+}
+#delete_guest{
+    padding: 0 !important;
+}
 #guest {
     display: flex;
     justify-content: center;
@@ -61,13 +66,16 @@ select {
     box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
     width: 96%;
     box-sizing: border-box;
-
+    transition: all 0.2s ease-in-out;
     appearance: none;
     -webkit-appearance: none;
 }
 
 #locality-dropdown:hover, #locality-dropdown-guest:hover {
     box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC !important;
+}
+#locality-dropdown:active, #locality-dropdown-guest:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
 
 
