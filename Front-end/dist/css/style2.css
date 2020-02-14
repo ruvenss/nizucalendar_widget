@@ -46,8 +46,8 @@ select {
     -moz-appearance: none;
     appearance: none; /* Remove default arrow */
     background: url(../svg/arrow-down.svg) 96% / 5% no-repeat #eee;
+    text-shadow: 1px 1px 0 #FFF;
 }
-
 
 #locality-dropdown, #locality-dropdown-guest {
     border: none;
@@ -58,12 +58,16 @@ select {
     background-color: #EBECF0;
     text-shadow: 1px 1px 0 #FFF;
     margin-left: 2%;
-    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
     width: 96%;
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
+
     appearance: none;
     -webkit-appearance: none;
+}
+
+#locality-dropdown:hover, #locality-dropdown-guest:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC !important;
 }
 
 
