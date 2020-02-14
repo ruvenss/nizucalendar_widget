@@ -73,7 +73,6 @@ $(document).ready(function () {
 
     //get data from guest and inserting in guest list
 
-
     //neumorphic elements
     $('.neumorphic-checkbox').on('click', function () {
         $(this).toggleClass('neumorphic-checkbox_active');
