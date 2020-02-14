@@ -56,8 +56,23 @@ $(document).ready(function () {
     $("#save").click(function () {
         $("#guest").hide();
         $('#guest_list').show();
-        alert("You successfully saved a new guest.")
+
+        let str_guest_email = "";
+        let str_guest_name = "";
+        str_guest_name = $("#guest_Fname").val() + " " + $("#guest_name").val();
+        str_guest_email = $("#guest_email").val();
+
+        $("#guest_name_list").text(str_guest_name);
+        $("#guest_email_list").text(str_guest_email);
     });
+    $("#delete_guest").click(function () {
+        $("#guest_name_list").text("");
+        $("#guest_email_list").text("");
+        $('#guest_list').hide();
+    });
+
+    //get data from guest and inserting in guest list
+
 
     //neumorphic elements
     $('.neumorphic-checkbox').on('click', function () {

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,13 +42,13 @@
                                 </div>
                                 <div class="guest-body">
                                     <div class="d-flex p-2 col-12 float-left col-md-6">
-                                        <input class="neumorphic-input" type="text" placeholder="Name" required/>
+                                        <input class="neumorphic-input" type="text" placeholder="Name" id="guest_name" required/>
                                     </div>
                                     <div class="d-flex p-2 col-12 float-left col-md-6">
-                                        <input class="neumorphic-input" type="text" placeholder="First name" required/>
+                                        <input class="neumorphic-input" type="text" placeholder="First name" id="guest_Fname" required/>
                                     </div>
                                     <div class="d-flex p-2 col-12 float-left col-md-12">
-                                        <input class="neumorphic-input" type="email" placeholder="Emailadres" required/>
+                                        <input class="neumorphic-input" type="email" placeholder="Emailadres" id="guest_email" required/>
                                     </div>
                                     <div class="d-flex p-2 col-12 float-left col-md-6 mt-2">
                                         <select id="locality-dropdown-guest" name="locality">
@@ -150,10 +151,10 @@
                 <hr>
                 <div class="col-sm-12 col-md-11 row p-4" id="guest_list">
                     <div class="mt-2 col-sm-5 col-md-5 float-left">
-                        <span><b>guest name 1</b></span>
+                        <span id="guest_name_list"><b>guest name 1</b></span>
                     </div>
                     <div class="mt-2 col-sm-5 col-md-5 float-left">
-                        <span>guest email 1</span>
+                        <span id="guest_email_list">guest email 1</span>
                     </div>
                     <div class="col-12 col-md-1 float-left">
                         <button type="button" id="edit_guest" class="btn neumorphic-btn next">
@@ -170,7 +171,6 @@
                         <button type="button" id="delete_guest" class="btn neumorphic-btn next">
                             <svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 81.67 98">
-
                                 <title>delete</title>
                                 <path class="guest_icon"
                                       d="M89.15,13.38,66,9.53,64.27,2.66a2,2,0,0,0-2-1.55H37.75a2,2,0,0,0-2,1.55L34.09,9.53,10.92,13.38a2,2,0,0,0-1.72,2v8.17a2,2,0,0,0,2,2H88.83a2,2,0,0,0,2-2V15.4A2,2,0,0,0,89.15,13.38Z"
