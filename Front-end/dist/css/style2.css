@@ -7,6 +7,15 @@
     --back-color: #EBECF0;
 }
 
+#guest_icon{
+    margin-bottom: 10%;
+    width: 55%;
+}
+.guest_icon{
+    margin-bottom: 10%;
+    width: 60%;
+    fill: #DC3545;
+}
 body {
     background-color: var(--back-color);
     text-align: center;
