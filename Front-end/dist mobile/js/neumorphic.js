@@ -72,7 +72,7 @@ $(document).ready(function () {
     });
 
     //menu bottom
-    let links = document.querySelectorAll('a');
+   /* let links = document.querySelectorAll('a');
     let background = document.querySelector('.link-background');
 
 
@@ -90,7 +90,7 @@ $(document).ready(function () {
             clickHandler(e.currentTarget);
 
         });
-    });
+    });*/
 
     //neumorphic elements
     $('.neumorphic-checkbox').on('click', function () {

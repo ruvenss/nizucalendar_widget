@@ -14,7 +14,8 @@ body {
 }
 
 .container{
-    Z-index: 1000
+    Z-index: 1000;
+    margin-bottom: 60px;
 }
 
 /*radio buttons neumorphic*/
@@ -117,7 +118,7 @@ body {
 
 /*svg classes*/
 #Arr_right {
-    width: 4%;
+    width: 10%;
     margin-left: 2%;
 }
 
@@ -146,6 +147,7 @@ a button {
     width: 80%;
     position: fixed;
     Z-INDEX: 2000;
+    bottom: 90vh;
 }
 
 .center {
@@ -179,7 +181,7 @@ a button {
     border-radius: 40px;
     color: #6D7587;
     background-color: var(--back-color);
-    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+
     transition: all 0.2s ease-in-out;
 }
 
@@ -574,18 +576,28 @@ textarea::placeholder {
 .neumorphic-tab-container__tab_shown {
     display: flex;
 }
-
-/*menu bottom*/
-.text-center{
-    margin-bottom: 144px;
+.button-down{
+    width: 50%;
 }
+.button{
+    width: 100%;
+}
+
 .bottom-row{
     position: fixed;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    height: 20px;
+    height: 10vh;
+    padding: 1% 5%;
+    background-color: #DC3545;
 }
+/*menu bottom*/
+/*
+.text-center{
+    margin-bottom: 144px;
+}
+
 nav {
     position: relative;
 
@@ -598,7 +610,7 @@ ul {
 }
 li {
     display: inline-block;
-    margin: 40px 20px;
+
 }
 
 a {
@@ -610,8 +622,8 @@ a {
 svg {
     fill: none;
     stroke: #FFFFFF;
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 60px;
     transform: translateX(35px);
     transition: 0.4s ease all;
 }
@@ -624,7 +636,7 @@ a.active svg {
 }
 .link-text {
     color: white;
-    margin-left: 16px;
+
     opacity: 0;
     transition: 0.3s ease all;
     user-select: none;
@@ -640,11 +652,12 @@ a.active .link-text {
 .link-background {
     position: absolute;
     left: 30px;
-    top: 30%;
+
     background: #d0646f;
     border-radius: 18px;
     width: 153px;
-    height: 70px;
+    height: 50px;
     z-index: 0;
     transition: 0.4s cubic-bezier(0.7, 0, 0.38, 0.86) all;
 }
+*/
