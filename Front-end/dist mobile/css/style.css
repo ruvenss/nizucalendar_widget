@@ -13,7 +13,9 @@ body {
     justify-content: center;
 }
 
-
+.container{
+    Z-index: 1000
+}
 
 /*radio buttons neumorphic*/
 .radiogroup {
@@ -143,7 +145,7 @@ a button {
 .slider {
     width: 80%;
     position: fixed;
-    Z-INDEX: 1000;
+    Z-INDEX: 2000;
 }
 
 .center {
@@ -520,7 +522,11 @@ textarea::placeholder {
     inset -7px -7px 20px rgba(255, 255, 255, 1),
     0px 0px 4px rgba(255, 255, 255, .2) !important;
     border-radius: 35px;
-    height: 100vh;
+    position:relative;
+    overflow: scroll;
+    width: 95vw;
+    height: 95vh;
+    margin: 5% auto auto;
 }
 
 .neumorphic-tab-container {
@@ -567,4 +573,76 @@ textarea::placeholder {
 
 .neumorphic-tab-container__tab_shown {
     display: flex;
+}
+
+/*menu bottom*/
+.bottom-row{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 25vh;
+}
+nav {
+    position: relative;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    background: #432fbf;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 2px 10px 20px rgba(67, 47, 191, 0.5);
+    margin-bottom: 0 !important;
+}
+li {
+    display: inline-block;
+    margin: 40px 20px;
+}
+
+a {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+}
+svg {
+    stroke: #9386ea;
+    width: 44px;
+    height: 44px;
+    transform: translateX(35px);
+    transition: 0.4s ease all;
+}
+a.active {
+    color: white;
+}
+a.active svg {
+    stroke: white;
+    transform: translateX(0px);
+}
+.link-text {
+    color: white;
+    margin-left: 16px;
+    opacity: 0;
+    transition: 0.3s ease all;
+    user-select: none;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+a.active .link-text {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+.link-background {
+    position: absolute;
+    left: 30px;
+    top: 30%;
+    background: #5e4ecb;
+    border-radius: 18px;
+    width: 153px;
+    height: 70px;
+    z-index: 0;
+    transition: 0.4s cubic-bezier(0.7, 0, 0.38, 0.86) all;
 }

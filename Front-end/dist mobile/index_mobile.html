@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nizu - Calendar - step 1</title>
+    <title>Nizu - Calendar - step 1 - mobile</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -11,88 +11,114 @@
 <body>
 <!-- partial:index.partial.html -->
 
-<div class=" neumorphic-inner">
-
-</div>
-<div class="py-5 ">
+<div class="py-5 neumorphic-inner">
     <div class="container">
 
 
-            <div class="d-flex p-2 mx-auto slider">
-                <div class="neumorphic-slider col-12">
-                    <div class="neumorphic-slider__back"></div>
-                    <div class="neumorphic-slider__line"></div>
-                    <div class="neumorphic-slider__thumb">1</div>
-                    <div class="neumorphic-slider__thumb">2</div>
-                    <div class="neumorphic-slider__thumb">3</div>
-                </div>
+        <div class="d-flex p-2 mx-auto slider">
+            <div class="neumorphic-slider col-12">
+                <div class="neumorphic-slider__back"></div>
+                <div class="neumorphic-slider__line"></div>
+                <div class="neumorphic-slider__thumb">1</div>
+                <div class="neumorphic-slider__thumb">2</div>
+                <div class="neumorphic-slider__thumb">3</div>
             </div>
+        </div>
 
-            <div class="text-center">
-                <label class="neumorphic-text mt-5">MEETING SUBJECT</label>
-                <br>
-                <div class="radiogroup col-11 col-md-5">
-                    <div class="wrapper">
-                        <input class="state" type="radio" name="app" id="a" value="a">
-                        <label class="label" for="a">
-                            <div class="indicator"></div>
-                            <span class="text">Business meeting</span>
-                        </label>
-                    </div>
-                    <div class="wrapper">
-                        <input class="state" type="radio" name="app" id="b" value="b">
-                        <label class="label" for="b">
-                            <div class="indicator"></div>
-                            <span class="text">New project</span>
-                        </label>
-                    </div>
-                    <div class="wrapper">
-                        <input class="state" type="radio" name="app" id="c" value="c">
-                        <label class="label" for="c">
-                            <div class="indicator"></div>
-                            <span class="text">Nizu training</span>
-                        </label>
-                    </div>
+        <div class="text-center">
+            <label class="neumorphic-text mt-5">MEETING SUBJECT</label>
+            <br>
+            <div class="radiogroup col-11 col-md-5">
+                <div class="wrapper">
+                    <input class="state" type="radio" name="app" id="a" value="a">
+                    <label class="label" for="a">
+                        <div class="indicator"></div>
+                        <span class="text">Business meeting</span>
+                    </label>
+                </div>
+                <div class="wrapper">
+                    <input class="state" type="radio" name="app" id="b" value="b">
+                    <label class="label" for="b">
+                        <div class="indicator"></div>
+                        <span class="text">New project</span>
+                    </label>
+                </div>
+                <div class="wrapper">
+                    <input class="state" type="radio" name="app" id="c" value="c">
+                    <label class="label" for="c">
+                        <div class="indicator"></div>
+                        <span class="text">Nizu training</span>
+                    </label>
+                </div>
 
-                </div>
-                <div class="form-check py-2 radio col-12">
-                    <label class="neumorphic-text">NOTES</label>
-                </div>
-                <div class="content fullwidth">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="centerNotes">
+            </div>
+            <div class="form-check py-2 radio col-12">
+                <label class="neumorphic-text">NOTES</label>
+            </div>
+            <div class="content fullwidth">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="centerNotes">
 
                                 <textarea class="textarea" type="text" placeholder="Notes" rows="7%"
                                           cols="100%"></textarea>
 
-                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-
-                    <div class="col-12 col-md-6 float-right">
-                        <a href="step2.html">
-                            <button type="button" class="my-5 btn neumorphic-btn next">Next
-                                <svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 9.5 18.22">
-
-                                    <title>arrow-right</title>
-                                    <path class="cls-1" d="M203.5,340.28l8.42,8.42a.26.26,0,0,1,0,.38l-8.42,8.42"
-                                          transform="translate(-203 -339.78)"/>
+            </div>
+            <div class="row bottom-row">
+                <nav>
+                    <div class="link-background"></div>
+                    <ul>
+                        <li>
+                            <a class="active">
+                                <svg>
+                                    <use xlink:href="#home">
                                 </svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
+                                <span class="link-text">Next</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <svg>
+                                    <use xlink:href="#inbox">
+                                </svg>
+                                <span class="link-text">Back</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <svg style=display:none;>
+                    <symbol version="1.1" id="home" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 50 50">
+                        <path fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M31,44.738v-8.52
+    c0-1.505-0.69-2.929-1.877-3.87l0,0c-1.826-1.448-4.421-1.448-6.247,0l0,0C21.69,33.288,21,34.712,21,36.218v3.565"/>
+                        <line fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"
+                              x1="15" y1="20.223" x2="29" y2="20.223"/>
+                        <path fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M8,19.232
+    L24.681,5.466c0.758-0.632,1.869-0.62,2.612,0.03l15.03,13.144C42.754,19.016,43,19.557,43,20.126v22.892
+    C43,44.113,42.105,45,41,45h-8.6H31H10c-1.105,0-2-0.887-2-1.982V28.151c0-1.095,0.895-1.982,2-1.982h7"/>
+                    </symbol>
+                    <symbol version="1.1" id="inbox" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 50 50">
+                        <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M45.5,39.5h-40c-1.657,0-3-1.343-3-3V23.55
+		c0-0.028,0.022-0.05,0.05-0.05h13.555l0.665,1.989c0.952,3.563,4.29,6.106,8.139,6.115c0.061,0,0.122,0,0.183,0
+		c3.849-0.009,7.187-2.552,8.139-6.115l0.665-1.989H47.45c0.028,0,0.05,0.022,0.05,0.05V37.5C47.5,38.605,46.605,39.5,45.5,39.5z"/>
+                        <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M47.5,23.5l-7.109-11.664
+		c-0.556-0.835-1.493-1.336-2.496-1.336H12.106c-1.003,0-1.94,0.501-2.496,1.336L2.5,23.5"/>
+                    </symbol>
+
+                </svg>
             </div>
 
         </div>
 
+    </div>
 </div>
-
 
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
