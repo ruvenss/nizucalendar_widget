@@ -73,7 +73,7 @@ $(document).ready(function () {
 
     //menu bottom
     let links = document.querySelectorAll('a');
-    let background = document.querySelector('.link-background')
+    let background = document.querySelector('.link-background');
 
 
     const clickHandler = (el) => {

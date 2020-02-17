@@ -576,23 +576,24 @@ textarea::placeholder {
 }
 
 /*menu bottom*/
+.text-center{
+    margin-bottom: 144px;
+}
 .bottom-row{
     position: fixed;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    height: 25vh;
+    height: 20px;
 }
 nav {
     position: relative;
+
 }
 ul {
     list-style-type: none;
     padding: 0;
-    background: #432fbf;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    box-shadow: 2px 10px 20px rgba(67, 47, 191, 0.5);
+    background: #DC3545;
     margin-bottom: 0 !important;
 }
 li {
@@ -607,7 +608,8 @@ a {
     padding: 10px 25px;
 }
 svg {
-    stroke: #9386ea;
+    fill: none;
+    stroke: #FFFFFF;
     width: 44px;
     height: 44px;
     transform: translateX(35px);
@@ -639,7 +641,7 @@ a.active .link-text {
     position: absolute;
     left: 30px;
     top: 30%;
-    background: #5e4ecb;
+    background: #d0646f;
     border-radius: 18px;
     width: 153px;
     height: 70px;
