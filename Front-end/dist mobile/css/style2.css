@@ -11,7 +11,9 @@
     margin-bottom: 10%;
     width: 55%;
 }
-
+.container{
+    margin-bottom: 65%;
+}
 .guest_icon {
     margin-bottom: 10%;
     width: 60%;
@@ -148,7 +150,7 @@ input {
     width: 80%;
     position: fixed;
     Z-INDEX: 2000;
-    bottom: 90vh;
+    bottom: 78vh;
 }
 
 .center {

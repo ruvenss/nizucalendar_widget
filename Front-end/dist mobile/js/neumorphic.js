@@ -58,6 +58,7 @@ $(document).ready(function () {
     $("#save").click(function () {
         $("#guest").hide();
         $('#guest_list').show();
+        $("#personal_info").show();
 
         let str_guest_email = "";
         let str_guest_name = "";

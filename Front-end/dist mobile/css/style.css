@@ -15,7 +15,7 @@ body {
 
 .container{
     Z-index: 1000;
-    margin-bottom: 60px;
+    margin-bottom: 45%;
 }
 
 /*radio buttons neumorphic*/
@@ -147,7 +147,7 @@ a button {
     width: 80%;
     position: fixed;
     Z-INDEX: 2000;
-    bottom: 90vh;
+    bottom: 78vh;
 }
 
 .center {
