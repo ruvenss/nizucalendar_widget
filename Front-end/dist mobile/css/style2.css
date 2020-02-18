@@ -556,15 +556,14 @@ input {
     }
 
     #guest {
-        max-width: 80%;
-        left: 10%;
+        max-width: 90%;
+        left: 5%;
         height: 85%;
         bottom: 2%;
     }
 
     #locality-input, #locality-input-guest {
-
-        margin-top: 4%;
+        margin-top: 3%;
     }
 }
 .button-down{
