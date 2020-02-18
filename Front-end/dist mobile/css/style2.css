@@ -7,26 +7,31 @@
     --back-color: #EBECF0;
 }
 
-#guest_icon{
+#guest_icon {
     margin-bottom: 10%;
     width: 55%;
 }
-.guest_icon{
+
+.guest_icon {
     margin-bottom: 10%;
     width: 60%;
     fill: #DC3545;
 }
+
 body {
     background-color: var(--back-color);
     text-align: center;
     justify-content: center;
 }
-#edit_guest{
+
+#edit_guest {
     padding: 0 !important;
 }
-#delete_guest{
+
+#delete_guest {
     padding: 0 !important;
 }
+
 #guest {
     display: flex;
     justify-content: center;
@@ -50,7 +55,7 @@ select:focus {
 }
 
 #plus {
-    width: 6%;
+    width: 12%;
     stroke-width: 7px;
 }
 
@@ -83,6 +88,7 @@ select {
 #locality-dropdown:hover, #locality-dropdown-guest:hover {
     box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC !important;
 }
+
 #locality-dropdown:active, #locality-dropdown-guest:active {
     box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
@@ -490,7 +496,7 @@ input {
     inset -7px -7px 20px rgba(255, 255, 255, 1),
     0px 0px 4px rgba(255, 255, 255, .2) !important;
     border-radius: 35px;
-    position:relative;
+    position: relative;
     overflow: scroll;
     width: 95vw;
     height: 95vh;
@@ -566,21 +572,23 @@ input {
         margin-top: 3%;
     }
 }
-.button-down{
+
+.button-down {
     width: 50%;
 }
-.button{
+
+.button {
     width: 100%;
     box-shadow: inset 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(55, 84, 170, .15), inset 0px 0px 0px rgba(255, 255, 255, 1) !important;
 }
 
-.bottom-row{
+.bottom-row {
     Z-index: 3000;
     position: fixed;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    height: 10%;
+    margin: auto;
     padding: 1% 5%;
     background-color: #DC3545;
 }

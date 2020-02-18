@@ -584,12 +584,13 @@ textarea::placeholder {
 
 }
 
-.bottom-row{
+.bottom-row {
+    Z-index: 3000;
     position: fixed;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    height: 10%;
+    margin: auto;
     padding: 1% 5%;
     background-color: #DC3545;
 }
