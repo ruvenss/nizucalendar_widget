@@ -468,11 +468,10 @@ input {
     width: 720px;
     height: auto;
     max-width: 100%;
-
     top: 120px;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto auto 10% auto;
 }
 
 /* Datepicker Stuff */
