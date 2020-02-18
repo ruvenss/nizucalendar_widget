@@ -21,7 +21,8 @@ button:active {
     width: 4%;
     margin-right: 2%;
 }
-#Arr_right{
+
+#Arr_right {
 
     width: 10%;
     margin-left: 2%;
@@ -34,6 +35,17 @@ button:active {
     stroke-linecap: round;
     stroke-miterlimit: 10;
     width: 5%;
+}
+#check{
+    width: 20%;
+}
+.check {
+    fill: none;
+    stroke: #ED1C24;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
 }
 
 input {
@@ -404,7 +416,7 @@ input {
     inset -7px -7px 20px rgba(255, 255, 255, 1),
     0px 0px 4px rgba(255, 255, 255, .2) !important;
     border-radius: 35px;
-    position:relative;
+    position: relative;
     overflow: scroll;
     width: 95vw;
     height: 95vh;
@@ -880,15 +892,16 @@ input {
     float: right;
 }
 
-.button-down{
+.button-down {
     width: 50%;
 }
-.button{
+
+.button {
     width: 100%;
     box-shadow: inset 0px 0px 0px rgba(255, 255, 255, 0), inset 0px 0px 0px rgba(55, 84, 170, .15), inset 0px 0px 0px rgba(255, 255, 255, 1) !important;
 }
 
-.bottom-row{
+.bottom-row {
     Z-index: 3000;
     position: fixed;
     left: 0px;
