@@ -900,9 +900,3 @@ input {
     background-color: #DC3545;
 }
 
-@media only screen and (max-width: 330px) {
-    .bottom-row{
-
-        height: 12%;
-    }
-}
