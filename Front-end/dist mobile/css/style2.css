@@ -138,6 +138,9 @@ input {
 .btn {
     width: 60%;
 }
+.btn_guest {
+    width: 100%;
+}
 
 .btn:hover {
     opacity: 0.7;
