@@ -11,6 +11,7 @@ body {
     background-color: var(--back-color);
     text-align: center;
     justify-content: center;
+
 }
 
 .container{
@@ -250,7 +251,7 @@ textarea::placeholder {
 }
 
 .neumorphic-slider__back {
-    width: calc(100% + 20px);
+    width: calc(100% + 35px);
     margin-left: -10px;
 }
 
