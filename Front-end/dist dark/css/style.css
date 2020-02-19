@@ -282,7 +282,8 @@ textarea::placeholder {
 
 .neumorphic-slider__thumb {
     color: white;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), 0px 0px 15px rgba(55, 84, 170, .3);
+    20px 20px 7px #272727,
+    -20px -20px 7px #353535;
     width: 20px;
     height: 20px;
     position: absolute;
