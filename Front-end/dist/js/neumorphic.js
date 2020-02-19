@@ -49,13 +49,16 @@ $(document).ready(function () {
     $('#guest_list').hide();
     $("#plus_btn").click(function () {
         $("#guest").show();
+        $("#personal_info").hide();
     });
     $("#close").click(function () {
         $("#guest").hide();
+        $("#personal_info").show();
     });
     $("#save").click(function () {
         $("#guest").hide();
         $('#guest_list').show();
+        $("#personal_info").show();
 
         let str_guest_email = "";
         let str_guest_name = "";
