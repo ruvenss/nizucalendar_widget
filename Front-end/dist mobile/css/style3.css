@@ -141,7 +141,7 @@ input {
 }
 
 .neumorphic-slider__back {
-    width: calc(100% + 20px);
+    width: calc(100% + 35px);
     margin-left: -10px;
 }
 
@@ -177,7 +177,7 @@ input {
     margin-left: -6px;
     border-radius: 8px;
     opacity: 1;
-    width: calc(var(--value3) + 15px);
+    width: calc(var(--value3) + 25px);
 }
 
 .neumorphic-slider__thumb {
