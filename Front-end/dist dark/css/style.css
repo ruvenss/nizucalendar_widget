@@ -172,7 +172,7 @@ a button {
     border: none;
     padding: 10px 40px;
     border-radius: 40px;
-    color: #6D7587;
+    color: var(--primary-font-color);
     background-color: var(--back-color);
     transition: all 0.2s ease-in-out;
     box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light);
@@ -281,7 +281,7 @@ textarea::placeholder {
 }
 
 .neumorphic-slider__thumb {
-    color: white;
+    color: var(--primary-font-color);
     box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), 0px 0px 15px rgba(55, 84, 170, .3);
     width: 20px;
     height: 20px;
@@ -512,7 +512,7 @@ textarea::placeholder {
 
 .neumorphic-inner {
     box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
-    color: var(--secondary-font-color);
+
     border-radius: 35px;
 }
 
