@@ -4,7 +4,12 @@
     --value: 33%;
     --value2: 66%;
     --value3: 99%;
-    --back-color: #EBECF0;
+    --back-color: #2E2E2E;
+    --bg-color: #131419;
+    --primary-font-color: #c7c7c7;
+    --secondary-font-color: #03a9f4;
+    --soft-high-light: rgba(255, 255, 255, .05);
+    --dark-high-light: rgba(0, 0, 0, .51);
 }
 
 body {
@@ -237,12 +242,9 @@ textarea::placeholder {
     background-color: var(--back-color);
     border-radius: 10px;
     border: 4px solid #f3f4f7;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15),
-    -7px -7px 20px rgba(255, 255, 255, 1),
-    inset 0px 0px 4px rgba(255, 255, 255, 0),
-    inset 7px 7px 15px rgba(55, 84, 170, .15),
-    inset -7px -7px 20px rgba(255, 255, 255, 1),
-    0px 0px 4px rgba(255, 255, 255, .2) !important;
+
+    box-shadow: 7px 7px 6px #323232,
+    -7px -7px 6px #444444 !important;
 }
 
 .neumorphic-slider {
@@ -253,6 +255,8 @@ textarea::placeholder {
 .neumorphic-slider__back {
     width: calc(100% + 35px);
     margin-left: -10px;
+    box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light), inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light) !important;
+    border: 5px solid var(--soft-high-light);
 }
 
 .neumorphic-progress__line {
@@ -291,6 +295,7 @@ textarea::placeholder {
 }
 
 .neumorphic-slider__thumb {
+    color: var(--primary-font-color);
     box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), 0px 0px 15px rgba(55, 84, 170, .3);
     width: 20px;
     height: 20px;
@@ -377,7 +382,6 @@ textarea::placeholder {
     font-family: Quicksand, sans-serif;
     font-weight: bolder;
     margin: 1em 0;
-    text-shadow: 1px 1px 1px #FFF;
 }
 
 .neumorphic-checkbox {
@@ -520,10 +524,7 @@ textarea::placeholder {
 }
 
 .neumorphic-inner {
-    box-shadow: inset 0px 0px 4px rgba(255, 255, 255, 0),
-    inset 7px 7px 15px rgba(55, 84, 170, .15),
-    inset -7px -7px 20px rgba(255, 255, 255, 1),
-    0px 0px 4px rgba(255, 255, 255, .2) !important;
+    box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
     border-radius: 35px;
     position:relative;
     overflow: scroll;
