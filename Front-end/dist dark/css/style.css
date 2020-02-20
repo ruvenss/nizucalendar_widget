@@ -158,7 +158,7 @@ a button {
 }
 
 .neumorphic-btn:hover {
-    box-shadow:  6px 6px 5px 0 var(--dark-high-light),  -6px -6px 5px 0 var(--soft-high-light);
+    box-shadow: 6px 6px 5px 0 var(--dark-high-light), -6px -6px 5px 0 var(--soft-high-light);
 }
 
 .neumorphic-btn:active {
@@ -189,7 +189,7 @@ a button {
     font-size: 16px;
     border-radius: 2em;
     background-color: var(--back-color);
-   color: var(--primary-font-color);
+    color: var(--primary-font-color);
     box-shadow: inset 2px 2px 5px var(--dark-high-light), inset -5px -5px 10px var(--soft-high-light);
     transition: all 0.2s ease-in-out;
     appearance: none;

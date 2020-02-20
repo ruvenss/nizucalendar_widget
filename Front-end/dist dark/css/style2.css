@@ -12,7 +12,8 @@
     --dark-high-light: rgba(0, 0, 0, .51);
 }
 hr{
-    border-top: 1px solid #FFF;
+    border-top: 2px solid var(--soft-high-light);
+    width: 98%;
 }
 #guest_icon {
     margin-bottom: 10%;
@@ -42,10 +43,9 @@ body {
 #guest {
     display: flex;
     justify-content: center;
-    background-color: #EBECF0;
+    background-color: var(--back-color);
     margin: 2% auto auto auto;
     max-width: 60%;
-    box-shadow: 10px 10px 5px 200px rgba(0, 0, 0, 0.75);
 }
 
 button:active {
@@ -62,12 +62,11 @@ select:focus {
 }
 
 select {
-
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; /* Remove default arrow */
     background: url(../svg/arrow-down.svg) 96% / 5% no-repeat #eee;
-    text-shadow: 1px 1px 0 #FFF;
+
 }
 
 #locality-dropdown, #locality-dropdown-guest {
@@ -76,25 +75,24 @@ select {
     font-size: 16px;
     border-radius: 320px;
     padding: 9px;
-    background-color: #EBECF0;
-    text-shadow: 1px 1px 0 #FFF;
+    background-color: var(--back-color);
     margin-left: 2%;
-    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light);
     width: 96%;
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
     appearance: none;
+    color: var(--primary-font-color);
     -webkit-appearance: none;
 }
 
 #locality-dropdown:hover, #locality-dropdown-guest:hover {
-    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC !important;
+    box-shadow:  6px 6px 5px 0 var(--dark-high-light),  -6px -6px 5px 0 var(--soft-high-light);
 }
 
 #locality-dropdown:active, #locality-dropdown-guest:active {
-    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+    box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
 }
-
 
 #locality-input, #locality-input-guest {
     text-align: right;
@@ -170,11 +168,11 @@ input {
 }
 
 .neumorphic-btn:hover {
-    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+    box-shadow:  6px 6px 5px 0 var(--dark-high-light),  -6px -6px 5px 0 var(--soft-high-light);
 }
 
 .neumorphic-btn:active {
-    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+    box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
 }
 
 .neumorphic-btn {
@@ -184,10 +182,10 @@ input {
     border: none;
     padding: 10px 40px;
     border-radius: 40px;
-    color: #6D7587;
+    color: var(--primary-font-color);
     background-color: var(--back-color);
-    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
     transition: all 0.2s ease-in-out;
+    box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light);
 }
 
 .neumorphic-progress, .neumorphic-slider {
@@ -331,6 +329,7 @@ input {
 .row {
     display: block;
     overflow: hidden;
+    color: var(--primary-font-color);
 }
 
 
@@ -347,7 +346,7 @@ input {
     font-family: Quicksand, sans-serif;
     font-weight: bolder;
     margin: 1em 0;
-    text-shadow: 1px 1px 1px #FFF;
+    text-shadow: 1px 1px 1px var(--dark-high-light);
 }
 
 .neumorphic-checkbox {
@@ -431,15 +430,15 @@ input {
 }
 
 .neumorphic-input {
+    color: var(--primary-font-color);
     border: 0;
     outline: 0;
     font-size: 16px;
     border-radius: 320px;
     padding: 9px;
-    background-color: #EBECF0;
-    text-shadow: 1px 1px 0 #FFF;
+    background-color: var(--back-color);
     margin-right: 8px;
-    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    box-shadow: inset 2px 2px 5px var(--dark-high-light), inset -5px -5px 10px var(--soft-high-light);
     width: 100%;
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
@@ -448,7 +447,7 @@ input {
 }
 
 .neumorphic-input:focus {
-    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+    box-shadow: inset 1px 1px 2px var(--dark-high-light), inset -1px -1px 2px var(--soft-high-light);
 }
 
 
