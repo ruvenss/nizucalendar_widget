@@ -63,7 +63,7 @@ body {
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    box-shadow: -8px -4px 8px 0px #383838, 8px 4px 12px 0px #4c4c4c;
+    box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light);
     overflow: hidden;
 }
 
@@ -79,15 +79,11 @@ body {
 }
 
 .indicator::before {
-    box-shadow: -4px -2px 4px 0px #d1d9e6,
-    4px 2px 8px 0px #fff;
-
+    box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
 }
 
 .indicator::after {
     background-color: var(--soft-high-light);
-    box-shadow: -4px -2px 4px 0px #fff,
-    4px 2px 8px 0px #d1d9e6;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     -webkit-transition: opacity .25s ease-in-out, -webkit-transform .25s ease-in-out;
@@ -98,6 +94,7 @@ body {
 
 .state:checked ~ .label .indicator::after {
     background-color: #DC3545;
+    box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
 }
 
 .state:focus ~ .label .text {
