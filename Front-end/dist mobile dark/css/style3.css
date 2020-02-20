@@ -554,6 +554,7 @@ input {
 }
 
 .current-month-container {
+    color: var(--primary-font-color);
     display: inline-block;
     height: 30px;
     position: relative;
@@ -651,9 +652,9 @@ input {
 .day-selected {
     color: black;
     font-size: 22px;
-    background-color: #EBECF0;
+    background-color: #DC3545;
     border-radius: 50%;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0), inset 7px 7px 15px rgba(55, 84, 170, .15), inset -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, .2) !important;
+    box-shadow: 4px 4px 6px 0 var(--dark-high-light), -4px -4px 5px 0 var(--soft-high-light);
 }
 
 .datenumber.day-selected:before {

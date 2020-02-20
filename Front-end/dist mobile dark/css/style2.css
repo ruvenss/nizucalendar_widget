@@ -11,7 +11,10 @@
     --soft-high-light: rgba(255, 255, 255, .05);
     --dark-high-light: rgba(0, 0, 0, .51);
 }
-
+hr{
+    border-top: 2px solid var(--soft-high-light);
+    width: 98%;
+}
 #guest_icon {
     margin-bottom: 10%;
     width: 55%;
