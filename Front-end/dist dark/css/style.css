@@ -18,8 +18,8 @@ body {
     padding: 48px 54px;
     border-radius: 16px;
     background: #EBECF0;
-   /* box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
-    -4px -4px 4px 0px #ffffff inset;*/
+    /* box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
+     -4px -4px 4px 0px #ffffff inset;*/
     margin: auto;
 }
 
@@ -282,7 +282,7 @@ textarea::placeholder {
 
 .neumorphic-slider__thumb {
     color: white;
-    20px 20px 7px #272727,
+    box-shadow: 20px 20px 7px #272727,
     -20px -20px 7px #353535;
     width: 20px;
     height: 20px;
