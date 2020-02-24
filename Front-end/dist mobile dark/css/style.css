@@ -179,7 +179,7 @@ a button {
     font-weight: normal;
     font-size: medium;
     border: none;
-    padding: 10px 40px;
+    padding: 10px 25px;
     border-radius: 40px;
     color: var(--primary-font-color);;
     background-color: var(--back-color);
@@ -594,73 +594,3 @@ textarea::placeholder {
     background-color: #DC3545;
 }
 
-
-/*menu bottom*/
-/*
-.text-center{
-    margin-bottom: 144px;
-}
-
-nav {
-    position: relative;
-
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-    background: #DC3545;
-    margin-bottom: 0 !important;
-}
-li {
-    display: inline-block;
-
-}
-
-a {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 10px 25px;
-}
-svg {
-    fill: none;
-    stroke: #FFFFFF;
-    width: 60px;
-    height: 60px;
-    transform: translateX(35px);
-    transition: 0.4s ease all;
-}
-a.active {
-    color: white;
-}
-a.active svg {
-    stroke: white;
-    transform: translateX(0px);
-}
-.link-text {
-    color: white;
-
-    opacity: 0;
-    transition: 0.3s ease all;
-    user-select: none;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-}
-a.active .link-text {
-    opacity: 1;
-    transition-delay: 0.1s;
-}
-.link-background {
-    position: absolute;
-    left: 30px;
-
-    background: #d0646f;
-    border-radius: 18px;
-    width: 153px;
-    height: 50px;
-    z-index: 0;
-    transition: 0.4s cubic-bezier(0.7, 0, 0.38, 0.86) all;
-}
-*/
