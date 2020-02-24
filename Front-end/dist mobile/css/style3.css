@@ -101,7 +101,7 @@ input {
     font-weight: normal;
     font-size: medium;
     border: none;
-    padding: 10px 40px;
+    padding: 10px 25px;
     border-radius: 40px;
     color: #6D7587;
     background-color: var(--back-color);
