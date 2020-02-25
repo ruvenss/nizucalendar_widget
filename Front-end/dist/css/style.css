@@ -12,7 +12,9 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.button_text{
+    text-align: center;
+}
 /*radio buttons neumorphic*/
 .radiogroup {
     padding: 48px 54px;

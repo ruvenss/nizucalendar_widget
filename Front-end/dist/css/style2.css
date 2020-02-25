@@ -17,7 +17,9 @@
     width: 60%;
     fill: #DC3545;
 }
-
+.button_text{
+    text-align: center;
+}
 body {
     background-color: var(--back-color);
     text-align: center;

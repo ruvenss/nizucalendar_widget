@@ -12,7 +12,9 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.button_text{
+    text-align: center;
+}
 button:active {
     transform: translateY(4px);
 }
