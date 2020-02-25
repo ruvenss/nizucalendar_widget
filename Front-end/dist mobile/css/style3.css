@@ -12,7 +12,9 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.button_text{
+    vertical-align: middle;
+}
 button:active {
     transform: translateY(4px);
 }
@@ -67,7 +69,7 @@ input {
     width: 80%;
     position: fixed;
     Z-INDEX: 2000;
-    bottom: 78vh;
+    bottom: 90vh;
 }
 
 .center {
@@ -419,8 +421,8 @@ input {
     position: relative;
     overflow: scroll;
     width: 95vw;
-    height: 95vh;
-    margin: 5% auto auto;
+    height: 90vh;
+    margin: 20% auto auto auto;
 }
 
 .neumorphic-tab-container {
@@ -483,7 +485,7 @@ input {
     top: 120px;
     left: 0;
     right: 0;
-    margin: auto auto 10% auto;
+    margin: auto auto 30% auto;
 }
 
 /* Datepicker Stuff */

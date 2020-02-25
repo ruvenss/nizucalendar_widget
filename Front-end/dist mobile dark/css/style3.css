@@ -17,7 +17,9 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.button_text{
+    vertical-align: middle;
+}
 button:active {
     transform: translateY(4px);
 }
@@ -418,7 +420,7 @@ input {
     position: relative;
     overflow: scroll;
     width: 95vw;
-    height: 75vh;
+    height: 90vh;
     margin: 20% auto auto auto;
 }
 
@@ -482,7 +484,7 @@ input {
     top: 120px;
     left: 0;
     right: 0;
-    margin: auto auto 10% auto;
+    margin: auto auto 30% auto;
 }
 
 /* Datepicker Stuff */

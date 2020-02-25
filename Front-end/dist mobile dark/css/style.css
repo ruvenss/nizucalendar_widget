@@ -9,7 +9,7 @@
     --primary-font-color: #c7c7c7;
     --secondary-font-color: #03a9f4;
     --soft-high-light: rgba(255, 255, 255, .05);
-    --dark-high-light: rgba(0, 0, 0, .51);
+    --dark-high-light: rgba(0, 0, 0, .3);
 }
 
 body {
@@ -18,7 +18,9 @@ body {
     justify-content: center;
 
 }
-
+.button_text{
+    vertical-align: middle;
+}
 .container {
     Z-index: 1000;
     margin-bottom: 45%;
@@ -524,7 +526,7 @@ textarea::placeholder {
     position: relative;
     overflow: scroll;
     width: 95vw;
-    height: 75vh;
+    height: 90vh;
     margin: 20% auto auto auto;
 }
 

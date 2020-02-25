@@ -25,7 +25,9 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.button_text{
+    vertical-align: middle;
+}
 #edit_guest {
     padding: 0 !important;
 }
@@ -153,7 +155,7 @@ input {
     width: 80%;
     position: fixed;
     Z-INDEX: 2000;
-    bottom: 78vh;
+    bottom: 90vh;
 }
 
 .center {
@@ -504,8 +506,8 @@ input {
     position: relative;
     overflow: scroll;
     width: 95vw;
-    height: 95vh;
-    margin: 5% auto auto;
+    height: 90vh;
+    margin: 20% auto auto auto;
 }
 
 .neumorphic-tab-container {

@@ -11,8 +11,53 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-
-<div class="py-5 neumorphic-inner">
+<!--guest div-->
+<div class="neumorphic-inner" id="guest">
+    <div class="col-12 col-md-12 ">
+        <div class="guest-content">
+            <div class="guest-header">
+                <h3 class="neumorphic-text">
+                    ADD GUEST
+                </h3>
+            </div>
+            <div class="guest-body">
+                <div class="d-flex p-2 col-12 float-left col-md-6">
+                    <input class="neumorphic-input" type="text" placeholder="Name" id="guest_name"
+                           required/>
+                </div>
+                <div class="d-flex p-2 col-12 float-left col-md-6">
+                    <input class="neumorphic-input" type="text" placeholder="First name"
+                           id="guest_Fname" required/>
+                </div>
+                <div class="d-flex p-2 col-12 float-left col-md-12">
+                    <input class="neumorphic-input" type="email" placeholder="Emailadres"
+                           id="guest_email" required/>
+                </div>
+                <div class="d-flex p-2 col-12 float-left col-md-6 mt-2">
+                    <select id="locality-dropdown-guest" name="locality">
+                    </select>
+                </div>
+                <div class="d-flex p-2 col-12 float-left col-md-6">
+                    <div id="locality-input-guest">+00</div>
+                    <input class="neumorphic-input country" type="tel" placeholder="Phone number"
+                           required/>
+                </div>
+            </div>
+            <div class="col-6 float-left">
+                <button type="button" class="my-3 btn_guest neumorphic-btn next" id="close">
+                    Close
+                </button>
+            </div>
+            <div class="col-6 float-right">
+                <button type="button" class="my-3 btn_guest neumorphic-btn next" id="save">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/guest div-->
+<div class="py-5 neumorphic-inner" id="personal_info">
     <div class="container">
 
 
@@ -25,53 +70,8 @@
                 <div class="neumorphic-slider__thumb">3</div>
             </div>
         </div>
-        <!--guest div-->
-        <div class="neumorphic-inner" id="guest">
-            <div class="col-12 col-md-12 ">
-                <div class="guest-content">
-                    <div class="guest-header">
-                        <h3 class="neumorphic-text">
-                            ADD GUEST
-                        </h3>
-                    </div>
-                    <div class="guest-body">
-                        <div class="d-flex p-2 col-12 float-left col-md-6">
-                            <input class="neumorphic-input" type="text" placeholder="Name" id="guest_name"
-                                   required/>
-                        </div>
-                        <div class="d-flex p-2 col-12 float-left col-md-6">
-                            <input class="neumorphic-input" type="text" placeholder="First name"
-                                   id="guest_Fname" required/>
-                        </div>
-                        <div class="d-flex p-2 col-12 float-left col-md-12">
-                            <input class="neumorphic-input" type="email" placeholder="Emailadres"
-                                   id="guest_email" required/>
-                        </div>
-                        <div class="d-flex p-2 col-12 float-left col-md-6 mt-2">
-                            <select id="locality-dropdown-guest" name="locality">
-                            </select>
-                        </div>
-                        <div class="d-flex p-2 col-12 float-left col-md-6">
-                            <div id="locality-input-guest">+00</div>
-                            <input class="neumorphic-input country" type="tel" placeholder="Phone number"
-                                   required/>
-                        </div>
-                    </div>
-                    <div class="col-6 float-left">
-                        <button type="button" class="my-3 btn_guest neumorphic-btn next" id="close">
-                            Close
-                        </button>
-                    </div>
-                    <div class="col-6 float-right">
-                        <button type="button" class="my-3 btn_guest neumorphic-btn next" id="save">
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/guest div-->
-        <div class="text-center" id="personal_info">
+
+        <div class="text-center" >
             <label class="neumorphic-text">PERSONAL INFORMATION</label>
             <br>
 
@@ -192,7 +192,7 @@
             <div class="row bottom-row">
                 <div class="col-md-5 float-right button-down">
                     <a href="step3.html">
-                        <button type="button" class="my-1 btn neumorphic-btn button">Next
+                        <button type="button" class="my-1 btn neumorphic-btn button"><span class="button_text">Next</span>
                             <svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 9.5 18.22">
                                 <title>arrow-right</title>
@@ -211,7 +211,7 @@
                                 <path class="cls-1" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
                                       transform="translate(-203 -339.78)"/>
                             </svg>
-                            Back
+                            <span class="button_text">Back</span>
                         </button>
                     </a>
                 </div>

@@ -19,6 +19,9 @@ hr{
     margin-bottom: 10%;
     width: 55%;
 }
+.button_text{
+    vertical-align: middle;
+}
 .container{
     margin-bottom: 65%;
 }
@@ -503,7 +506,7 @@ input {
     position: relative;
     overflow: scroll;
     width: 95vw;
-    height: 75vh;
+    height: 90vh;
     margin: 20% auto auto auto;
 }
 
