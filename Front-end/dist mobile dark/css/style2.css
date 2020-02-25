@@ -9,22 +9,27 @@
     --primary-font-color: #c7c7c7;
     --secondary-font-color: #03a9f4;
     --soft-high-light: rgba(255, 255, 255, .05);
-    --dark-high-light: rgba(0, 0, 0, .51);
+    --dark-high-light: rgba(30, 30, 30, .3);
 }
-hr{
+
+hr {
     border-top: 2px solid var(--soft-high-light);
     width: 98%;
 }
+
 #guest_icon {
     margin-bottom: 10%;
     width: 55%;
 }
-.button_text{
+
+.button_text {
     vertical-align: middle;
 }
-.container{
+
+.container {
     margin-bottom: 65%;
 }
+
 .guest_icon {
     margin-bottom: 10%;
     width: 60%;
@@ -77,7 +82,7 @@ select {
     -moz-appearance: none;
     appearance: none; /* Remove default arrow */
     background: url(../svg/arrow-down.svg) 96% / 5% no-repeat #eee;
-  color: var(--primary-font-color);
+    color: var(--primary-font-color);
 }
 
 #locality-dropdown, #locality-dropdown-guest {
@@ -97,9 +102,8 @@ select {
 }
 
 #locality-dropdown:hover, #locality-dropdown-guest:hover {
-    box-shadow:  6px 6px 5px 0 var(--dark-high-light),  -6px -6px 5px 0 var(--soft-high-light);
+    box-shadow: 6px 6px 5px 0 var(--dark-high-light), -6px -6px 5px 0 var(--soft-high-light);
 }
-
 
 
 #locality-input, #locality-input-guest {
@@ -144,6 +148,7 @@ input {
 .btn {
     width: 60%;
 }
+
 .btn_guest {
     width: 100%;
 }
@@ -579,7 +584,6 @@ input {
         margin-top: 3%;
     }
 }
-
 
 
 .button-down {

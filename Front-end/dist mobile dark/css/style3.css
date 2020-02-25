@@ -9,7 +9,7 @@
     --primary-font-color: #c7c7c7;
     --secondary-font-color: #03a9f4;
     --soft-high-light: rgba(255, 255, 255, .05);
-    --dark-high-light: rgba(0, 0, 0, .51);
+    --dark-high-light: rgba(30, 30, 30, .3);
 }
 
 body {
@@ -17,9 +17,11 @@ body {
     text-align: center;
     justify-content: center;
 }
-.button_text{
+
+.button_text {
     vertical-align: middle;
 }
+
 button:active {
     transform: translateY(4px);
 }
@@ -43,9 +45,11 @@ button:active {
     stroke-miterlimit: 10;
     width: 5%;
 }
-#check{
+
+#check {
     width: 20%;
 }
+
 .check {
     fill: none;
     stroke: #ED1C24;

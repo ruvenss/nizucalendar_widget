@@ -12,9 +12,11 @@ body {
     text-align: center;
     justify-content: center;
 }
-.button_text{
+
+.button_text {
     vertical-align: middle;
 }
+
 button:active {
     transform: translateY(4px);
 }
@@ -38,9 +40,11 @@ button:active {
     stroke-miterlimit: 10;
     width: 5%;
 }
-#check{
+
+#check {
     width: 20%;
 }
+
 .check {
     fill: none;
     stroke: #ED1C24;

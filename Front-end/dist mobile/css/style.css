@@ -11,23 +11,24 @@ body {
     background-color: var(--back-color);
     text-align: center;
     justify-content: center;
-
 }
 
-.container{
+.container {
     Z-index: 1000;
     margin-bottom: 45%;
 }
-.button_text{
+
+.button_text {
     vertical-align: middle;
 }
+
 /*radio buttons neumorphic*/
 .radiogroup {
     padding: 10px 8px;
     border-radius: 16px;
     background: #EBECF0;
-   /* box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
-    -4px -4px 4px 0px #ffffff inset;*/
+    /* box-shadow: 4px 4px 4px 0px #d1d9e6 inset,
+     -4px -4px 4px 0px #ffffff inset;*/
     margin: auto;
     position: inherit !important;
 }
@@ -527,7 +528,7 @@ textarea::placeholder {
     inset -7px -7px 20px rgba(255, 255, 255, 1),
     0px 0px 4px rgba(255, 255, 255, .2) !important;
     border-radius: 35px;
-    position:relative;
+    position: relative;
     overflow: scroll;
     width: 95vw;
     height: 90vh;
@@ -579,10 +580,12 @@ textarea::placeholder {
 .neumorphic-tab-container__tab_shown {
     display: flex;
 }
-.button-down{
+
+.button-down {
     width: 50%;
 }
-.button{
+
+.button {
     width: 100%;
 
 }

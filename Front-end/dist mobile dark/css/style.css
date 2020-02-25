@@ -9,7 +9,7 @@
     --primary-font-color: #c7c7c7;
     --secondary-font-color: #03a9f4;
     --soft-high-light: rgba(255, 255, 255, .05);
-    --dark-high-light: rgba(0, 0, 0, .3);
+    --dark-high-light: rgba(30, 30, 30, .3);
 }
 
 body {

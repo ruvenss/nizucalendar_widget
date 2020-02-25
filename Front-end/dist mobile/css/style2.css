@@ -11,9 +11,11 @@
     margin-bottom: 10%;
     width: 55%;
 }
-.container{
+
+.container {
     margin-bottom: 65%;
 }
+
 .guest_icon {
     margin-bottom: 10%;
     width: 60%;
@@ -25,9 +27,11 @@ body {
     text-align: center;
     justify-content: center;
 }
-.button_text{
+
+.button_text {
     vertical-align: middle;
 }
+
 #edit_guest {
     padding: 0 !important;
 }
@@ -140,6 +144,7 @@ input {
 .btn {
     width: 60%;
 }
+
 .btn_guest {
     width: 100%;
 }
@@ -148,7 +153,6 @@ input {
     opacity: 0.7;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
     6px 6px 10px rgba(0, 0, 0, 0.2);
-
 }
 
 .slider {
