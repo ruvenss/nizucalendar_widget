@@ -149,7 +149,7 @@ a button {
     width: 80%;
     position: fixed;
     Z-INDEX: 2000;
-    bottom: 78vh;
+    bottom: 94vh;
 }
 
 .center {
@@ -524,8 +524,8 @@ textarea::placeholder {
     position: relative;
     overflow: scroll;
     width: 95vw;
-    height: 95vh;
-    margin: 5% auto auto;
+    height: 75vh;
+    margin: 20% auto auto auto;
 }
 
 .neumorphic-tab-container {
