@@ -18,6 +18,22 @@ body {
 button:active {
     transform: translateY(4px);
 }
+.time-btn{
+     font-family: Quicksand, sans-serif;
+     font-weight: normal;
+     font-size: medium;
+     border: none;
+     padding: 10px 40px;
+     border-radius: 40px;
+     color: #6D7587;
+     background-color: var(--back-color);
+     box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+     transition: all 0.2s ease-in-out;
+ }
+.time-btn:focus{
+    background-color: #DC3545;
+    color: #FFFFFF;
+}
 
 #Arr_left {
     width: 4%;
