@@ -12,12 +12,38 @@
     --dark-high-light: rgba(0, 0, 0, .51);
 }
 
+h5{
+    color: #BABECC;
+    font-size: large;
+    font-family: Quicksand, sans-serif;
+    font-weight: bolder;
+}
+
 body {
     background-color: var(--back-color);
     text-align: center;
     justify-content: center;
 }
 
+.time-btn{
+    font-family: Quicksand, sans-serif;
+    font-weight: normal;
+    font-size: medium;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 40px;
+    color: #6D7587;
+    background-color: var(--back-color);
+    box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light);
+    transition: all 0.2s ease-in-out;
+}
+.time-btn:focus{
+    background-color: #DC3545;
+    color: #FFFFFF;
+}
+.row:first-of-type{
+    margin-bottom: 5%;
+}
 button:active {
     transform: translateY(4px);
 }
@@ -36,18 +62,11 @@ button:active {
 }
 
 input {
-    margin: 10px;
+    margin: auto;
 }
 
 .btn {
     width: 60%;
-}
-
-.btn:hover {
-    opacity: 0.7;
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-    6px 6px 10px rgba(0, 0, 0, 0.2);
-
 }
 
 .slider {
@@ -331,17 +350,13 @@ input {
 
 .neumorphic-input {
     background-color: var(--back-color);
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
-    box-shadow: 0px 0px 0px rgba(55, 84, 170, .15),
-    inset 0px 0px 4px rgba(255, 255, 255, 0),
-    inset 7px 7px 15px rgba(55, 84, 170, .15),
-    inset -7px -7px 20px rgba(255, 255, 255, 1),
-    0px 0px 4px rgba(255, 255, 255, .2) !important;
+    box-shadow: inset 2px 2px 5px var(--dark-high-light), inset -5px -5px 10px var(--soft-high-light);
     padding: 5px 15px;
     outline: none !important;
     color: #535D74;
-    width: 100%;
+    width: 20%;
 }
 
 .neumorphic-input ::-webkit-input-placeholder { /* Edge */

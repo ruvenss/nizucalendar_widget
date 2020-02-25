@@ -22,7 +22,7 @@ body {
 .radiogroup {
     padding: 48px 54px;
     border-radius: 16px;
-    box-shadow: inset 6px 6px 5px 0 var(--dark-high-light), inset -6px -6px 5px 0 var(--soft-high-light);
+
     color: var(--secondary-font-color);
     margin: auto;
 }

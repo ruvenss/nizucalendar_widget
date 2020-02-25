@@ -12,6 +12,15 @@ body {
     text-align: center;
     justify-content: center;
 }
+
+h5{
+    color: #BABECC;
+    font-size: large;
+    font-family: Quicksand, sans-serif;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px #FFF;
+}
+
 .button_text{
     text-align: center;
 }
