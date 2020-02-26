@@ -21,6 +21,20 @@ h5{
     text-shadow: 1px 1px 1px #FFF;
 }
 
+.cls-1, .cls-2 {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5px;
+}
+
+.cls-1 {
+    stroke: #dc3645;
+}
+
+.cls-2 {
+    stroke: #231f20;
+}
 #Layer_1{
     width: 10%;
     margin-bottom: 2%;
@@ -56,8 +70,7 @@ button:active {
     width: 4%;
     margin-right: 2%;
 }
-
-.cls-1 {
+ .back{
     fill: none;
     stroke: #dc3545;
     stroke-linecap: round;
