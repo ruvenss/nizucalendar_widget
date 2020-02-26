@@ -12,7 +12,8 @@ body {
     text-align: center;
     justify-content: center;
 }
-h5{
+
+h5 {
     color: #BABECC;
     font-size: large;
     font-family: Quicksand, sans-serif;
@@ -20,11 +21,50 @@ h5{
     text-shadow: 1px 1px 1px #FFF;
 }
 
-.container{
+.cls-2 {
+    fill: #dd3745;
+}
+
+.cls-1 {
+    fill: #dc3645;
+}
+
+.check {
+    fill: none;
+    stroke: #DC3545;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.check_circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 5px;
+}
+
+#Layer_1 {
+    width: 20%;
+    margin-bottom: 2%;
+}
+
+.icon {
+    fill: #DC3545;
+}
+
+.back {
+    fill: none;
+    stroke: #dc3545;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    width: 5%;
+}
+
+.container {
     margin-bottom: 5%;
 }
 
-.time-btn{
+.time-btn {
     font-family: Quicksand, sans-serif;
     font-weight: normal;
     font-size: medium;
@@ -36,7 +76,8 @@ h5{
     box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
     transition: all 0.2s ease-in-out;
 }
-.time-btn:focus{
+
+.time-btn:focus {
     background-color: #DC3545;
     color: #FFFFFF;
 }
@@ -61,13 +102,7 @@ button:active {
 }
 
 
-.cls-1 {
-    fill: none;
-    stroke: #dc3545;
-    stroke-linecap: round;
-    stroke-miterlimit: 10;
-    width: 5%;
-}
+
 
 #check {
     width: 20%;
@@ -939,8 +974,9 @@ input {
     padding: 1% 5%;
     background-color: #DC3545;
 }
+
 @media only screen and (max-width: 320px) {
-    .row:first-of-type{
+    .row:first-of-type {
         margin-bottom: 20%;
     }
 }

@@ -11,6 +11,19 @@
     --soft-high-light: rgba(255, 255, 255, .05);
     --dark-high-light: rgba(30, 30, 30, .3);
 }
+.back {
+    fill: none;
+    stroke: #dc3545;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    width: 5%;
+}
+h5{
+    color: #BABECC;;
+    font-size: large;
+    font-family: Quicksand, sans-serif;
+    font-weight: bolder;
+}
 
 body {
     background-color: var(--back-color);
@@ -18,6 +31,52 @@ body {
     justify-content: center;
 }
 
+.cls-2 {
+    fill: #dd3745;
+}
+
+.cls-1 {
+    fill: #dc3645;
+}
+
+.check {
+    fill: none;
+    stroke: #DC3545;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.check_circle {
+    fill: none;
+    stroke: var(--primary-font-color);
+    stroke-width: 5px;
+}
+
+#Layer_1 {
+    width: 20%;
+    margin-bottom: 2%;
+}
+
+.icon {
+    fill: #DC3545;
+}
+.time-btn {
+    font-family: Quicksand, sans-serif;
+    font-weight: normal;
+    font-size: medium;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 40px;
+    color: var(--primary-font-color);
+    background-color: var(--back-color);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 6px 6px 16px 0 var(--dark-high-light), -6px -6px 16px 0 var(--soft-high-light);
+}
+.time-btn:focus {
+    background-color: #DC3545;
+    color: #FFFFFF;
+}
 .button_text {
     vertical-align: middle;
 }
@@ -38,13 +97,7 @@ button:active {
 }
 
 
-.cls-1 {
-    fill: none;
-    stroke: #dc3545;
-    stroke-linecap: round;
-    stroke-miterlimit: 10;
-    width: 5%;
-}
+
 
 #check {
     width: 20%;
@@ -358,10 +411,9 @@ input {
 
 .neumorphic-input {
 
-    border-radius: 20px;
-    border: none;
     background-color: var(--back-color);
-    margin-right: 8px;
+    border-radius: 10px;
+    border: none;
     box-shadow: inset 2px 2px 5px var(--dark-high-light), inset -5px -5px 10px var(--soft-high-light);
     padding: 5px 15px;
     outline: none !important;
