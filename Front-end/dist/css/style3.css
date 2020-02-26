@@ -21,6 +21,14 @@ h5{
     text-shadow: 1px 1px 1px #FFF;
 }
 
+#Layer_1{
+    width: 10%;
+    margin-bottom: 2%;
+}
+.icon{
+    fill: #DC3545;
+}
+
 .button_text{
     text-align: center;
 }
