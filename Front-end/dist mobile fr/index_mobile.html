@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nizu - Calendar - étape 1 - mobile</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="py-5 neumorphic-inner">
+    <div class="container">
+
+        <div class="d-flex p-2 mx-auto slider">
+            <div class="neumorphic-slider col-12">
+                <div class="neumorphic-slider__back"></div>
+                <div class="neumorphic-slider__line"></div>
+                <div class="neumorphic-slider__thumb">1</div>
+                <div class="neumorphic-slider__thumb">2</div>
+                <div class="neumorphic-slider__thumb">3</div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <label class="neumorphic-text mt-5">SUJET DE LA REUNION</label>
+            <br>
+            <div class="radiogroup col-11 col-md-5">
+                <div class="wrapper">
+                    <input class="state" type="radio" name="app" id="a" value="a">
+                    <label class="label" for="a">
+                        <div class="indicator"></div>
+                        <span class="text">Réunion d'affaires</span>
+                    </label>
+                </div>
+                <div class="wrapper">
+                    <input class="state" type="radio" name="app" id="b" value="b">
+                    <label class="label" for="b">
+                        <div class="indicator"></div>
+                        <span class="text">Nouveau projet</span>
+                    </label>
+                </div>
+                <div class="wrapper">
+                    <input class="state" type="radio" name="app" id="c" value="c">
+                    <label class="label" for="c">
+                        <div class="indicator"></div>
+                        <span class="text">Entrainement Nizu</span>
+                    </label>
+                </div>
+
+            </div>
+            <div class="form-check py-2 radio col-12">
+                <label class="neumorphic-text">NOTES</label>
+            </div>
+            <div class="content fullwidth">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="centerNotes">
+
+                                <textarea class="textarea" type="text" placeholder="Notes" rows="7%"
+                                          cols="100%"></textarea>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row bottom-row">
+                <div class="col-md-5 float-right button-down">
+                    <a href="step2.html">
+                        <button type="button" class="my-1 btn neumorphic-btn button"><span
+                                class="button_text">Suivant</span>
+                            <svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 9.5 18.22">
+                                <title>arrow-right</title>
+                                <path class="cls-1" d="M203.5,340.28l8.42,8.42a.26.26,0,0,1,0,.38l-8.42,8.42"
+                                      transform="translate(-203 -339.78)"/>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/popper.min.js'></script>
+<script src="./js/script.js"></script>
+<script src="./js/neumorphic.js"></script>
+
+</body>
+</html>

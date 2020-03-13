@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nizu - Calendar - étape 2</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="py-5">
+    <div class="container">
+        <div class="neumorphic-inner">
+            <div class="d-flex p-2 mx-auto slider">
+                <div class="neumorphic-slider col-12">
+                    <div class="neumorphic-slider__back"></div>
+                    <div class="neumorphic-slider__line"></div>
+                    <div class="neumorphic-slider__thumb">1</div>
+                    <div class="neumorphic-slider__thumb">2</div>
+                    <div class="neumorphic-slider__thumb">3</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div id="personal_info">
+                    <label class="neumorphic-text">INFORMATIONS PERSONELLES</label>
+                    <br>
+
+                    <div class="content fullwidth">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center">
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <input class="neumorphic-input" type="text" placeholder="Nom"/>
+                                    </div>
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <input class="neumorphic-input" type="text" placeholder="Prenom"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content fullwidth">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center">
+                                    <div class="d-flex p-2 col-12 float-left col-md-12">
+                                        <input class="neumorphic-input" type="email" placeholder="Adresse mail"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content fullwidth">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center">
+                                    <div class="d-flex p-2 col-12 float-left col-md-6 mt-2">
+                                        <select id="locality-dropdown" name="locality">
+                                        </select>
+                                    </div>
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <div id="locality-input">+00</div>
+                                        <input class="neumorphic-input country" type="tel"
+                                               placeholder="Numéro de téléphone"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content fullwidth">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center">
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <input class="neumorphic-input" type="number" placeholder="Code postal"/>
+                                    </div>
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <input class="neumorphic-input" type="text" placeholder="Ville"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content fullwidth">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center">
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <input class="neumorphic-input" type="text" placeholder="Adresse"/>
+                                    </div>
+                                    <div class="d-flex p-2 col-12 float-left col-md-6">
+                                        <input class="neumorphic-input" type="text" placeholder="Place"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--guest edit-->
+                    <hr>
+                    <div class="col-sm-12 col-md-11 row p-4" id="guest_list">
+                        <div class="mt-2 col-sm-5 col-md-5 float-left">
+                            <span id="guest_name_list"><b>Nom invité 1</b></span>
+                        </div>
+                        <div class="mt-2 col-sm-5 col-md-5 float-left">
+                            <span id="guest_email_list">Adresse mail invité 1</span>
+                        </div>
+                        <div class="col-12 col-md-1 float-left">
+                            <button type="button" id="edit_guest" class="btn neumorphic-btn next">
+                                <svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 43.05 42.99">
+                                    <title>edit</title>
+                                    <path class="guest_icon"
+                                          d="M40.53,2.49a8.51,8.51,0,0,0-12,0L2.89,28.09a1.52,1.52,0,0,0-.41.77L0,41.23a1.5,1.5,0,0,0,.41,1.35A1.47,1.47,0,0,0,1.5,43h.29l12.37-2.45a1.45,1.45,0,0,0,.77-.41l25.6-25.6a8.52,8.52,0,0,0,0-12Zm-27.4,35.2L3.41,39.61l1.92-9.72L26.56,8.67,34,16.79ZM38.41,12.41l-2.26,2.26L28.68,6.54l1.94-1.93a5.51,5.51,0,1,1,7.79,7.8Z"
+                                          transform="translate(0.03 -0.01)"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col-12 col-md-1 float-left">
+                            <button type="button" id="delete_guest" class="btn neumorphic-btn next">
+                                <svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 81.67 98">
+                                    <title>delete</title>
+                                    <path class="guest_icon"
+                                          d="M89.15,13.38,66,9.53,64.27,2.66a2,2,0,0,0-2-1.55H37.75a2,2,0,0,0-2,1.55L34.09,9.53,10.92,13.38a2,2,0,0,0-1.72,2v8.17a2,2,0,0,0,2,2H88.83a2,2,0,0,0,2-2V15.4A2,2,0,0,0,89.15,13.38Z"
+                                          transform="translate(-9.2 -1.11)"/>
+                                    <path class="guest_icon"
+                                          d="M21.45,97.19a2,2,0,0,0,2,1.92H76.58a2,2,0,0,0,2-1.92L82.48,29.7H17.6ZM62.37,35.74a2.12,2.12,0,0,1,2.12-2,2,2,0,0,1,2,2.12l-2,49a2,2,0,0,1-2,2h-.08a2,2,0,0,1-2-2.12Zm-14.29.08a2,2,0,0,1,4.08,0v49a2,2,0,1,1-4.08,0Zm-12.34-2a2.07,2.07,0,0,1,2.13,2l2,49a2,2,0,0,1-2,2.12h-.08a2,2,0,0,1-2-2l-2-49A2.05,2.05,0,0,1,35.74,33.78Z"
+                                          transform="translate(-9.2 -1.11)"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--guest div-->
+                <div class="neumorphic-inner" id="guest">
+                    <div class="col-12">
+                        <div class="guest-content">
+                            <div class="guest-header">
+                                <h3 class="neumorphic-text">
+                                    AJOUTEZ INVITE
+                                </h3>
+                            </div>
+                            <div class="guest-body">
+                                <div class="d-flex p-2 col-12 float-left col-md-6">
+                                    <input class="neumorphic-input" type="text" placeholder="Nom" id="guest_name"
+                                           required/>
+                                </div>
+                                <div class="d-flex p-2 col-12 float-left col-md-6">
+                                    <input class="neumorphic-input" type="text" placeholder="Prénom"
+                                           id="guest_Fname" required/>
+                                </div>
+                                <div class="d-flex p-2 col-12 float-left col-md-12">
+                                    <input class="neumorphic-input" type="email" placeholder="Adresse mail"
+                                           id="guest_email" required/>
+                                </div>
+                                <div class="d-flex p-2 col-12 float-left col-md-6 mt-2">
+                                    <select id="locality-dropdown-guest" name="locality">
+                                    </select>
+                                </div>
+                                <div class="d-flex p-2 col-12 float-left col-md-6">
+                                    <div id="locality-input-guest">+00</div>
+                                    <input class="neumorphic-input country" type="tel" placeholder="Numéro de téléphone"
+                                           required/>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 float-left">
+                                <button type="button" class="my-3 btn neumorphic-btn next" id="close">
+                                    Fermer
+                                </button>
+                            </div>
+                            <div class="col-12 col-md-6 float-right">
+                                <button type="button" class="my-3 btn neumorphic-btn next" id="save">
+                                    Sauver
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/guest div-->
+                <!--guest edit-->
+
+                <div class="row">
+                    <div class="col-12 col-md-6 float-right">
+                        <button type="button" id="plus_btn" class="my-3 btn neumorphic-btn next">Ajouter invité
+                            <svg id="plus" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 204 204">
+                                <title>plus</title>
+                                <line class="cls-1" x1="102" y1="2" x2="102" y2="202"/>
+                                <line class="cls-1" x1="202" y1="102" x2="2" y2="102"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12 col-md-6 float-right">
+                        <a href="step3.html">
+                            <button type="button" class="my-3 btn neumorphic-btn next"><span
+                                    class="button_text">Suivant</span>
+                                <svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 9.5 18.22">
+                                    <title>arrow-right</title>
+                                    <path class="cls-1" d="M203.5,340.28l8.42,8.42a.26.26,0,0,1,0,.38l-8.42,8.42"
+                                          transform="translate(-203 -339.78)"/>
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 float-left">
+                        <a href="index.html">
+                            <button type="button" class="my-3 btn neumorphic-btn next">
+                                <svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 9.5 18.22">
+                                    <title>arrow-left</title>
+                                    <path class="cls-1" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
+                                          transform="translate(-203 -339.78)"/>
+                                </svg>
+                                <span class="button_text">Retour</span>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/popper.min.js'></script>
+<script src="./js/script.js"></script>
+<script src="./js/neumorphic.js"></script>
+
+</body>
+</html>

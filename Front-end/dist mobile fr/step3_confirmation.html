@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nizu - Calendar - step 3</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./css/style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="py-5 neumorphic-inner">
+    <div class="container">
+
+        <div class="d-flex p-2 mx-auto slider">
+            <div class="neumorphic-slider col-12">
+                <div class="neumorphic-slider__back"></div>
+                <div class="neumorphic-slider__line"></div>
+                <div class="neumorphic-slider__thumb">1</div>
+                <div class="neumorphic-slider__thumb">2</div>
+                <div class="neumorphic-slider__thumb">3</div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <label class="neumorphic-text">INTRODUISEZ LE CODE DE SECURITE</label>
+            <br>
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 86">
+                <title>Phone_lock</title>
+                <path class="cls-1"
+                      d="M7.13,1.08A7.07,7.07,0,0,0,0,8.08v72a7.07,7.07,0,0,0,7.13,7H42.88a7.07,7.07,0,0,0,7.12-7v-18H63.13A2.87,2.87,0,0,0,66,59.23V40.89a2.84,2.84,0,0,0-2.87-2.81H61V29.89c0-5.5-5-9.81-11-9.81v-12a7.08,7.08,0,0,0-7.12-7Zm0,2H42.88A5,5,0,0,1,48,8h0V9.08H2v-1a5,5,0,0,1,5-5ZM2,11.08H48v9.15c-5.06.83-9,4.75-9,9.62v8.23H36.88A2.87,2.87,0,0,0,34,40.85V59.14a2.92,2.92,0,0,0,2.88,2.94H48v11H2Zm48,11c5,0,9,3.54,9,7.81v8.19H41V29.89C41,25.62,45,22.08,50,22.08Zm-13.12,18H63.13a.82.82,0,0,1,.87.75v18.4a.82.82,0,0,1-.82.84H36.88a1,1,0,0,1-.88-.94V40.89a.81.81,0,0,1,.81-.81h.07Zm13.12,6a4,4,0,1,0,4,4A4,4,0,0,0,50,46.08Zm0,2a2,2,0,1,1-2,2A2,2,0,0,1,50,48.08Zm-48,27H48v5a5,5,0,0,1-5,5H7.13A5,5,0,0,1,2,80.22H2Zm16.82,4a1,1,0,1,0,.18,2H31a1,1,0,0,0,0-2Z"
+                      transform="translate(0 -1.08)"/>
+                <path class="cls-2"
+                      d="M18.12,64.16l-.75,1h0L18.56,65v.53l-1.19-.14h0l.75.94-.49.28-.47-1.1h0l-.51,1.11-.45-.28.75-1h0l-1.17.15V65l1.16.15h0l-.74-1,.48-.28.49,1.1h0l.48-1.1Z"
+                      transform="translate(0 -1.08)"/>
+                <path class="cls-2"
+                      d="M33.63,64.16l-.75,1h0L34.07,65v.53l-1.19-.14h0l.76.94-.5.28-.47-1.1h0l-.51,1.11-.45-.28.75-1h0l-1.17.15V65l1.16.15h0l-.74-1,.48-.28.49,1.1h0l.48-1.1Z"
+                      transform="translate(0 -1.08)"/>
+                <path class="cls-2"
+                      d="M28.46,64.16l-.75,1h0L28.9,65v.53l-1.19-.14h0l.76.94-.5.28-.47-1.1h0L27,66.65l-.45-.28.75-1h0l-1.17.15V65l1.16.15h0l-.74-1L27,63.9l.49,1.1h0L28,63.9Z"
+                      transform="translate(0 -1.08)"/>
+                <path class="cls-2"
+                      d="M23.29,64.16l-.75,1h0L23.73,65v.53l-1.19-.14h0l.76.94-.5.28-.47-1.1h0l-.51,1.11-.45-.28.75-1h0L21,65.49V65l1.16.15h0l-.74-1,.48-.28.49,1.1h0l.48-1.1Z"
+                      transform="translate(0 -1.08)"/>
+            </svg>
+            <br>
+            <h5 class="">INTRODUISEZ VOTRE CODE DE SECURITE DE 4 CHIFFRES</h5>
+            <br>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="center">
+                        <div class="d-flex float-left col-3">
+                            <input class="neumorphic-input" type="text"/>
+                        </div>
+                        <div class="d-flex float-left col-3">
+                            <input class="neumorphic-input" type="text"/>
+                        </div>
+                        <div class="d-flex float-left col-3">
+                            <input class="neumorphic-input" type="text">
+                        </div>
+                        <div class="d-flex float-left col-3">
+                            <input class="neumorphic-input" type="text"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bottom-row">
+                <div class="col-md-5 float-right button-down">
+                    <a href="step3_final_confirmation.html">
+                        <button type="button" class="my-1 btn neumorphic-btn button"><span
+                                class="button_text">Confirmer</span>
+
+                            <svg version="1.1" id="check" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewBox="0 0 106.1 71.6" style="enable-background:new 0 0 106.1 71.6;"
+                                 xml:space="preserve">
+                            <polyline class="check" points="6.8,36.5 36.5,64.9 99.8,6.6 "/>
+                        </svg>
+
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-5 float-left button-down">
+                    <a href="step3.html">
+                        <button type="button" class="my-1 btn neumorphic-btn button">
+                            <svg id="Arr_right" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 9.5 18.22">
+                                <title>arrow-left</title>
+                                <path class="back" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
+                                      transform="translate(-203 -339.78)"/>
+                            </svg>
+                            <span class="button_text">Retour</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js'></script>
+<script src="./js/script.js"></script>
+<script src="./js/neumorphic.js"></script>
+</body>
+</html>
