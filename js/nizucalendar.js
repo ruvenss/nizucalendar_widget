@@ -35,7 +35,9 @@ var calendar;
 var temp = null;
 var temp2 = null;
 var temp3 = null;
+var isediting = false;
 var nizumobileurl="";
+var guestsArr = [];
 function NizuArrayContains(needle, arrhaystack){
     return ($.inArray(needle, arrhaystack) > -1);
 }
@@ -56,8 +58,15 @@ function nizucal_hourselect(id,seltime){
     $("#nizutimeselected").text(seltime);
     $("#nizucalexit").css("display","block");
     $("#nizuselecthours").css("display","none");
-    $(".nizutimeline").css("display","none");    
-    nizu_GetData({a:"confirmbooking",publickey:nizupublickey,id:nizuapiid,free_slot_id:id,service_id:nizuserviceid,email:window.localStorage.getItem("nizucalc_email"),fullname:window.localStorage.getItem("nizucalc_fullname"),phone:window.localStorage.getItem("nizutelephone"),phonecode:window.localStorage.getItem("nizucountryCode"),cp:window.localStorage.getItem("nizucp"),city:$("#nizucity").val(),street:window.localStorage.getItem("nizustreet"),place:window.localStorage.getItem("nizuplace"),notes:$("#nizucalnotes").val()},"Loading...",function(data) {
+    $(".nizutimeline").css("display","none");
+    //if(nizucal_guests > 0){
+        for(i = 1; i < nizucal_guests+1; i++){
+            tempArr= {email:window.sessionStorage.getItem('nizucalc_guest'+i+'_email'),fullname:window.sessionStorage.getItem('nizucalc_guest'+i+'_name'),phone: window.sessionStorage.getItem('nizucalc_guest'+i+'_phonecountry') + window.sessionStorage.getItem('nizucalc_guest'+i+'_phone')};
+            guestsArr.push(tempArr);
+        }    
+    //}
+    console.log(guestsArr);
+    nizu_GetData({a:"confirmbooking",publickey:nizupublickey,guests:guestsArr,id:nizuapiid,free_slot_id:id,service_id:nizuserviceid,email:window.localStorage.getItem("nizucalc_email"),fullname:window.localStorage.getItem("nizucalc_fullname"),phone:window.localStorage.getItem("nizutelephone"),phonecode:window.localStorage.getItem("nizucountryCode"),cp:window.localStorage.getItem("nizucp"),city:$("#nizucity").val(),street:window.localStorage.getItem("nizustreet"),place:window.localStorage.getItem("nizuplace"),notes:$("#nizucalnotes").val()},"Loading...",function(data) {
         if (data.ans>0) {
             nizu_booking_id=data.ans;
             if (data.phoneok===true) {
@@ -280,7 +289,7 @@ function nizucal_initrender(){
             if(nizuguest_email == $("#nizucalc_email").val()){
                 isdoubleemail = true;
             }
-            if(window.sessionStorage.getItem('nizucalc_guest'+1+'_email') !== null && !isdoubleemail){
+            if(window.sessionStorage.getItem('nizucalc_guest'+1+'_email') !== null && !isdoubleemail && !isediting){
                
                 for(var i = nizucal_guests;i>0;i--){
                     if(nizuguest_email == window.sessionStorage.getItem('nizucalc_guest'+i+'_email')){
@@ -295,10 +304,18 @@ function nizucal_initrender(){
                     $("#nizucaladdguest").prop("disabled",true);
                     $("#nizucaladdguest").css("display","none");
                 }
-                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
-                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
-                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
-                window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
+                if(isediting){
+                    nizucal_guests--;
+                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
+                } else {
+                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
+                }
                 $("#nizucalguestsmodal").modal('hide');
                 $("#nizucalsaveguest").prop("disabled",true);
                 $("#nizucalguestsmodal input").each(function(){
@@ -311,13 +328,14 @@ function nizucal_initrender(){
                     
                     $(".nizu_btn_edit").on("click",function(){
                         console.log($(this));
-                        temp = parseInt(nizucal_guests);
-                        nizucal_guests = $(this).attr("data-id");
-                        $("#nizucalguestsmodal").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email'));
-                        $("#nizucalguestsmodal").find('input[type="input"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name'));
-                        $("#nizucalguestsmodal").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phone'));
-                        $("#nizucalguestsmodal").find('select').val(window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phonecountry'));
-                        $("#guest_countrycodelabel").text("+"+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_phonecountry'));
+                        //temp = parseInt(nizucal_guests);
+                        isediting = true;
+                        temp = $(this).attr("data-id");
+                        $("#nizucalguestsmodal").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_email'));
+                        $("#nizucalguestsmodal").find('input[type="input"]').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_name'));
+                        $("#nizucalguestsmodal").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_phone'));
+                        $("#nizucalguestsmodal").find('select').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_phonecountry'));
+                        $("#guest_countrycodelabel").text("+"+window.sessionStorage.getItem('nizucalc_guest'+temp+'_phonecountry'));
                         $("#nizucalguestsmodal").modal('show');
                         $("#nizucalsaveguest").prop("disabled",false);
                     });
@@ -365,6 +383,7 @@ function nizucal_initrender(){
                 $("#nizucalguestsmodal").find('input[type="email]"').focus();
             }
         }
+        isediting = false;
     });
     $("#nizucalnext").on("click", function(){
         console.log($("input[name='nizuservices']").val());
@@ -443,7 +462,7 @@ function nizuselectTime(OnthisDate) {
         if (data.ans>0) {
             $("#nizuselecthours").css("display","block");
             for (var i = data.freehours.length - 1; i >= 0; i--) {
-                $("#nizufreeslots").append('<div class="col-md-4"><button class="btn btn-danger btn-lg nizubtn nizubtnselecthr" data-startime="'+data.freehours[i].start+'" data-id="'+data.freehours[i].id+'" onclick="nizucal_hourselect('+data.freehours[i].id+','+"'"+data.freehours[i].start+"'"+')">'+data.freehours[i].start+'</button></div>');
+                $("#nizufreeslots").append('<div class="col-md-4"><button class="btn btn-danger btn-lg nizubtn nizubtnselecthr" data-startime="'+data.freehours[i].start+'" data-id="'+data.freehours[i].id+'" onclick="nizucal_hourselect('+data.freehours[i].id+','+"'"+data.freehours[i].start+"'"+')">'+data.freehours[i].start+'<br>' + data.freehours[i].end +'</button></div>');
             }
             
         }
@@ -453,8 +472,18 @@ function nizucal(publickey,nizuapiid,theme,choosedestination,nizucal_title,lang,
     console.log("nizucal "+nizu_serverurl+lang+"/");
     nizupublickey=publickey;
     nizucal_choosedestination=choosedestination;
-    nizutheme=theme;
+    nizutheme = "css/nizucalendar.css";
     $(document).ready(function(){
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': "css/nizucalendar_" + theme + ".css",
+            'success': function (data) {
+                nizutheme = "css/nizucalendar_" + theme + ".css";
+            }
+        });
+        console.log("nizu theme loaded:" + nizutheme);
+        $("#nizucaltheme").attr("href", nizutheme);
         $(".nizucalframe").load(nizu_serverurl+lang+"/"+nizumobileurl,function(){
             console.log("html rendered");
             $("#nizucal_title").text(nizucal_title);
