@@ -113,12 +113,13 @@ function nizucal_initrender(){
     $(".nizucalframe").css("display","block");
     $("#nizucalstep1").css("display","block");
     for (var i = nizuservices.length - 1; i >= 0; i--) {
-        $("#nizuservices").append('<input type="radio" name="nizuservices" value="'+nizuservices[i].id+'" id="dataid_'+nizuservices[i].id+'" class="nizuradio" data-label="'+nizuservices[i].subject+'"> <label for="dataid_'+nizuservices[i].id+'" class="nizu_label"> '+nizuservices[i].subject+'</label><br>');
+        //$("#nizuservices").append('<input type="radio" name="nizuservices" value="'+nizuservices[i].id+'" id="dataid_'+nizuservices[i].id+'" class="nizuradio" data-label="'+nizuservices[i].subject+'"> <label for="dataid_'+nizuservices[i].id+'" class="nizu_label"> '+nizuservices[i].subject+'</label><br>');
+        $("#nizuservices").append('<div class="wrapper"><input class="state" data-label="' + nizuservices[i].subject + '" type="radio" name="nizuservices" id="dataid_' + nizuservices[i].id + '" value="' + nizuservices[i].id + '"><label class="label" for="dataid_' + nizuservices[i].id + '"><div class="indicator"></div><span class="text">' + nizuservices[i].subject + '</span></label></div>');
     }
     $("#nizuservices input[type='radio']").on("click",function(){
         nizuserviceid=$(this).val();
         $(".nizuservice_selected").text($(this).data("label"));
-        $("#nizucalendar").empty();
+        $("#nizucalendar").empty(); 
         nizu_GetData({a:"getfreedates",publickey:nizupublickey,id:nizuapiid,service_id:$(this).val()},"Loading...",function(data) {
             if (data.ans>0) {
                 nizufreeslots=data.freeslots;  
