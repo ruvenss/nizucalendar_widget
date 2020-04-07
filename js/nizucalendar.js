@@ -234,11 +234,11 @@ function nizucal_initrender(){
 	});
 	$("#nizucountryCode").on("change", function(){
 		if ($("#nizucountryCode").val().length>0) {
-			$("#nizutelephone").prop("disabled", false);
-			$("#countrycodelabel").text("+"+$("#nizucountryCode").val());
+			$(".nizutelephone").prop("disabled", false);
+			$(".countrycodelabel").text("+"+$("#nizucountryCode").val());
 		} else {
-			$("#nizutelephone").prop("disabled", true);
-			$("#nizutelephone").val("");
+			$(".nizutelephone").prop("disabled", true);
+			$(".nizutelephone").val("");
         }
         if (nizucal_choosedestination===true) {$("#nizucal_choosedestination").css("display","flex");}
     });
@@ -386,15 +386,16 @@ function nizucal_initrender(){
         }
         isediting = false;
     });
-    $("#nizucalnext").on("click", function(){
-        console.log($("input[name='nizuservices']").val());
+    $("#nizucalnext").on("click", function () {
+        console.log("button clicked");
+        console.log($("input[name='nizuservices']").is(':checked'));
         if ($("input[name='nizuservices']").is(':checked')) {
-            $(".nizustepper").removeClass("active");
-            $("[id^=nizucalstep]").css("display","none");
+            $("#nizustepper").removeClass("neumorphic-slider__line_1");
+            $("#nizustepper").addClass("neumorphic-slider__line_2");
+            $("[id^=nizucalstep]").addClass("d-none");
             $("#nizucalendar").css("display","none");
             $("#nizuselecthours").css("display","none");
-            $("#nizucalstep2").css("display","block");
-            $(".nizuprogressbar li[data-step='2']").toggleClass("active");
+            $("#nizucalstep2").removeClass("d-none");
             
         } else {
             alert("Please select a meeting subject");
