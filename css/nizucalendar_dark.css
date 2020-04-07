@@ -207,7 +207,7 @@ textarea::placeholder {
 	stroke-width: 15px;
 }
 .country{
-	padding-left:100px !important;
+	padding-left:70px !important;
 }
 .neumorphic-slider__line_2 {
 	height: 16px;
@@ -285,6 +285,25 @@ hr {
 	margin: 2% auto auto auto;
 	max-width: 60%;
 }
+#guest {
+	display: flex;
+	justify-content: center;
+	background-color: var(--back-color);
+	margin: 2% auto auto auto;
+	max-width: 80%;
+}
+.row {
+	color: var(--primary-font-color);
+}
+#guest_icon {
+	margin-bottom: 10%;
+	width: 55%;
+}
+.guest_icon {
+	margin-bottom: 10%;
+	width: 60%;
+	fill: #DC3545;
+}
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -316,7 +335,7 @@ select {
 }
 #locality-input, #locality-input-guest {
 	text-align: right;
-	width: 100px;
+	width: 70px;
 	margin-left: 2%;
 	margin-top: 9px;
 	z-index: 1000;

@@ -61,12 +61,12 @@ function nizucal_hourselect(id,seltime){
     $(".nizutimeline").css("display","none");
     //if(nizucal_guests > 0){
         for(i = 1; i < nizucal_guests+1; i++){
-            tempArr= {email:window.sessionStorage.getItem('nizucalc_guest'+i+'_email'),fullname:window.sessionStorage.getItem('nizucalc_guest'+i+'_name'),phone: window.sessionStorage.getItem('nizucalc_guest'+i+'_phonecountry') + window.sessionStorage.getItem('nizucalc_guest'+i+'_phone')};
+            tempArr = { email: window.sessionStorage.getItem('nizucalc_guest' + i + '_email'), fullname: window.sessionStorage.getItem('nizucalc_guest' + i + '_first_name') + " " + window.sessionStorage.getItem('nizucalc_guest' + i + '_family_name'), phone: window.sessionStorage.getItem('nizucalc_guest' + i + '_phonecountry') + window.sessionStorage.getItem('nizucalc_guest' + i + '_phone') };
             guestsArr.push(tempArr);
         }    
     //}
     console.log(guestsArr);
-    nizu_GetData({a:"confirmbooking",publickey:nizupublickey,guests:guestsArr,id:nizuapiid,free_slot_id:id,service_id:nizuserviceid,email:window.localStorage.getItem("nizucalc_email"),fullname:window.localStorage.getItem("nizucalc_fullname"),phone:window.localStorage.getItem("nizutelephone"),phonecode:window.localStorage.getItem("nizucountryCode"),cp:window.localStorage.getItem("nizucp"),city:$("#nizucity").val(),street:window.localStorage.getItem("nizustreet"),place:window.localStorage.getItem("nizuplace"),notes:$("#nizucalnotes").val()},"Loading...",function(data) {
+    nizu_GetData({ a: "confirmbooking", publickey: nizupublickey, guests: guestsArr, id: nizuapiid, free_slot_id: id, service_id: nizuserviceid, email: window.localStorage.getItem("nizucalc_email"), fullname: window.localStorage.getItem("nizucalc_firstname") + " " + window.localStorage.getItem("nizucalc_familyname"), phone: window.localStorage.getItem("nizutelephone"), phonecode: window.localStorage.getItem("nizucountryCode"), cp: window.localStorage.getItem("nizucp"), city: $("#nizucity").val(), street: window.localStorage.getItem("nizustreet"), place: window.localStorage.getItem("nizuplace"), notes: $("#nizucalnotes").val() }, "Loading...", function (data) {
         if (data.ans>0) {
             nizu_booking_id=data.ans;
             if (data.phoneok===true) {
@@ -100,7 +100,8 @@ function nizucal_initrender(){
         head.appendChild(link);
     }
     if (window.localStorage.getItem("nizucalc_email") !== null) {$("#nizucalc_email").val(window.localStorage.getItem("nizucalc_email"));}
-    if (window.localStorage.getItem("nizucalc_fullname") !== null) {$("#nizucalc_fullname").val(window.localStorage.getItem("nizucalc_fullname"));}
+    if (window.localStorage.getItem("nizucalc_firstname") !== null) {$("#nizucalc_firstname").val(window.localStorage.getItem("nizucalc_firstname"));}
+    if (window.localStorage.getItem("nizucalc_familyname") !== null) { $("#nizucalc_familyname").val(window.localStorage.getItem("nizucalc_familyname")); }
     if (window.localStorage.getItem("nizutelephone") !== null) {$("#nizutelephone").val(window.localStorage.getItem("nizutelephone"));}
     if (window.localStorage.getItem("nizucountryCode") !== null) {$("#nizucountryCode").val(window.localStorage.getItem("nizucountryCode"));}
     if (window.localStorage.getItem("nizucp") !== null) {$("#nizucp").val(window.localStorage.getItem("nizucp"));}
@@ -244,31 +245,36 @@ function nizucal_initrender(){
     });
 	$("#guest_nizucountryCode").on("change", function(){
 		if ($("#guest_nizucountryCode").val().length>0) {
-			$("#guest_nizutelephone").prop("disabled", false);
-			$("#guest_countrycodelabel").text("+"+$("#guest_nizucountryCode").val());
+			$(".guest_nizutelephone").prop("disabled", false);
+			$(".guest_countrycodelabel").text("+"+$("#guest_nizucountryCode").val());
 		} else {
-			$("#guest_nizutelephone").prop("disabled", true);
-			$("#guest_nizutelephone").val("");
+			$(".guest_nizutelephone").prop("disabled", true);
+			$(".guest_nizutelephone").val("");
         }
         if (nizucal_choosedestination===true) {$("#guest_nizucal_choosedestination").css("display","flex");}
     });
     $("#nizucaladdguest").on("click", function(){
         console.log(nizucal_guests);
-        $("#nizucaladdguest").prop("disabled",true);
+        $("#nizucaladdguest").prop("disabled", true);
+        $("#nizucaladdguest").addClass("d-none");
+        $("#personal_info").addClass("d-none");
+        $("#btnrow_step2").addClass("d-none");
+        $("#guest").removeClass("d-none");
+        $("#btnrow_step2").removeClass("d-block");
         //if($("#nizucalguests").find('input[value!=""]').length == 0){
             if (nizucal_guests<=3) {
                 //nizucal_guests=nizucal_guests+1;
                 $("#nizucaladdguest").prop("disabled",false);
-                $("#nizucaladdguest").css("display","inline-block");
+                //$("#nizucaladdguest").css("display","inline-block");
                 //$("#nizucalguests").find('input[value!=""]')[0].focus();
             }
         //} else {
             //$("#nizucalguests").find('input[value!=""]')[0].focus();
         //}
     });
-    $("#nizucalguestsmodal").find('input').on("input", function(){
+    $("#guest").find('input').on("input", function(){
         var isempty = true;
-        $("#nizucalguestsmodal .modal-body").find('input').each(function(){
+        $("#guest .guest-body").find('input').each(function(){
             if($.trim($(this).val()).length == 0){
                 isempty = false;
             }
@@ -281,11 +287,12 @@ function nizucal_initrender(){
     });
     
     $("#nizucalsaveguest").on("click", function(){
-        var nizuguest_email = $("#nizucalguestsmodal").find('input[type="email"]').val();
-        if(!nizu_ValidateEmail($("#nizucalguestsmodal").find('input[type="email"]').val())){
+        var nizuguest_email = $("#guest").find('input[type="email"]').val();
+        if (!nizu_ValidateEmail($("#guest").find('input[type="email"]').val())) {
             alert("email is not validated");
-            $("#nizucalguestsmodal").find('input[type="email]"').focus();
-        } else { 
+            $("#guest").find('input[type="email]"').focus();
+        } else {
+            console.log("email validated");
             var isdoubleemail = false;
             if(nizuguest_email == $("#nizucalc_email").val()){
                 isdoubleemail = true;
@@ -307,37 +314,46 @@ function nizucal_initrender(){
                 }
                 if(isediting){
                     nizucal_guests--;
-                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest'+temp+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
+                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_email', $("#guest").find('input[type="email"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_family_name', $("#guest_family_name").val());
+                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_first_name', $("#guest_first_name").val());
+                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_phone', $("#guest").find('input[type="tel"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_phonecountry', $("#guest").find('select').val());
                 } else {
-                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_email', $("#nizucalguestsmodal").find('input[type="email"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_name', $("#nizucalguestsmodal").find('input[type="input"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phone', $("#nizucalguestsmodal").find('input[type="tel"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest'+nizucal_guests+'_phonecountry', $("#nizucalguestsmodal").find('select').val());
+                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_email', $("#guest").find('input[type="email"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_family_name', $("#guest_family_name").val());
+                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_first_name', $("#guest_first_name").val());
+                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_phone', $("#guest").find('input[type="tel"]').val());
+                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_phonecountry', $("#guest").find('select').val());
                 }
-                $("#nizucalguestsmodal").modal('hide');
+                $("#guest").addClass('d-none');
+                $("#nizucaladdguest").removeClass("d-none");
+                $("#personal_info").removeClass("d-none");
+                $("#btnrow_step2").removeClass("d-none");
+                $("#btnrow_step2").addClass("d-block");
                 $("#nizucalsaveguest").prop("disabled",true);
-                $("#nizucalguestsmodal input").each(function(){
+                $("#guest input").each(function(){
                     $(this).val("");
                 });
-                $("#nizucalguestsmodal").find('select').val("");
+                $("#guest").find('select').val("");
                 $("#guest_countrycodelabel").text("");
-                if(temp == null){
-                    $("#nizucalguests").append('<div class="col-sm-12 col-md-12 row"><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name')+'<span></div><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email')+'<span></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_edit btn-circle btn-success"><i class="far fa-pen"></i></button></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_delete btn btn-circle btn-danger"><i class="fas fa-minus-circle"></i></button></div></div>');
-                    
+                if (temp == null) {
+                    var new_guest = '<div><div class="mt-2 col-sm-5 col-md-5 float-left"><span id="guest_name_list">' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_first_name') +' ' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_family_name') + '</span></div><div class="mt-2 col-sm-5 col-md-5 float-left"><span id="guest_email_list">' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_email') + '</span></div><div class="col-12 col-md-1 float-left"><button type="button" data-id="' + nizucal_guests + '" id="edit_guest" class="nizu_btn_edit p-0 btn neumorphic-btn next"><svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.05 42.99"><title>edit</title><path class="guest_icon" d="M40.53,2.49a8.51,8.51,0,0,0-12,0L2.89,28.09a1.52,1.52,0,0,0-.41.77L0,41.23a1.5,1.5,0,0,0,.41,1.35A1.47,1.47,0,0,0,1.5,43h.29l12.37-2.45a1.45,1.45,0,0,0,.77-.41l25.6-25.6a8.52,8.52,0,0,0,0-12Zm-27.4,35.2L3.41,39.61l1.92-9.72L26.56,8.67,34,16.79ZM38.41,12.41l-2.26,2.26L28.68,6.54l1.94-1.93a5.51,5.51,0,1,1,7.79,7.8Z" transform="translate(0.03 -0.01)" /></svg></button></div><div class="col-12 col-md-1 float-left"><button type="button" data-id="' + nizucal_guests + '" id="delete_guest" class="p-0 nizu_btn_delete btn neumorphic-btn next"><svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.67 98"><title>delete</title><path class="guest_icon" d="M89.15,13.38,66,9.53,64.27,2.66a2,2,0,0,0-2-1.55H37.75a2,2,0,0,0-2,1.55L34.09,9.53,10.92,13.38a2,2,0,0,0-1.72,2v8.17a2,2,0,0,0,2,2H88.83a2,2,0,0,0,2-2V15.4A2,2,0,0,0,89.15,13.38Z" transform="translate(-9.2 -1.11)" /><path class="guest_icon" d="M21.45,97.19a2,2,0,0,0,2,1.92H76.58a2,2,0,0,0,2-1.92L82.48,29.7H17.6ZM62.37,35.74a2.12,2.12,0,0,1,2.12-2,2,2,0,0,1,2,2.12l-2,49a2,2,0,0,1-2,2h-.08a2,2,0,0,1-2-2.12Zm-14.29.08a2,2,0,0,1,4.08,0v49a2,2,0,1,1-4.08,0Zm-12.34-2a2.07,2.07,0,0,1,2.13,2l2,49a2,2,0,0,1-2,2.12h-.08a2,2,0,0,1-2-2l-2-49A2.05,2.05,0,0,1,35.74,33.78Z" transform="translate(-9.2 -1.11)" /></svg></button></div></div>'
+                    //$("#nizucalguests").append('<div class="col-sm-12 col-md-12 row"><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name')+'<span></div><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email')+'<span></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_edit btn-circle btn-success"><i class="far fa-pen"></i></button></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_delete btn btn-circle btn-danger"><i class="fas fa-minus-circle"></i></button></div></div>');
+                    $("#guest_list").append(new_guest);
+                    $("#guest_list").removeClass("d-none");
                     $(".nizu_btn_edit").on("click",function(){
                         console.log($(this));
                         //temp = parseInt(nizucal_guests);
                         isediting = true;
                         temp = $(this).attr("data-id");
-                        $("#nizucalguestsmodal").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_email'));
-                        $("#nizucalguestsmodal").find('input[type="input"]').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_name'));
-                        $("#nizucalguestsmodal").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_phone'));
-                        $("#nizucalguestsmodal").find('select').val(window.sessionStorage.getItem('nizucalc_guest'+temp+'_phonecountry'));
+                        $("#guest").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_email'));
+                        $("#guest_family_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_family_name'));
+                        $("#guest_first_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_first_name'));
+                        $("#guest").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phone'));
+                        $("#guest").find('select').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
                         $("#guest_countrycodelabel").text("+"+window.sessionStorage.getItem('nizucalc_guest'+temp+'_phonecountry'));
-                        $("#nizucalguestsmodal").modal('show');
+                        $("#guest").modal('show');
                         $("#nizucalsaveguest").prop("disabled",false);
                     });
                     $(".nizu_btn_delete").on("click",function(){
@@ -356,13 +372,15 @@ function nizucal_initrender(){
                                     $('.nizu_btn_edit[data-id='+temp4+']').attr("data-id",j);
                                     console.log('nizucalc_guest'+j+'_email' + " & " + 'nizucalc_guest'+temp4+'_email');
                                     window.sessionStorage.setItem('nizucalc_guest'+j+'_email', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_email'));
-                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_name', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_name'));
+                                    window.sessionStorage.setItem('nizucalc_guest' + j + '_first_name', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_first_name'));
+                                    window.sessionStorage.setItem('nizucalc_guest' + j + '_family_name', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_family_name'));
                                     window.sessionStorage.setItem('nizucalc_guest'+j+'_phone', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_phone'));
                                     window.sessionStorage.setItem('nizucalc_guest'+j+'_phonecountry', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_phonecountry'));
                                 }
                             }
                             window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_email');
-                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_name');
+                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_first_name');
+                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_family_name');
                             window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_phone');
                             window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_phonecountry');
                             if(nizucal_guests > 0){
@@ -381,7 +399,7 @@ function nizucal_initrender(){
                 }
             } else {
                 alert("the email that you entered, you already used");
-                $("#nizucalguestsmodal").find('input[type="email]"').focus();
+                $("#guest").find('input[type="email]"').focus();
             }
         }
         isediting = false;
@@ -402,39 +420,45 @@ function nizucal_initrender(){
         }
     });
     $("#nizucalconfirm").on("click", function(){
-        if ($("#nizucalc_fullname").val().length>2){
-            if (nizu_ValidateEmail($("#nizucalc_email").val())){
-                if ($("#nizucountryCode").val().length>0) {
-                    if ($("#nizutelephone").val().length>0) {
-                        nizu_confirmid=true;
-                        window.localStorage.setItem('nizucalc_email', $("#nizucalc_email").val());
-                        window.localStorage.setItem('nizucalc_fullname', $("#nizucalc_fullname").val());
-                        window.localStorage.setItem('nizutelephone', $("#nizutelephone").val());
-                        window.localStorage.setItem('nizucountryCode', $("#nizucountryCode").val());
-                        window.localStorage.setItem('nizustreet', $("#nizustreet").val());
-                        window.localStorage.setItem('nizucity', $("#nizucity").val());
-                        window.localStorage.setItem('nizuplace', $("#nizuplace").val());
-                        window.localStorage.setItem('nizucp', $("#nizucp").val());
-                        $(".nizustepper").removeClass("active");
-                        $("[id^=nizucalstep]").css("display","none");
-                        $("#nizucalendar").css("display","block");
-                        $("#nizuselecthours").css("display","none");
-                        $("#nizucalstep3").css("display","block");
-                        $(".nizuprogressbar li[data-step='3']").toggleClass("active");
+        if ($("#nizucalc_familyname").val().length > 2) {
+            if ($("#nizucalc_firstname").val().length > 2) {
+                if (nizu_ValidateEmail($("#nizucalc_email").val())){
+                    if ($("#nizucountryCode").val().length>0) {
+                        if ($("#nizutelephone").val().length>0) {
+                            nizu_confirmid=true;
+                            window.localStorage.setItem('nizucalc_email', $("#nizucalc_email").val());
+                            window.localStorage.setItem('nizucalc_firstname', $("#nizucalc_firstname").val());
+                            window.localStorage.setItem('nizucalc_familyname', $("#nizucalc_familyname").val());
+                            window.localStorage.setItem('nizutelephone', $(".nizutelephone").val());
+                            window.localStorage.setItem('nizucountryCode', $(".nizucountryCode").val());
+                            window.localStorage.setItem('nizustreet', $("#nizustreet").val());
+                            window.localStorage.setItem('nizucity', $("#nizucity").val());
+                            window.localStorage.setItem('nizuplace', $("#nizuplace").val());
+                            window.localStorage.setItem('nizucp', $("#nizucp").val());
+                            $(".nizustepper").removeClass("active");
+                            $("[id^=nizucalstep]").css("display","none");
+                            $("#nizucalendar").css("display","block");
+                            $("#nizuselecthours").css("display","none");
+                            $("#nizucalstep3").css("display","block");
+                            $(".nizuprogressbar li[data-step='3']").toggleClass("active");
+                        } else {
+                            $("#nizutelephone").focus();
+                            alert("Please use a valid mobile phone");
+                        }
                     } else {
-                        $("#nizutelephone").focus();
-                        alert("Please use a valid mobile phone");
+                        alert("Please select a country");
                     }
                 } else {
-                    alert("Please select a country");
+                    $("#nizucalc_email").focus();
+                    alert("Your email address is invalid");
                 }
             } else {
-                $("#nizucalc_email").focus();
-                alert("Your email address is invalid");
+                $("#nizucalc_firstname").focus();
+                alert("Your first name is mandatory");
             }
         } else {
-            $("#nizucalc_fullname").focus();
-            alert("Your full name is mandatory");
+            $("#nizucalc_familyname").focus();
+            alert("Your last name is mandatory");
         }
     });
 }
