@@ -9,8 +9,11 @@ var nizucal_selectedyear=0;
 var nizucal_selectedyear2=0;
 var nizucal_selectedmonth=0;
 var nizucal_selectedday=0;
+var nizucal_selectedmonth2=0;
+var nizucal_selectedday2=0;
 var nizucal_selectedhour=12;
-var nizucal_selectedmin=0;
+var nizucal_selectedmin = 0;
+var nizucal_selecteddate = "";
 var nizucal_today = new Date();
 var nizucal_timezone="Europe/Brussels";
 var nizucal_country="BE";
@@ -22,6 +25,7 @@ var nizuweekends=false;
 var nizuholidays=[];
 var nizublockslots=[];
 var nizufreeslots=[];
+var nizufreedates=[];
 var nizufreeblocks=[];
 var nizuevents=[];
 var nizuservices=[];
@@ -38,6 +42,7 @@ var temp3 = null;
 var isediting = false;
 var nizumobileurl="";
 var guestsArr = [];
+const now = new Date(Date.now());
 function NizuArrayContains(needle, arrhaystack){
     return ($.inArray(needle, arrhaystack) > -1);
 }
@@ -48,7 +53,7 @@ function nizucal_init(){
     nizucal_selectedyear=nizucal_today.getFullYear();
     nizucal_selectedyear2=nizucal_today.getFullYear()+1;
     nizucal_years=[nizucal_selectedyear,nizucal_selectedyear+1];
-    nizucal_selectedmonth=String(nizucal_today.getMonth() + 1).padStart(2, '0');
+    nizucal_selectedmonth = nizucal_today.getMonth();
     nizucal_selectedday=String(nizucal_today.getDate()).padStart(2, '0');
     nizucal_selectedhour=nizucal_today.getHours();
     nizucal_selectedmin=nizucal_today.getMinutes();
@@ -102,8 +107,12 @@ function nizucal_initrender(){
     if (window.localStorage.getItem("nizucalc_email") !== null) {$("#nizucalc_email").val(window.localStorage.getItem("nizucalc_email"));}
     if (window.localStorage.getItem("nizucalc_firstname") !== null) {$("#nizucalc_firstname").val(window.localStorage.getItem("nizucalc_firstname"));}
     if (window.localStorage.getItem("nizucalc_familyname") !== null) { $("#nizucalc_familyname").val(window.localStorage.getItem("nizucalc_familyname")); }
-    if (window.localStorage.getItem("nizutelephone") !== null) {$("#nizutelephone").val(window.localStorage.getItem("nizutelephone"));}
-    if (window.localStorage.getItem("nizucountryCode") !== null) {$("#nizucountryCode").val(window.localStorage.getItem("nizucountryCode"));}
+    if (window.localStorage.getItem("nizutelephone") !== null) {$(".nizutelephone").val(window.localStorage.getItem("nizutelephone"));}
+    if (window.localStorage.getItem("nizucountryCode") !== null) {
+        $("#nizucountryCode").val(window.localStorage.getItem("nizucountryCode"));
+        $(".countrycodelabel").text("+" + $("#nizucountryCode").val());
+        $(".nizutelephone").prop("disabled", false);
+    }
     if (window.localStorage.getItem("nizucp") !== null) {$("#nizucp").val(window.localStorage.getItem("nizucp"));}
     if (window.localStorage.getItem("nizycity") !== null) {$("#nizycity").val(window.localStorage.getItem("nizycity"));}
     if (window.localStorage.getItem("nizustreet") !== null) {$("#nizustreet").val(window.localStorage.getItem("nizustreet"));}
@@ -123,7 +132,12 @@ function nizucal_initrender(){
         $("#nizucalendar").empty(); 
         nizu_GetData({a:"getfreedates",publickey:nizupublickey,id:nizuapiid,service_id:$(this).val()},"Loading...",function(data) {
             if (data.ans>0) {
-                nizufreeslots=data.freeslots;  
+                nizufreeslots=data.freeslots;
+                nizufreedates = data.freedatesslots;
+                /*for (i = 0; i < data.freedatesslots.length; i++) {
+                    var tempdate = new Date(data.freedatesslots[i]);
+                    nizufreedates[i] = 
+                }*/
                 calendar = new FullCalendar.Calendar(calendarEl, {
                     locale: 'en' ,
                     height: 490,
@@ -285,7 +299,6 @@ function nizucal_initrender(){
             $("#nizucalsaveguest").prop("disabled",true);
         }
     });
-    
     $("#nizucalsaveguest").on("click", function(){
         var nizuguest_email = $("#guest").find('input[type="email"]').val();
         if (!nizu_ValidateEmail($("#guest").find('input[type="email"]').val())) {
@@ -352,8 +365,12 @@ function nizucal_initrender(){
                         $("#guest_first_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_first_name'));
                         $("#guest").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phone'));
                         $("#guest").find('select').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
-                        $("#guest_countrycodelabel").text("+"+window.sessionStorage.getItem('nizucalc_guest'+temp+'_phonecountry'));
-                        $("#guest").modal('show');
+                        $("#guest_countrycodelabel").text("+" + window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
+                        $("#nizucaladdguest").addClass("d-none");
+                        $("#personal_info").addClass("d-none");
+                        $("#btnrow_step2").addClass("d-none");
+                        $("#guest").removeClass("d-none");
+                        $("#btnrow_step2").removeClass("d-block");
                         $("#nizucalsaveguest").prop("disabled",false);
                     });
                     $(".nizu_btn_delete").on("click",function(){
@@ -419,18 +436,34 @@ function nizucal_initrender(){
             alert("Please select a meeting subject");
         }
     });
+    $(".calendar-header .goback").on("click", function () {
+        nizucal_selectedmonth--;
+        if (nizucal_selectedmonth < 0) {
+            nizucal_selectedmonth = 11;
+            nizucal_selectedyear--;
+        }
+        populatethedays(nizucal_selectedyear, nizucal_selectedmonth);
+    });
+    $(".calendar-header .goforward").on("click", function () {
+        nizucal_selectedmonth++;
+        if (nizucal_selectedmonth > 11) {
+            nizucal_selectedmonth = 0;
+            nizucal_selectedyear++;
+        }
+        populatethedays(nizucal_selectedyear, nizucal_selectedmonth);
+    });
     $("#nizucalconfirm").on("click", function(){
         if ($("#nizucalc_familyname").val().length > 2) {
             if ($("#nizucalc_firstname").val().length > 2) {
                 if (nizu_ValidateEmail($("#nizucalc_email").val())){
                     if ($("#nizucountryCode").val().length>0) {
-                        if ($("#nizutelephone").val().length>0) {
+                        if ($(".nizutelephone").val().length>0) {
                             nizu_confirmid=true;
                             window.localStorage.setItem('nizucalc_email', $("#nizucalc_email").val());
                             window.localStorage.setItem('nizucalc_firstname', $("#nizucalc_firstname").val());
                             window.localStorage.setItem('nizucalc_familyname', $("#nizucalc_familyname").val());
                             window.localStorage.setItem('nizutelephone', $(".nizutelephone").val());
-                            window.localStorage.setItem('nizucountryCode', $(".nizucountryCode").val());
+                            window.localStorage.setItem('nizucountryCode', $("#nizucountryCode").val());
                             window.localStorage.setItem('nizustreet', $("#nizustreet").val());
                             window.localStorage.setItem('nizucity', $("#nizucity").val());
                             window.localStorage.setItem('nizuplace', $("#nizuplace").val());
@@ -439,8 +472,12 @@ function nizucal_initrender(){
                             $("[id^=nizucalstep]").css("display","none");
                             $("#nizucalendar").css("display","block");
                             $("#nizuselecthours").css("display","none");
-                            $("#nizucalstep3").css("display","block");
+                            $("#nizucalstep3").removeClass("d-none");
+                            $("#nizucalstep3").addClass("d-block");
+                            populatethedays(now.getFullYear(), now.getMonth());
                             $(".nizuprogressbar li[data-step='3']").toggleClass("active");
+                            $("#nizustepper").removeClass("neumorphic-slider__line_2");
+                            $("#nizustepper").addClass("neumorphic-slider__line_3");
                         } else {
                             $("#nizutelephone").focus();
                             alert("Please use a valid mobile phone");
@@ -461,6 +498,67 @@ function nizucal_initrender(){
             alert("Your last name is mandatory");
         }
     });
+}
+function populatethedays(year, month) {
+    var date_to_use = new Date(year, month +1, 0);
+    var last_day_of_month = date_to_use.getDate() + 1;
+    date_to_use = new Date(year, month, 1);
+    var day_of_week = date_to_use.getDay() - 1;
+    if (day_of_week < 0) {
+        day_of_week = 6;
+    }
+    var grid = $(".calendar-grid");
+    grid.empty();
+    var options = { month: 'long' };
+    $(".current-month-container").text(year + " " + new Intl.DateTimeFormat('en-GB', options).format(date_to_use));
+    var now = new Date(Date.now());
+    for (var i = 1; i < last_day_of_month; i++) {
+        var no_hover_class = " no-hover";
+        var today_class = "";
+        date_to_use.setDate(i);
+        var dayzero = "";
+        if (i < 10) {
+            dayzero = "0";
+        }
+        var monthzero = "";
+        if (date_to_use.getMonth() + 1 < 10) {
+            monthzero = "0";
+        }
+        tempdate = date_to_use.getFullYear() + "-" + monthzero + (date_to_use.getMonth() + 1) + "-" + dayzero + date_to_use.getDate();
+        if (!$.inArray(tempdate, nizufreedates)) {
+            today_class = " freedate";
+            no_hover_class = ""; 
+        } 
+        if (nizucal_selecteddate == tempdate) {
+            today_class = " day-selected";
+        }
+        if (year <= now.getFullYear()) {
+            if (now.getFullYear() == year) {
+                if (month < now.getMonth()) {
+                    no_hover_class = " no-hover";
+                }
+                if (now.getMonth() == month) {
+                    if (i < now.getDate()) {
+                        no_hover_class = " no-hover";
+                    } else if (now.getDate() == i) {
+                        today_class = " day-selected";
+                    }
+                }
+            } else {
+                no_hover_class = " no-hover";
+            }
+        }
+        grid.append('<div data-value="'+ tempdate+'" class="datecontainer ng-scope' + no_hover_class + '"><div class="datenumber ng-binding' + today_class + '">' + i + '</div></div>');
+        $(".datecontainer:not(.no-hover)").on("click", function () {
+            $(".day-selected").removeClass("day-selected");
+            $(this).children().addClass("day-selected");
+            nizucal_selecteddate = $(this).attr("data-value");
+
+        });
+    }
+    for (var j = 0; j < day_of_week ; ++j) {
+        grid.prepend('<div class="datecontainer no-click ng-scope"><div class="datenumber ng-binding"></div></div>');
+    }
 }
 function nizuformatDate(date) {
     var d = new Date(date),
@@ -520,7 +618,7 @@ function nizucal(publickey,nizuapiid,theme,choosedestination,nizucal_title,lang,
                     $("#nizucity").val(data.location.city);
                     $("#nizucp").val(data.location.cp);
                     $("#nizustreet").val(data.location.address);
-                    $("#nizutelephone").prop("disabled", false);
+                    $(".nizutelephone").prop("disabled", false);
                     $("#countrycodelabel").text("+"+data.location.phonecode);
                     $("#nizucal_title").text(data.title);
                     if (data.holidays){

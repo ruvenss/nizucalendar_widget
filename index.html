@@ -408,36 +408,92 @@
 					<hr>
 					<div id="btnrow_step2" class="row d-block overflow-hidden">
 						<div class="col-12 col-md-6 float-right">
-							<a href="step3.html">
-								<button type="button" class="my-3 btn neumorphic-btn next">
-									<span class="button_text">Next</span>
-									<svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
-										 viewBox="0 0 9.5 18.22">
-										<title>arrow-right</title>
-										<path class="arrow_right" d="M203.5,340.28l8.42,8.42a.26.26,0,0,1,0,.38l-8.42,8.42"
-											  transform="translate(-203 -339.78)" />
-									</svg>
-								</button>
-							</a>
+							<button id="nizucalconfirm" type="button" class="my-3 btn neumorphic-btn next">
+								<span class="button_text">Next</span>
+								<svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 9.5 18.22">
+									<title>arrow-right</title>
+									<path class="arrow_right" d="M203.5,340.28l8.42,8.42a.26.26,0,0,1,0,.38l-8.42,8.42"
+											transform="translate(-203 -339.78)" />
+								</svg>
+							</button>
 						</div>
 						<div class="col-12 col-md-6 float-left">
-							<a href="index.html">
-								<button type="button" class="my-3 btn neumorphic-btn next">
-									<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
-										 viewBox="0 0 9.5 18.22">
-										<title>arrow-left</title>
-										<path class="arrow_right" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
-											  transform="translate(-203 -339.78)" />
-									</svg>
-									<span class="button_text">Back</span>
-								</button>
-							</a>
+							<button id="btn_back_step_2" type="button" class="my-3 btn neumorphic-btn next">
+								<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 9.5 18.22">
+									<title>arrow-left</title>
+									<path class="arrow_right" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
+											transform="translate(-203 -339.78)" />
+								</svg>
+								<span class="button_text">Back</span>
+							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="nizucalstep3" class="d-none">
-				<div id='nizucalendar'></div>
+				<div class="text-center">
+					<label class="neumorphic-text text-center">PICK A DATE FOR YOUR MEETING</label>
+					<br>
+					<div class="app-container">
+						<div date-picker datepicker-title="Select Date" picktime="true" pickdate="true" pickpast="false"
+							 mondayfirst="false" custom-message="You have selected" selecteddate="ctrl.selected_date"
+							 updatefn="ctrl.updateDate(newdate)">
+							<div class="datepicker">
+								<div class="datepicker-calendar">
+									<div class="calendar-header">
+										<div class="goback">
+											<svg width="30" height="30">
+												<path fill="none" stroke="#FFF" stroke-width="3" d="M19,6 l-9,9 l9,9" />
+											</svg>
+										</div>
+										<div class="current-month-container">
+										</div>
+										<div class="goforward">
+											<svg width="30" height="30">
+												<path fill="none" stroke="#FFF" stroke-width="3" d="M11,6 l9,9 l-9,9" />
+											</svg>
+										</div>
+									</div>
+									<div class="calendar-day-header">
+										<span class="day-label" value="0">Mon</span>
+										<span class="day-label" value="1">Tue</span>
+										<span class="day-label" value="2">Wed</span>
+										<span class="day-label" value="3">Thu</span>
+										<span class="day-label" value="4">Fri</span>
+										<span class="day-label" value="5">Sat</span>
+										<span class="day-label" value="6">Sun</span>
+									</div>
+									<div class="calendar-grid">
+									</div>
+								</div>
+								<div class="timeline">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row d-block overflow-hidden">
+						<div class="col-12 col-md-6 float-right">
+							<button type="button" class="my-3 btn neumorphic-btn next">
+								Confirm
+							</button>
+						</div>
+						<div class="col-12 col-md-6 float-left">
+							<button type="button" class="my-3 btn neumorphic-btn next">
+								<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 9.5 18.22">
+									<title>arrow-left</title>
+									<path class="arrow_right" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
+											transform="translate(-203 -339.78)" />
+								</svg>
+								Back
+							</button>
+						</div>
+					</div>
+					<div id='nizucalendar' class="d-none">
+					</div>
+				</div>
 			</div>
 
 		</div>
