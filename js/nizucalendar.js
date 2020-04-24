@@ -2,7 +2,8 @@ var nizucal_ver="0.14";
 const nizumonths_en = f=>Array.from(Array(12),(e,i)=>new Date(25e8*++i).toLocaleString('en-US',{month:f}));
 var nizu_serverurl="https://devapi.nizu.be/calendar/widget/";
 var nizupublickey="test";
-var nizuapiid=1;
+var nizuapiid = 1;
+var pin = "";
 var nizutheme="red";
 var nizucal_guests=0;
 var nizucal_selectedyear=0;
@@ -58,7 +59,8 @@ function nizucal_init(){
     nizucal_selectedhour=nizucal_today.getHours();
     nizucal_selectedmin=nizucal_today.getMinutes();
 }
-function nizucal_hourselect(id,seltime){
+function nizucal_hourselect(id, seltime) {
+    console.log(id, seltime);
     console.log("click on id "+id);
     $("#nizutimeselected").text(seltime);
     $("#nizucalexit").css("display","block");
@@ -77,8 +79,11 @@ function nizucal_hourselect(id,seltime){
             if (data.phoneok===true) {
                 
             } else {
-                $(".nizupincontainer").css("display","block");
-                $("#nizuphonepin").focus();
+                //$(".nizupincontainer").css("display","block");
+                //$("#nizuphonepin").focus();
+                $("[id^=nizucalstep]").addClass("d-none");
+                $("[id^=nizucalstep]").removeClass("d-block");
+                $("#nizucalstep5").removeClass("d-none");
             }
         }
     });
@@ -229,21 +234,34 @@ function nizucal_initrender(){
         $(".nizuprogressbar li[data-step='3']").toggleClass("active");
         $("#nizutimeselected").text(nizucal_selectedhour+":"+nizucal_selectedmin);
     });
-    $("#nizuphonepin").keyup(function(){
-        console.log("this length "+$(this).val().length);
-        if ($(this).val().length>=4){
-            $(this).prop("disabled",true);
-            nizu_GetData({a:"confirmpin",publickey:nizupublickey,id:nizuapiid,pin:$(this).val(),booking_id:nizu_booking_id},"Loading...",function(data) {
-                if (data.ans==0) {
-                    $("#nizuphonepin").prop("disabled",false);
-                    $("#nizuphonepin").val("");
-                } else {
-                    $(".nizupincomfirmed").css("display","block");
-                    $(".nizupincontainer").css("display","none");
-                }  
-            });
+    $(".pin-input").keyup(function(){
+        console.log("this length " + $(this).val().length);
+        pin = "";
+        var els = $(".pin-input");
+        for (i = 0 ; i < els.length; i++) {
+            var elm = $(els[i]);
+            if (elm.val().length == 1) {
+                pin += elm.val();
+            }
+        }
+        if ($(this).val().length == 1) {
+            $(this).parent().next().find("input").focus();
         }
     });
+    $("#btn_confirm_step5").on("click", function () {
+        if (pin.length == 4) {
+            nizu_GetData({ a: "confirmpin", publickey: nizupublickey, id: nizuapiid, pin: pin, booking_id: nizu_booking_id }, "Loading...", function (data) {
+                if (data.ans == 0) {
+                    $(".pin-input").val("");
+                } else {
+                    $("#nizucalstep5").removeClass("d-block");
+                    $("#nizucalstep5").addClass("d-none");
+                    $("#nizucalstep6").addClass("d-block");
+                    $("#nizucalstep6").removeClass("d-none");
+                }
+            });
+        }
+    })
     $("#nizutelephone").on("change",function(){
 		while($("#nizutelephone").val().charAt(0) === '0'){ $("#nizutelephone").val( $("#nizutelephone").val().substr(1)); }
 	});
@@ -421,6 +439,14 @@ function nizucal_initrender(){
         }
         isediting = false;
     });
+    $("#btn_back_step_2, .step1").on("click", function () {
+        $("#nizustepper").addClass("neumorphic-slider__line_1");
+        $("#nizustepper").removeClass("neumorphic-slider__line_2");
+        $("[id^=nizucalstep]").addClass("d-none");
+        $("[id^=nizucalstep]").removeClass("d-block");
+        $("#nizucalstep1").removeClass("d-none");
+        $(".step2").off("click");
+    });
     $("#nizucalnext").on("click", function () {
         console.log("button clicked");
         console.log($("input[name='nizuservices']").is(':checked'));
@@ -452,6 +478,17 @@ function nizucal_initrender(){
         }
         populatethedays(nizucal_selectedyear, nizucal_selectedmonth);
     });
+    $("#btn_confirm_calendar").on("click", function () {
+        var day_selected = $(".day-selected");
+        if (day_selected.length == 1) {
+            var day = day_selected.parent().attr("data-value");
+            $("[id^=nizucalstep]").addClass("d-none");
+            $("[id^=nizucalstep]").removeClass("d-block");
+            $("#nizucalstep4").removeClass("d-none");
+            console.log(day);
+            nizuselectTime(day);
+        }
+    });
     $("#nizucalconfirm").on("click", function(){
         if ($("#nizucalc_familyname").val().length > 2) {
             if ($("#nizucalc_firstname").val().length > 2) {
@@ -469,7 +506,7 @@ function nizucal_initrender(){
                             window.localStorage.setItem('nizuplace', $("#nizuplace").val());
                             window.localStorage.setItem('nizucp', $("#nizucp").val());
                             $(".nizustepper").removeClass("active");
-                            $("[id^=nizucalstep]").css("display","none");
+                            $("[id^=nizucalstep]").addClass("d-none");
                             $("#nizucalendar").css("display","block");
                             $("#nizuselecthours").css("display","none");
                             $("#nizucalstep3").removeClass("d-none");
@@ -478,6 +515,14 @@ function nizucal_initrender(){
                             $(".nizuprogressbar li[data-step='3']").toggleClass("active");
                             $("#nizustepper").removeClass("neumorphic-slider__line_2");
                             $("#nizustepper").addClass("neumorphic-slider__line_3");
+                            $(".step2, #btn_back_step_3").on("click", function () {
+                                $("#nizustepper").removeClass("neumorphic-slider__line_3");
+                                $("#nizustepper").addClass("neumorphic-slider__line_2");
+                                $("#nizucalstep3").addClass("d-none");
+                                $("#nizucalstep3").removeClass("d-block");
+                                $("#nizucalstep2").removeClass("d-none");
+
+                            });
                         } else {
                             $("#nizutelephone").focus();
                             alert("Please use a valid mobile phone");
@@ -496,6 +541,18 @@ function nizucal_initrender(){
         } else {
             $("#nizucalc_familyname").focus();
             alert("Your last name is mandatory");
+        }
+    });
+    $("#btn_back_step_4").on("click", function () {
+        $("#nizucalstep4").addClass("d-none");
+        $("#nizucalstep3").addClass("d-block");
+        $("#nizucalstep3").removeClass("d-none");
+
+    });
+    $("#btn_confirm_step4").on("click", function () {
+        var selected_time = $(".time-selected");
+        if (selected_time.length == 1) {
+            nizucal_hourselect(selected_time.attr("data-id"), selected_time.attr("data-starttime"));
         }
     });
 }
@@ -525,7 +582,8 @@ function populatethedays(year, month) {
             monthzero = "0";
         }
         tempdate = date_to_use.getFullYear() + "-" + monthzero + (date_to_use.getMonth() + 1) + "-" + dayzero + date_to_use.getDate();
-        if (!$.inArray(tempdate, nizufreedates)) {
+        console.log(tempdate, nizufreedates);
+        if ($.inArray(tempdate, nizufreedates)>-1) {
             today_class = " freedate";
             no_hover_class = ""; 
         } 
@@ -540,8 +598,11 @@ function populatethedays(year, month) {
                 if (now.getMonth() == month) {
                     if (i < now.getDate()) {
                         no_hover_class = " no-hover";
+                        today_class = "";
                     } else if (now.getDate() == i) {
-                        today_class = " day-selected";
+                        if (today_class.length < 1) {
+                            today_class = " today";
+                        }
                     }
                 }
             } else {
@@ -553,7 +614,7 @@ function populatethedays(year, month) {
             $(".day-selected").removeClass("day-selected");
             $(this).children().addClass("day-selected");
             nizucal_selecteddate = $(this).attr("data-value");
-
+            $("#btn_confirm_calendar").prop("disabled",false);
         });
     }
     for (var j = 0; j < day_of_week ; ++j) {
@@ -573,6 +634,11 @@ function nizuformatDate(date) {
 
     return [year, month, day].join('-');
 }
+function nizubuttonselectTime(id) {
+    $(".time-selected").removeClass("time-selected");
+    var el = $(".nizubtnselecthr[data-id='" + id + "']");
+    el.addClass("time-selected");
+}
 function nizuselectTime(OnthisDate) {
     var selectedDate = nizuformatDate(OnthisDate);
     var nizuselecteddate = new Date(OnthisDate);
@@ -580,13 +646,14 @@ function nizuselectTime(OnthisDate) {
     $("#nizutodayweekselected").text(nizuselecteddate.toLocaleString(window.navigator.language, {weekday: 'short'}));
     $("#nizutodayselected").text(nizuselectedday);
     $("#nizutodaymonthselected").text(nizuselecteddate.toLocaleString(window.navigator.language, {month: 'short'}));
-    $("#nizucalendar").css("display","none");
+    //$("#nizucalendar").css("display","none");
     $("#nizufreeslots").empty();
     nizu_GetData({a:"getfreehours",publickey:nizupublickey,id:nizuapiid,date:selectedDate,service_id:nizuserviceid},"Loading...",function(data) {
         if (data.ans>0) {
-            $("#nizuselecthours").css("display","block");
+            //$("#nizuselecthours").css("display","block");
             for (var i = data.freehours.length - 1; i >= 0; i--) {
-                $("#nizufreeslots").append('<div class="col-md-4"><button class="btn btn-danger btn-lg nizubtn nizubtnselecthr" data-startime="'+data.freehours[i].start+'" data-id="'+data.freehours[i].id+'" onclick="nizucal_hourselect('+data.freehours[i].id+','+"'"+data.freehours[i].start+"'"+')">'+data.freehours[i].start+'<br>' + data.freehours[i].end +'</button></div>');
+                $("#nizufreeslots").append('<button data-starttime="' + data.freehours[i].start + '" data-id="' + data.freehours[i].id + '" class="m-3 nizubtnselecthr btn time-btn col-3" onclick="nizubuttonselectTime(' + data.freehours[i].id + ')"><span class="button_text">' + data.freehours[i].start + ' - ' + data.freehours[i].end + '</span></button>');
+                //$("#nizufreeslots").append('<div class="col-md-4"><button class="btn btn-danger btn-lg nizubtn nizubtnselecthr" data-startime="'+data.freehours[i].start+'" data-id="'+data.freehours[i].id+'" onclick="nizucal_hourselect('+data.freehours[i].id+','+"'"+data.freehours[i].start+"'"+')">'+data.freehours[i].start+'<br>' + data.freehours[i].end +'</button></div>');
             }
             
         }
