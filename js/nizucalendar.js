@@ -4,10 +4,12 @@ var nizu_serverurl="https://devapi.nizu.be/calendar/widget/";
 var nizupublickey="test";
 var nizuapiid = 1;
 var pin = "";
+var emptyfields_guests = 4;
 var nizutheme="red";
 var nizucal_guests=0;
 var nizucal_selectedyear=0;
-var nizucal_selectedyear2=0;
+var nizucal_selectedyear2 = 0;
+var isempty = true;
 var nizucal_selectedmonth=0;
 var nizucal_selectedday=0;
 var nizucal_selectedmonth2=0;
@@ -304,140 +306,162 @@ function nizucal_initrender(){
             //$("#nizucalguests").find('input[value!=""]')[0].focus();
         //}
     });
-    $("#guest").find('input').on("input", function(){
-        var isempty = true;
-        $("#guest .guest-body").find('input').each(function(){
+    $("#guest").find('input').on("input", function () {
+        emptyfields_guests = 0;
+        $("#guest .guest-body").find('input').each(function () {
+            console.log($(this).val());
             if($.trim($(this).val()).length == 0){
                 isempty = false;
+                emptyfields_guests++;
+                if (emptyfields_guests > 4) {
+                    emptyfields_guests = 4;
+                }
+            } else {
+                isempty = true;
             }
+            console.log(emptyfields_guests);
         });
-        if(isempty){
+        if (isempty || emptyfields_guests == 4) {
             $("#nizucalsaveguest").prop("disabled",false);
         } else {
             $("#nizucalsaveguest").prop("disabled",true);
         }
     });
-    $("#nizucalsaveguest").on("click", function(){
-        var nizuguest_email = $("#guest").find('input[type="email"]').val();
-        if (!nizu_ValidateEmail($("#guest").find('input[type="email"]').val())) {
-            alert("email is not validated");
-            $("#guest").find('input[type="email]"').focus();
+    $("#nizucalsaveguest").on("click", function () {
+        if (emptyfields_guests == 4) {
+            $("#guest").addClass('d-none');
+            $("#nizucaladdguest").removeClass("d-none");
+            $("#personal_info").removeClass("d-none");
+            $("#btnrow_step2").removeClass("d-none");
+            $("#btnrow_step2").addClass("d-block");
+            $("#nizucalsaveguest").prop("disabled", true);
+            $("#guest input").each(function () {
+                $(this).val("");
+            });
+            $("#guest").find('select').val("");
+            $("#guest_countrycodelabel").text("");
         } else {
-            console.log("email validated");
-            var isdoubleemail = false;
-            if(nizuguest_email == $("#nizucalc_email").val()){
-                isdoubleemail = true;
-            }
-            if(window.sessionStorage.getItem('nizucalc_guest'+1+'_email') !== null && !isdoubleemail && !isediting){
-               
-                for(var i = nizucal_guests;i>0;i--){
-                    if(nizuguest_email == window.sessionStorage.getItem('nizucalc_guest'+i+'_email')){
-                        isdoubleemail = true;
-                        break;
+            var nizuguest_email = $("#guest").find('input[type="email"]').val();
+            if (!nizu_ValidateEmail($("#guest").find('input[type="email"]').val())) {
+                alert("email is not validated");
+                $("#guest").find('input[type="email]"').focus();
+            } else {
+                console.log("email validated");
+                var isdoubleemail = false;
+                if (nizuguest_email == $("#nizucalc_email").val()) {
+                    isdoubleemail = true;
+                }
+                if (window.sessionStorage.getItem('nizucalc_guest' + 1 + '_email') !== null && !isdoubleemail && !isediting) {
+
+                    for (var i = nizucal_guests; i > 0; i--) {
+                        if (nizuguest_email == window.sessionStorage.getItem('nizucalc_guest' + i + '_email')) {
+                            isdoubleemail = true;
+                            break;
+                        }
                     }
                 }
-            }
-            if(!isdoubleemail){
-                nizucal_guests++;
-                if (nizucal_guests>=4) {
-                    $("#nizucaladdguest").prop("disabled",true);
-                    $("#nizucaladdguest").css("display","none");
-                }
-                if(isediting){
-                    nizucal_guests--;
-                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_email', $("#guest").find('input[type="email"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_family_name', $("#guest_family_name").val());
-                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_first_name', $("#guest_first_name").val());
-                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_phone', $("#guest").find('input[type="tel"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest' + temp + '_phonecountry', $("#guest").find('select').val());
-                } else {
-                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_email', $("#guest").find('input[type="email"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_family_name', $("#guest_family_name").val());
-                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_first_name', $("#guest_first_name").val());
-                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_phone', $("#guest").find('input[type="tel"]').val());
-                    window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_phonecountry', $("#guest").find('select').val());
-                }
-                $("#guest").addClass('d-none');
-                $("#nizucaladdguest").removeClass("d-none");
-                $("#personal_info").removeClass("d-none");
-                $("#btnrow_step2").removeClass("d-none");
-                $("#btnrow_step2").addClass("d-block");
-                $("#nizucalsaveguest").prop("disabled",true);
-                $("#guest input").each(function(){
-                    $(this).val("");
-                });
-                $("#guest").find('select').val("");
-                $("#guest_countrycodelabel").text("");
-                if (temp == null) {
-                    var new_guest = '<div><div class="mt-2 col-sm-5 col-md-5 float-left"><span id="guest_name_list">' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_first_name') +' ' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_family_name') + '</span></div><div class="mt-2 col-sm-5 col-md-5 float-left"><span id="guest_email_list">' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_email') + '</span></div><div class="col-12 col-md-1 float-left"><button type="button" data-id="' + nizucal_guests + '" id="edit_guest" class="nizu_btn_edit p-0 btn neumorphic-btn next"><svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.05 42.99"><title>edit</title><path class="guest_icon" d="M40.53,2.49a8.51,8.51,0,0,0-12,0L2.89,28.09a1.52,1.52,0,0,0-.41.77L0,41.23a1.5,1.5,0,0,0,.41,1.35A1.47,1.47,0,0,0,1.5,43h.29l12.37-2.45a1.45,1.45,0,0,0,.77-.41l25.6-25.6a8.52,8.52,0,0,0,0-12Zm-27.4,35.2L3.41,39.61l1.92-9.72L26.56,8.67,34,16.79ZM38.41,12.41l-2.26,2.26L28.68,6.54l1.94-1.93a5.51,5.51,0,1,1,7.79,7.8Z" transform="translate(0.03 -0.01)" /></svg></button></div><div class="col-12 col-md-1 float-left"><button type="button" data-id="' + nizucal_guests + '" id="delete_guest" class="p-0 nizu_btn_delete btn neumorphic-btn next"><svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.67 98"><title>delete</title><path class="guest_icon" d="M89.15,13.38,66,9.53,64.27,2.66a2,2,0,0,0-2-1.55H37.75a2,2,0,0,0-2,1.55L34.09,9.53,10.92,13.38a2,2,0,0,0-1.72,2v8.17a2,2,0,0,0,2,2H88.83a2,2,0,0,0,2-2V15.4A2,2,0,0,0,89.15,13.38Z" transform="translate(-9.2 -1.11)" /><path class="guest_icon" d="M21.45,97.19a2,2,0,0,0,2,1.92H76.58a2,2,0,0,0,2-1.92L82.48,29.7H17.6ZM62.37,35.74a2.12,2.12,0,0,1,2.12-2,2,2,0,0,1,2,2.12l-2,49a2,2,0,0,1-2,2h-.08a2,2,0,0,1-2-2.12Zm-14.29.08a2,2,0,0,1,4.08,0v49a2,2,0,1,1-4.08,0Zm-12.34-2a2.07,2.07,0,0,1,2.13,2l2,49a2,2,0,0,1-2,2.12h-.08a2,2,0,0,1-2-2l-2-49A2.05,2.05,0,0,1,35.74,33.78Z" transform="translate(-9.2 -1.11)" /></svg></button></div></div>'
-                    //$("#nizucalguests").append('<div class="col-sm-12 col-md-12 row"><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name')+'<span></div><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email')+'<span></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_edit btn-circle btn-success"><i class="far fa-pen"></i></button></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_delete btn btn-circle btn-danger"><i class="fas fa-minus-circle"></i></button></div></div>');
-                    $("#guest_list").append(new_guest);
-                    $("#guest_list").removeClass("d-none");
-                    $(".nizu_btn_edit").on("click",function(){
-                        console.log($(this));
-                        //temp = parseInt(nizucal_guests);
-                        isediting = true;
-                        temp = $(this).attr("data-id");
-                        $("#guest").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_email'));
-                        $("#guest_family_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_family_name'));
-                        $("#guest_first_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_first_name'));
-                        $("#guest").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phone'));
-                        $("#guest").find('select').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
-                        $("#guest_countrycodelabel").text("+" + window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
-                        $("#nizucaladdguest").addClass("d-none");
-                        $("#personal_info").addClass("d-none");
-                        $("#btnrow_step2").addClass("d-none");
-                        $("#guest").removeClass("d-none");
-                        $("#btnrow_step2").removeClass("d-block");
-                        $("#nizucalsaveguest").prop("disabled",false);
+                if (!isdoubleemail) {
+                    nizucal_guests++;
+                    if (nizucal_guests >= 4) {
+                        $("#nizucaladdguest").prop("disabled", true);
+                        $("#nizucaladdguest").css("display", "none");
+                    }
+                    if (isediting) {
+                        nizucal_guests--;
+                        window.sessionStorage.setItem('nizucalc_guest' + temp + '_email', $("#guest").find('input[type="email"]').val());
+                        window.sessionStorage.setItem('nizucalc_guest' + temp + '_family_name', $("#guest_family_name").val());
+                        window.sessionStorage.setItem('nizucalc_guest' + temp + '_first_name', $("#guest_first_name").val());
+                        window.sessionStorage.setItem('nizucalc_guest' + temp + '_phone', $("#guest").find('input[type="tel"]').val());
+                        window.sessionStorage.setItem('nizucalc_guest' + temp + '_phonecountry', $("#guest").find('select').val());
+                    } else {
+                        window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_email', $("#guest").find('input[type="email"]').val());
+                        window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_family_name', $("#guest_family_name").val());
+                        window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_first_name', $("#guest_first_name").val());
+                        window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_phone', $("#guest").find('input[type="tel"]').val());
+                        window.sessionStorage.setItem('nizucalc_guest' + nizucal_guests + '_phonecountry', $("#guest").find('select').val());
+                    }
+                    $("#guest").addClass('d-none');
+                    $("#nizucaladdguest").removeClass("d-none");
+                    $("#personal_info").removeClass("d-none");
+                    $("#btnrow_step2").removeClass("d-none");
+                    $("#btnrow_step2").addClass("d-block");
+                    $("#nizucalsaveguest").prop("disabled", true);
+                    $("#guest input").each(function () {
+                        $(this).val("");
                     });
-                    $(".nizu_btn_delete").on("click",function(){
-                        console.log(parseInt(nizucal_guests) + " | " + temp2 + " | " + temp3);
-                        if(temp3 != parseInt($(this).attr("data-id")) || temp2 == null){
-                            temp2 = parseInt(nizucal_guests);
-                            temp3 = parseInt($(this).attr("data-id"));
-                            /*window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_email');
-                            window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_name');
-                            window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_phone');
-                            window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_phonecountry');*/
-                            if(temp3 < temp2){
-                                for(j = temp3; j < temp2; j++){
-                                    temp4 = parseInt(j +1);
-                                    $('.nizu_btn_delete[data-id='+temp4+']').attr("data-id",j);
-                                    $('.nizu_btn_edit[data-id='+temp4+']').attr("data-id",j);
-                                    console.log('nizucalc_guest'+j+'_email' + " & " + 'nizucalc_guest'+temp4+'_email');
-                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_email', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_email'));
-                                    window.sessionStorage.setItem('nizucalc_guest' + j + '_first_name', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_first_name'));
-                                    window.sessionStorage.setItem('nizucalc_guest' + j + '_family_name', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_family_name'));
-                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_phone', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_phone'));
-                                    window.sessionStorage.setItem('nizucalc_guest'+j+'_phonecountry', window.sessionStorage.getItem('nizucalc_guest'+temp4+'_phonecountry'));
+                    $("#guest").find('select').val("");
+                    $("#guest_countrycodelabel").text("");
+                    if (temp == null) {
+                        var new_guest = '<div><div class="mt-2 col-sm-5 col-md-4 float-left"><span id="guest_name_list">' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_first_name') + ' ' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_family_name') + '</span></div><div class="mt-2 col-sm-4 col-md-5 float-left"><span id="guest_email_list">' + window.sessionStorage.getItem('nizucalc_guest' + nizucal_guests + '_email') + '</span></div><div class="col-12 col-md-1-5 float-left"><button type="button" data-id="' + nizucal_guests + '" id="edit_guest" class="nizu_btn_edit p-0 btn neumorphic-btn next"><svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.05 42.99"><title>edit</title><path class="guest_icon" d="M40.53,2.49a8.51,8.51,0,0,0-12,0L2.89,28.09a1.52,1.52,0,0,0-.41.77L0,41.23a1.5,1.5,0,0,0,.41,1.35A1.47,1.47,0,0,0,1.5,43h.29l12.37-2.45a1.45,1.45,0,0,0,.77-.41l25.6-25.6a8.52,8.52,0,0,0,0-12Zm-27.4,35.2L3.41,39.61l1.92-9.72L26.56,8.67,34,16.79ZM38.41,12.41l-2.26,2.26L28.68,6.54l1.94-1.93a5.51,5.51,0,1,1,7.79,7.8Z" transform="translate(0.03 -0.01)" /></svg></button></div><div class="col-12 col-md-1-5 float-left"><button type="button" data-id="' + nizucal_guests + '" id="delete_guest" class="p-0 nizu_btn_delete btn neumorphic-btn next"><svg id="guest_icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.67 98"><title>delete</title><path class="guest_icon" d="M89.15,13.38,66,9.53,64.27,2.66a2,2,0,0,0-2-1.55H37.75a2,2,0,0,0-2,1.55L34.09,9.53,10.92,13.38a2,2,0,0,0-1.72,2v8.17a2,2,0,0,0,2,2H88.83a2,2,0,0,0,2-2V15.4A2,2,0,0,0,89.15,13.38Z" transform="translate(-9.2 -1.11)" /><path class="guest_icon" d="M21.45,97.19a2,2,0,0,0,2,1.92H76.58a2,2,0,0,0,2-1.92L82.48,29.7H17.6ZM62.37,35.74a2.12,2.12,0,0,1,2.12-2,2,2,0,0,1,2,2.12l-2,49a2,2,0,0,1-2,2h-.08a2,2,0,0,1-2-2.12Zm-14.29.08a2,2,0,0,1,4.08,0v49a2,2,0,1,1-4.08,0Zm-12.34-2a2.07,2.07,0,0,1,2.13,2l2,49a2,2,0,0,1-2,2.12h-.08a2,2,0,0,1-2-2l-2-49A2.05,2.05,0,0,1,35.74,33.78Z" transform="translate(-9.2 -1.11)" /></svg></button></div></div>'
+                        //$("#nizucalguests").append('<div class="col-sm-12 col-md-12 row"><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_name')+'<span></div><div class="col-sm-5 col-md-5"><span class="text-capitalize">'+window.sessionStorage.getItem('nizucalc_guest'+nizucal_guests+'_email')+'<span></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_edit btn-circle btn-success"><i class="far fa-pen"></i></button></div><div class="col-sm-1 col-md-1"><button data-id="'+nizucal_guests+'" class="btn nizu_btn_delete btn btn-circle btn-danger"><i class="fas fa-minus-circle"></i></button></div></div>');
+                        $("#guest_list").append(new_guest);
+                        $("#guest_list").removeClass("d-none");
+                        $(".nizu_btn_edit").on("click", function () {
+                            console.log($(this));
+                            //temp = parseInt(nizucal_guests);
+                            isediting = true;
+                            temp = $(this).attr("data-id");
+                            $("#guest").find('input[type="email"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_email'));
+                            $("#guest_family_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_family_name'));
+                            $("#guest_first_name").val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_first_name'));
+                            $("#guest").find('input[type="tel"]').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phone'));
+                            $("#guest").find('select').val(window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
+                            $("#guest_countrycodelabel").text("+" + window.sessionStorage.getItem('nizucalc_guest' + temp + '_phonecountry'));
+                            $("#nizucaladdguest").addClass("d-none");
+                            $("#personal_info").addClass("d-none");
+                            $("#btnrow_step2").addClass("d-none");
+                            $("#guest").removeClass("d-none");
+                            $("#btnrow_step2").removeClass("d-block");
+                            $("#nizucalsaveguest").prop("disabled", false);
+                        });
+                        $(".nizu_btn_delete").on("click", function () {
+                            console.log(parseInt(nizucal_guests) + " | " + temp2 + " | " + temp3);
+                            if (temp3 != parseInt($(this).attr("data-id")) || temp2 == null) {
+                                temp2 = parseInt(nizucal_guests);
+                                temp3 = parseInt($(this).attr("data-id"));
+                                /*window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_email');
+                                window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_name');
+                                window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_phone');
+                                window.sessionStorage.removeItem('nizucalc_guest'+temp3+'_phonecountry');*/
+                                if (temp3 < temp2) {
+                                    for (j = temp3; j < temp2; j++) {
+                                        temp4 = parseInt(j + 1);
+                                        $('.nizu_btn_delete[data-id=' + temp4 + ']').attr("data-id", j);
+                                        $('.nizu_btn_edit[data-id=' + temp4 + ']').attr("data-id", j);
+                                        console.log('nizucalc_guest' + j + '_email' + " & " + 'nizucalc_guest' + temp4 + '_email');
+                                        window.sessionStorage.setItem('nizucalc_guest' + j + '_email', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_email'));
+                                        window.sessionStorage.setItem('nizucalc_guest' + j + '_first_name', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_first_name'));
+                                        window.sessionStorage.setItem('nizucalc_guest' + j + '_family_name', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_family_name'));
+                                        window.sessionStorage.setItem('nizucalc_guest' + j + '_phone', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_phone'));
+                                        window.sessionStorage.setItem('nizucalc_guest' + j + '_phonecountry', window.sessionStorage.getItem('nizucalc_guest' + temp4 + '_phonecountry'));
+                                    }
                                 }
+                                window.sessionStorage.removeItem('nizucalc_guest' + nizucal_guests + '_email');
+                                window.sessionStorage.removeItem('nizucalc_guest' + nizucal_guests + '_first_name');
+                                window.sessionStorage.removeItem('nizucalc_guest' + nizucal_guests + '_family_name');
+                                window.sessionStorage.removeItem('nizucalc_guest' + nizucal_guests + '_phone');
+                                window.sessionStorage.removeItem('nizucalc_guest' + nizucal_guests + '_phonecountry');
+                                if (nizucal_guests > 0) {
+                                    nizucal_guests--;
+                                }
+                                temp3 = 0;
+                                $(this).parent().parent().remove();
+                                $("#nizucaladdguest").prop("disabled", false);
+                                $("#nizucaladdguest").css("display", "inline-block");
                             }
-                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_email');
-                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_first_name');
-                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_family_name');
-                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_phone');
-                            window.sessionStorage.removeItem('nizucalc_guest'+nizucal_guests+'_phonecountry');
-                            if(nizucal_guests > 0){
-                                nizucal_guests--;
-                            }
-                            temp3 = 0;
-                            $(this).parent().parent().remove();
-                            $("#nizucaladdguest").prop("disabled",false);
-                            $("#nizucaladdguest").css("display","inline-block");
-                        }
-                    });
-                
+                        });
+
+                    } else {
+                        nizucal_guests = parseInt(temp) + 1;
+                        temp = null;
+                    }
                 } else {
-                    nizucal_guests = parseInt(temp) +1;
-                    temp = null;
+                    alert("the email that you entered, you already used");
+                    $("#guest").find('input[type="email]"').focus();
                 }
-            } else {
-                alert("the email that you entered, you already used");
-                $("#guest").find('input[type="email]"').focus();
             }
+            isediting = false;
         }
-        isediting = false;
     });
     $("#btn_back_step_2, .step1").on("click", function () {
         $("#nizustepper").addClass("neumorphic-slider__line_1");
@@ -659,8 +683,11 @@ function nizuselectTime(OnthisDate) {
         }
     });
 }
-function nizucal(publickey,nizuapiid,theme,choosedestination,nizucal_title,lang,callback){
-    console.log("nizucal "+nizu_serverurl+lang+"/");
+function nizucal(publickey, nizuapiid, theme, choosedestination, nizucal_title, lang, mobile, callback) {
+    if (mobile == "mobile") {
+        nizumobileurl = "mobile/";
+    }
+    console.log("nizucal " + nizu_serverurl + lang + "/");
     nizupublickey=publickey;
     nizucal_choosedestination=choosedestination;
     nizutheme = "css/nizucalendar.css";

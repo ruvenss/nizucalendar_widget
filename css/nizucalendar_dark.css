@@ -364,6 +364,14 @@ select {
 input {
 	margin: 10px;
 }
+.nizu_btn_delete, .nizu_btn_edit{
+	width: 100% !important;
+}
+.col-md-1-5{
+	max-width:12% !important;
+	flex:0 0 12% !important;
+	-ms-flex : 0 0 12% !important;
+}
 .btn {
 	width: 60%;
 }
@@ -478,6 +486,7 @@ input {
 .goforward path {
 	-webkit-transition: stroke 0.15s ease;
 	transition: stroke 0.15s ease;
+	stroke: #fff;
 }
 .goback {
 	float: left;

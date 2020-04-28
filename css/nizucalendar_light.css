@@ -32,8 +32,8 @@
 	pointer-events: none;
 }
 .freedate {
-	background-color: green;
-	color: black !important;
+	background-color: red;
+	color: white !important;
 	border-radius: 100%;
 }
 .label {
@@ -476,6 +476,15 @@ input {
 	position: relative;
 	color: var(--primary-font-color);
 }
+.nizu_btn_delete, .nizu_btn_edit {
+	width: 100% !important;
+}
+
+.col-md-1-5 {
+	max-width: 12% !important;
+	flex: 0 0 12% !important;
+	-ms-flex: 0 0 12% !important;
+}
 .goback,
 .goforward {
 	height: 30px;
@@ -490,6 +499,7 @@ input {
 .goforward path {
 	-webkit-transition: stroke 0.15s ease;
 	transition: stroke 0.15s ease;
+	stroke: #000;
 }
 .goback {
 	float: left;
