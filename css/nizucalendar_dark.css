@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 :root {
 	--value: 32%;
-	--value2: 65%;
-	--value3: 98%;
+	--value2: 64%;
+	--value3: 97%;
 	--back-color: #2E2E2E;
 	--bg-color: #131419;
 	--primary-font-color: #c7c7c7;
 	--secondary-font-color: #03a9f4;
 	--soft-high-light: rgba(255, 255, 255, .05);
 	--dark-high-light: rgba(0, 0, 0, .51);
+}
+#nizucaladdguest{
+	padding-left:35px !important;
+}
+#nizucalnext{
+	margin-right: 40px;
+}
+.row.d-block .mr-4,.row.d-block .ml-4 {
+	width :calc(50% - 1.5rem);
 }
 .radiogroup {
 	/*padding: 48px 54px;*/
@@ -220,8 +229,9 @@ textarea::placeholder {
 	width: 12%;
 	stroke-width: 15px;
 }
-.country{
-	padding-left:70px !important;
+.country {
+	padding-left: 70px !important;
+	width: calc(100% - 20px) !important;
 }
 .neumorphic-slider__line_2 {
 	height: 16px;
@@ -230,7 +240,7 @@ textarea::placeholder {
 	margin-left: -6px;
 	border-radius: 8px;
 	opacity: 1;
-	width: calc(var(--value2) + 4px);
+	width: calc(var(--value2) + 10px);
 }
 .neumorphic-slider__line_3 {
 	height: 16px;
@@ -351,7 +361,7 @@ select {
 	text-align: right;
 	width: 70px;
 	margin-left: 2%;
-	margin-top: 9px;
+	margin-top: 10px;
 	z-index: 1000;
 	position: absolute;
 	background-color: #dc3545;
@@ -360,6 +370,7 @@ select {
 	font-size: 18px;
 	border-top-left-radius: 25px;
 	border-bottom-left-radius: 25px;
+	padding-top: calc(2% + 3px);
 }
 input {
 	margin: 10px;

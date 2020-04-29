@@ -361,7 +361,7 @@ select {
 	text-align: right;
 	width: 70px;
 	margin-left: 2%;
-	margin-top: 9px;
+	margin-top: 10px;
 	z-index: 1000;
 	position: absolute;
 	background-color: #dc3545;
@@ -370,6 +370,7 @@ select {
 	font-size: 18px;
 	border-top-left-radius: 25px;
 	border-bottom-left-radius: 25px;
+	padding-top: calc(2% + 3px);
 }
 input {
 	margin: 10px;
