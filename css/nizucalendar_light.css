@@ -1,14 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 :root {
 	--value: 32%;
-	--value2: 65%;
-	--value3: 98%;
+	--value2: 64%;
+	--value3: 97%;
 	--back-color: #EBECF0;
 	--bg-color: #131419;
 	--primary-font-color: #394a56;
 	--secondary-font-color: #03a9f4;
 	--soft-high-light: #d1d9e6;
 	--dark-high-light: #ffffff;
+}
+#nizucaladdguest {
+	padding-left: 35px !important;
+}
+
+#nizucalnext {
+	margin-right: 40px;
+}
+
+.row.d-block .mr-4, .row.d-block .ml-4 {
+	width: calc(50% - 1.5rem);
 }
 .radiogroup {
 	/*padding: 48px 54px;*/
@@ -227,8 +238,9 @@ textarea::placeholder {
 	width: 12%;
 	stroke-width: 15px;
 }
-.country{
-	padding-left:70px !important;
+.country {
+	padding-left: 70px !important;
+	width: calc(100% - 20px) !important;
 }
 .neumorphic-slider__line_2 {
 	height: 16px;
@@ -237,7 +249,7 @@ textarea::placeholder {
 	margin-left: -6px;
 	border-radius: 8px;
 	opacity: 1;
-	width: calc(var(--value2) + 4px);
+	width: calc(var(--value2) + 10px);
 }
 .neumorphic-slider__line_3 {
 	height: 16px;
