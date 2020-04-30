@@ -695,9 +695,9 @@ function nizucal(publickey, nizuapiid, theme, choosedestination, nizucal_title, 
         $.ajax({
             'async': false,
             'global': false,
-            'url': "css/nizucalendar_" + theme + ".css",
+            'url': nizu_serverurl+lang+"/"+nizumobileurl+"/css/nizucalendar_" + theme + ".css",
             'success': function (data) {
-                nizutheme = "css/nizucalendar_" + theme + ".css";
+                nizutheme = nizu_serverurl + lang + "/" + nizumobileurl + "css/nizucalendar_" + theme + ".css";
             }
         });
         console.log("nizu theme loaded:" + nizutheme);
