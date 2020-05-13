@@ -1,15 +1,15 @@
 <div class="py-2">
 	<div class="container">
-		<div class="neumorphic-inner">
-			<div class="d-flex p-2 mx-auto slider">
-				<div class="neumorphic-slider col-12">
-					<div class="neumorphic-slider__back"></div>
-					<div class="neumorphic-slider__line_1" id="nizustepper" data-value="1"></div>
-					<div class="neumorphic-slider__thumb step1">1</div>
-					<div class="neumorphic-slider__thumb step2">2</div>
-					<div class="neumorphic-slider__thumb step3">3</div>
-				</div>
+		<div class="d-flex p-2 mx-auto slider">
+			<div class="neumorphic-slider col-12">
+				<div class="neumorphic-slider__back"></div>
+				<div class="neumorphic-slider__line_1" id="nizustepper" data-value="1"></div>
+				<div class="neumorphic-slider__thumb step1">1</div>
+				<div class="neumorphic-slider__thumb step2">2</div>
+				<div class="neumorphic-slider__thumb step3">3</div>
 			</div>
+		</div>
+		<div class="neumorphic-inner">
 			<div id="nizucalstep1" class="">
 				<div class="text-center">
 					<label class="neumorphic-text">MEETING SUBJECT</label>
@@ -20,8 +20,8 @@
 					<div class="form-check py-2 radio col-12">
 						<label class="neumorphic-text">NOTES</label>
 					</div>
-					<div class="content fullwidth">
-						<div class="row mx-4">
+					<div class="content fullwidth" style="margin-bottom:20%;">
+						<div class="row">
 							<div class="col-md-12">
 								<div class="centerNotes">
 									<textarea class="textarea" type="text" placeholder="Notes" rows="7%"
@@ -30,9 +30,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" style="display:flow-root;">
-						<div class="col-12 col-md-6 float-right mr-4">
-							<button id="nizucalnext" type="button" class="my-5 btn neumorphic-btn next">
+					<div class="row bottom-row" style="display:block;">
+						<div class="col-md-5 button-down float-right">
+							<button id="nizucalnext" type="button" class="my-1 button neumorphic-btn next">
 								<span class="button_text">Next</span>
 								<svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
 									 viewBox="0 0 9.5 18.22">
@@ -55,10 +55,10 @@
 								<div class="col-md-12">
 									<div class="center">
 										<div class="d-flex px-2 col-12 float-left col-md-6">
-											<input class="neumorphic-input" type="text" placeholder="Name" id="nizucalc_familyname" autocomplete="off"/>
+											<input class="neumorphic-input" type="text" placeholder="Name" id="nizucalc_familyname" autocomplete="off" />
 										</div>
 										<div class="d-flex px-2 col-12 float-left col-md-6">
-											<input class="neumorphic-input" type="text" placeholder="First name" id="nizucalc_firstname" autocomplete="off"/>
+											<input class="neumorphic-input" type="text" placeholder="First name" id="nizucalc_firstname" autocomplete="off" />
 										</div>
 									</div>
 								</div>
@@ -69,7 +69,7 @@
 								<div class="col-md-12">
 									<div class="center">
 										<div class="d-flex px-2 col-12 float-left col-md-12">
-											<input class="neumorphic-input" type="email" placeholder="Emailaddress" id="nizucalc_email" autocomplete="off"/>
+											<input class="neumorphic-input" type="email" placeholder="Emailaddress" id="nizucalc_email" autocomplete="off" />
 										</div>
 									</div>
 								</div>
@@ -197,7 +197,7 @@
 										</div>
 										<div class="d-flex px-2 col-12 float-left col-md-6">
 											<div id="locality-input" class="countrycodelabel">+00</div>
-											<input disabled class="neumorphic-input country nizutelephone" type="tel" placeholder="Phone number" autocomplete="off"/>
+											<input disabled class="neumorphic-input country nizutelephone" type="tel" placeholder="Phone number" autocomplete="off" />
 										</div>
 									</div>
 								</div>
@@ -208,10 +208,10 @@
 								<div class="col-md-12">
 									<div class="center">
 										<div class="d-flex px-2 col-12 float-left col-md-6">
-											<input class="neumorphic-input" type="text" placeholder="Postal code" id="nizucp" autocomplete="off"/>
+											<input class="neumorphic-input" type="text" placeholder="Postal code" id="nizucp" autocomplete="off" />
 										</div>
 										<div class="d-flex px-2 col-12 float-left col-md-6">
-											<input class="neumorphic-input" type="text" placeholder="City" id="nizucity" autocomplete="off"/>
+											<input class="neumorphic-input" type="text" placeholder="City" id="nizucity" autocomplete="off" />
 										</div>
 									</div>
 								</div>
@@ -222,10 +222,10 @@
 								<div class="col-md-12">
 									<div class="center">
 										<div class="d-flex px-2 col-12 float-left col-md-6">
-											<input class="neumorphic-input" type="text" placeholder="Address" id="nizustreet" autocomplete="off"/>
+											<input class="neumorphic-input" type="text" placeholder="Address" id="nizustreet" autocomplete="off" />
 										</div>
 										<div class="d-flex px-2 col-12 float-left col-md-6">
-											<input class="neumorphic-input" type="text" placeholder="Place" id="nizuplace" autocomplete="off"/>
+											<input class="neumorphic-input" type="text" placeholder="Place" id="nizuplace" autocomplete="off" />
 										</div>
 									</div>
 								</div>
@@ -247,13 +247,13 @@
 								</div>
 								<div class="guest-body">
 									<div class="d-flex p-2 col-12 float-left col-md-6">
-										<input class="neumorphic-input" type="text" placeholder="Name" id="guest_family_name" required autocomplete="off"/>
+										<input class="neumorphic-input" type="text" placeholder="Name" id="guest_family_name" required autocomplete="off" />
 									</div>
 									<div class="d-flex p-2 col-12 float-left col-md-6">
-										<input class="neumorphic-input" type="text" placeholder="First name" id="guest_first_name" required autocomplete="off"/>
+										<input class="neumorphic-input" type="text" placeholder="First name" id="guest_first_name" required autocomplete="off" />
 									</div>
 									<div class="d-flex p-2 col-12 float-left col-md-12">
-										<input class="neumorphic-input" type="email" placeholder="Emailaddress" id="guest_email" required autocomplete="off"/>
+										<input class="neumorphic-input" type="email" placeholder="Emailaddress" id="guest_email" required autocomplete="off" />
 									</div>
 									<div class="d-flex p-2 col-12 float-left col-md-6 mt-2">
 										<select id="guest_nizucountryCode" name="locality">
@@ -374,7 +374,7 @@
 									<div class="d-flex p-2 col-12 float-left col-md-6">
 										<div id="locality-input-guest" class="guest_countrycodelabel">+00</div>
 										<input class="neumorphic-input country guest_nizutelephone" type="tel" placeholder="Phone number"
-											   required autocomplete="off"/>
+											   required autocomplete="off" />
 									</div>
 								</div>
 								<div class="col-12 col-md-6 float-right">
@@ -406,20 +406,20 @@
 							<button id="nizucalconfirm" type="button" class="my-3 btn neumorphic-btn next">
 								<span class="button_text">Next</span>
 								<svg id="Arr_right" data-name="Arr_right" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 9.5 18.22">
+									 viewBox="0 0 9.5 18.22">
 									<title>arrow-right</title>
 									<path class="arrow_right" d="M203.5,340.28l8.42,8.42a.26.26,0,0,1,0,.38l-8.42,8.42"
-											transform="translate(-203 -339.78)" />
+										  transform="translate(-203 -339.78)" />
 								</svg>
 							</button>
 						</div>
 						<div class="col-12 col-md-6 float-left ml-4">
 							<button id="btn_back_step_2" type="button" class="my-3 btn neumorphic-btn next">
 								<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 9.5 18.22">
+									 viewBox="0 0 9.5 18.22">
 									<title>arrow-left</title>
 									<path class="arrow_right" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
-											transform="translate(-203 -339.78)" />
+										  transform="translate(-203 -339.78)" />
 								</svg>
 								<span class="button_text">Back</span>
 							</button>
@@ -477,10 +477,10 @@
 						<div class="col-12 col-md-6 float-left ml-4">
 							<button type="button" id="btn_back_step_3" class="my-3 btn neumorphic-btn next">
 								<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 9.5 18.22">
+									 viewBox="0 0 9.5 18.22">
 									<title>arrow-left</title>
 									<path class="arrow_right" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
-											transform="translate(-203 -339.78)" />
+										  transform="translate(-203 -339.78)" />
 								</svg>
 								Back
 							</button>
@@ -505,10 +505,10 @@
 						<div class="col-12 col-md-6 float-left ml-4">
 							<button type="button" id="btn_back_step_4" class="my-3 btn neumorphic-btn next">
 								<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 9.5 18.22">
+									 viewBox="0 0 9.5 18.22">
 									<title>arrow-left</title>
 									<path class="back" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
-											transform="translate(-203 -339.78)" />
+										  transform="translate(-203 -339.78)" />
 								</svg>
 								<span class="button_text">Back</span>
 							</button>
@@ -566,16 +566,16 @@
 							</button>
 						</div>
 						<!--<div class="col-12 col-md-6 float-left">
-							<button type="button" class="my-3 btn neumorphic-btn next">
-								<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 9.5 18.22">
-									<title>arrow-left</title>
-									<path class="back" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
-											transform="translate(-203 -339.78)" />
-								</svg>
-								<span class="button_text">Back</span>
-							</button>
-						</div>-->
+						<button type="button" class="my-3 btn neumorphic-btn next">
+							<svg id="Arr_left" data-name="Arr_left" xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 9.5 18.22">
+								<title>arrow-left</title>
+								<path class="back" d="M212,340.28l-8.42,8.42a.26.26,0,0,0,0,.38L212,357.5"
+										transform="translate(-203 -339.78)" />
+							</svg>
+							<span class="button_text">Back</span>
+						</button>
+					</div>-->
 					</div>
 				</div>
 			</div>
